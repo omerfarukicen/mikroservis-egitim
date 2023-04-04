@@ -1,0 +1,78 @@
+I"<h1 id="mikroservis-eğitimi">Mikroservis Eğitimi</h1>
+
+<h2 id="1mikroservise-giriş">1.Mikroservise Giriş</h2>
+
+<ul>
+  <li><a href="docs/01-mikroservis_giris/monolitik.html">Monolitik uygulama analizi (Three tier)</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Mikroservis çözümü</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Miniservis çözümü</a></li>
+</ul>
+
+<h2 id="2mikroservis-ayrışması">2.Mikroservis Ayrışması</h2>
+
+<ul>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Domain Driven Design Yaklaşımı</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">İş kabiliyetlerine göre ayrıştırma (Decompose by business capability)</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">İş alanı alt alanlara göre ayrıştırma (Decompose by subdomain):</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Monolitik uygulamadan geçiş (Decompose By Strangler)</a></li>
+</ul>
+
+<h2 id="3mikroservis-haberleşme">3.Mikroservis Haberleşme</h2>
+
+<ul>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Event -Driven Architecture</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">RabbitMQ ve Apache Kafka</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">ApiGateway Pattern</a></li>
+</ul>
+
+<h2 id="4mikroservislerde-veri-yönetimi">4.Mikroservislerde Veri yönetimi</h2>
+
+<ul>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Database per service</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Shared Database per Service</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Referans veri yönetimi</a></li>
+</ul>
+
+<h2 id="5mikroservis-i̇zleme">5.Mikroservis İzleme</h2>
+
+<ul>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Health Check</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Log Aggregation</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Distrubuted Tracing</a></li>
+</ul>
+
+<h2 id="6-mikroservis-güvenlik">6. Mikroservis Güvenlik</h2>
+
+<ul>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Oauth2 Protokolleri</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Session yönetimi</a></li>
+</ul>
+
+<h2 id="7-mikroservisler-test-süreci">7. Mikroservisler Test süreci</h2>
+
+<ul>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Tüketici odaklı sözleşme testi(Consumer-driven contract test)</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Tüketici tarafı sözleşme testi(Consumer-side contract test)</a></li>
+</ul>
+
+<h2 id="8-mikroservis-kullanılan-tasarımlar">8. Mikroservis kullanılan tasarımlar</h2>
+
+<ul>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Saga (Orchestration-Caleography)</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">CQRS (Command Query Responsibility Segregation)</a></li>
+</ul>
+
+<h2 id="9-demo-proje">9. Demo Proje</h2>
+
+<ul>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Saga pattern ile ilgili Spring Boot projesi</a></li>
+</ul>
+
+<h2 id="10-günümüzde-mikroservis-yapıları">10. Günümüzde Mikroservis yapıları</h2>
+
+<ul>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Yazılım Dilleri</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Kullanılan diğer araçlar</a></li>
+  <li><a href="docs/01-temel-kavramlar/docker.html">Tasarım Örnekleri</a></li>
+</ul>
+:ET

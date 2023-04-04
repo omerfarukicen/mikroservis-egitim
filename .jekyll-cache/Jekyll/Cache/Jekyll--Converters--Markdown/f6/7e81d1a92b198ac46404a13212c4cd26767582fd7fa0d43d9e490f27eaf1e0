@@ -1,0 +1,218 @@
+I"r"<h1 id="pod-replicaset-deployment">Pod, ReplicaSet, Deployment</h1>
+
+<p>Önce çalışmak için bir ad alanı oluşturun:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl create namespace myspace
+kubectl config set-context <span class="nt">--current</span> <span class="nt">--namespace</span><span class="o">=</span>myspace
+
+</code></pre></div></div>
+
+<h2 id="pod">Pod</h2>
+
+<ul>
+  <li>yalnız pod (prodda kullanmayın)</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quarkus-demo
+spec:
+  containers:
+  - name: quarkus-demo
+    image: quay.io/rhdevelopers/quarkus-demo:v1
+</span><span class="no">EOF
+
+</span></code></pre></div></div>
+
+<ul>
+  <li>Durumuna bak</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>watch kubectl get pods
+
+NAME           READY   STATUS              RESTARTS   AGE
+quarkus-demo   0/1     ContainerCreating   0          10s
+
+<span class="c">## bir süre sonra</span>
+
+NAME           READY   STATUS    RESTARTS   AGE
+quarkus-demo   1/1     Running   0          18s
+
+</code></pre></div></div>
+
+<p>Poda erişelim</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl <span class="nb">exec</span> <span class="nt">-it</span> quarkus-demo /bin/sh
+
+<span class="c">## pod içinden web servis çalışıyor mu bakıyoruz?</span>
+
+curl localhost:8080
+
+Supersonic Subatomic Java with Quarkus quarkus-demo:1
+
+</code></pre></div></div>
+
+<p>Önceki Pod’u silelim:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl delete pod quarkus-demo
+
+watch kubectl get pods
+
+NAME           READY   STATUS        RESTARTS   AGE
+quarkus-demo   0/1     Terminating   0          9m35s
+
+No resources found <span class="k">in </span>myspace namespace.
+
+</code></pre></div></div>
+
+<h2 id="replicaset">ReplicaSet</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl apply -f -
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+    name: rs-quarkus-demo
+spec:
+    replicas: 3
+    selector:
+       matchLabels:
+          app: quarkus-demo
+    template:
+       metadata:
+          labels:
+             app: quarkus-demo
+             env: dev
+       spec:
+          containers:
+          - name: quarkus-demo
+            image: quay.io/rhdevelopers/quarkus-demo:v1
+</span><span class="no">EOF
+
+</span></code></pre></div></div>
+<p>Etiketleriyle podları getirin</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>watch kubectl get pods <span class="nt">--show-labels</span>
+
+NAME                    READY   STATUS    RESTARTS   AGE   LABELS
+rs-quarkus-demo-jd6jk   1/1     Running   0          58s   <span class="nv">app</span><span class="o">=</span>quarkus-demo,env<span class="o">=</span>dev
+rs-quarkus-demo-mlnng   1/1     Running   0          58s   <span class="nv">app</span><span class="o">=</span>quarkus-demo,env<span class="o">=</span>dev
+rs-quarkus-demo-t26gt   1/1     Running   0          58s   <span class="nv">app</span><span class="o">=</span>quarkus-demo,env<span class="o">=</span>dev
+
+<span class="c"># replicasetleri getirin.</span>
+
+kubectl get rs
+
+NAME              DESIRED   CURRENT   READY   AGE
+rs-quarkus-demo   3         3         3       79s
+</code></pre></div></div>
+
+<p>ReplicaSet’i tanımlayın</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+kubectl describe rs rs-quarkus-demo
+
+Name:         rs-quarkus-demo
+Namespace:    myspace
+Selector:     <span class="nv">app</span><span class="o">=</span>quarkus-demo
+Labels:       &lt;none&gt;
+Annotations:  kubectl.kubernetes.io/last-applied-configuration:
+                <span class="o">{</span><span class="s2">"apiVersion"</span>:<span class="s2">"apps/v1"</span>,<span class="s2">"kind"</span>:<span class="s2">"ReplicaSet"</span>,<span class="s2">"metadata"</span>:<span class="o">{</span><span class="s2">"annotations"</span>:<span class="o">{}</span>,<span class="s2">"name"</span>:<span class="s2">"rs-quarkus-demo"</span>,<span class="s2">"namespace"</span>:<span class="s2">"myspace"</span><span class="o">}</span>,<span class="s2">"spec"</span>:<span class="o">{</span><span class="s2">"replicas...
+Replicas:     3 current / 3 desired
+Pods Status:  3 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  app=quarkus-demo
+           env=dev
+  Containers:
+   quarkus-demo:
+    Image:        quay.io/rhdevelopers/quarkus-demo:v1
+    Port:         &lt;none&gt;
+    Host Port:    &lt;none&gt;
+    Environment:  &lt;none&gt;
+    Mounts:       &lt;none&gt;
+  Volumes:        &lt;none&gt;
+Events:
+  Type    Reason            Age   From                   Message
+  ----    ------            ----  ----                   -------
+  Normal  SuccessfulCreate  89s   replicaset-controller  Created pod: rs-quarkus-demo-jd6jk
+  Normal  SuccessfulCreate  89s   replicaset-controller  Created pod: rs-quarkus-demo-t26gt
+  Normal  SuccessfulCreate  89s   replicaset-controller  Created pod: rs-quarkus-demo-mlnng
+
+</span></code></pre></div></div>
+<p>Bu rs tarafından kontrol edilen nodlar</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+kubectl get pod rs-quarkus-demo-mlnng <span class="nt">-o</span> json | jq <span class="s2">".metadata.ownerReferences[]"</span>
+
+<span class="o">{</span>
+  <span class="s2">"apiVersion"</span>: <span class="s2">"apps/v1"</span>,
+  <span class="s2">"blockOwnerDeletion"</span>: <span class="nb">true</span>,
+  <span class="s2">"controller"</span>: <span class="nb">true</span>,
+  <span class="s2">"kind"</span>: <span class="s2">"ReplicaSet"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"rs-quarkus-demo"</span>,
+  <span class="s2">"uid"</span>: <span class="s2">"1ed3bb94-dfa5-40ef-8f32-fbc9cf265324"</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<p>Başka bir ekranda izlerken diğer ekranda podu silin</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># 1. terminal</span>
+
+watch kubectl get pods <span class="nt">--show-labels</span>
+
+<span class="c"># 2. terminal</span>
+kubectl delete pod rs-quarkus-demo-mlnng
+
+</code></pre></div></div>
+
+<ol>
+  <li>terminalde silinen podun yeniden üretildiğini farkedeceksiniz.</li>
+</ol>
+
+<h2 id="deployment">Deployment</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-demo-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: quarkus-demo
+  template:
+    metadata:
+      labels:
+        app: quarkus-demo
+        env: dev
+    spec:
+      containers:
+      - name: quarkus-demo
+        image: quay.io/rhdevelopers/quarkus-demo:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+</span><span class="no">EOF
+
+</span></code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pods <span class="nt">--show-labels</span>
+
+NAME                                       READY   STATUS    RESTARTS   AGE   LABELS
+quarkus-demo-deployment-5979886fb7-c888m   1/1     Running   0          17s   <span class="nv">app</span><span class="o">=</span>quarkus-demo,env<span class="o">=</span>dev,pod-template-hash<span class="o">=</span>5979886fb7
+quarkus-demo-deployment-5979886fb7-gdtnz   1/1     Running   0          17s   <span class="nv">app</span><span class="o">=</span>quarkus-demo,env<span class="o">=</span>dev,pod-template-hash<span class="o">=</span>5979886fb7
+quarkus-demo-deployment-5979886fb7-grf59   1/1     Running   0          17s   <span class="nv">app</span><span class="o">=</span>quarkus-demo,env<span class="o">=</span>dev,pod-template-hash<span class="o">=</span>5979886f
+
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl <span class="nb">exec</span> <span class="nt">-it</span> quarkus-demo-deployment-5979886fb7-c888m <span class="nt">--</span> curl localhost:8080
+
+</code></pre></div></div>
+
+<p><a href="service.md">Sonraki</a></p>
+
+:ET

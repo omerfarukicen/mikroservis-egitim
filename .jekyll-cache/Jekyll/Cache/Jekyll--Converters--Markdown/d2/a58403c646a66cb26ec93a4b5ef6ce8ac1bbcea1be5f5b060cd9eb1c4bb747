@@ -1,0 +1,61 @@
+I"�<h1 id="service">Service</h1>
+
+<p><strong>Yapı</strong></p>
+
+<p>https://medium.com/avmconsulting-blog/service-types-in-kubernetes-24a1587677d6</p>
+
+<p>https://octopus.com/docs/deployments/kubernetes/deploy-container</p>
+
+<p>https://matthewpalmer.net/kubernetes-app-developer/articles/service-kubernetes-example-tutorial.html</p>
+
+<p>Uygun ad alanına geçin</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl config set-context <span class="nt">--current</span> <span class="nt">--namespace</span><span class="o">=</span>myspace
+</code></pre></div></div>
+<p>Deploymentları kontrol edin.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get deployments
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+quarkus-demo-deployment   3/3     3            3           8m33s
+
+<span class="c"># rsleri kontrol edin</span>
+kubectl get rs
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+quarkus-demo-deployment-5979886fb7   3         3         3       8m56s
+
+<span class="c"># podlara bak</span>
+
+kubectl get pods
+
+NAME                                       READY   STATUS    RESTARTS   AGE
+quarkus-demo-deployment-5979886fb7-c888m   1/1     Running   0          9m17s
+quarkus-demo-deployment-5979886fb7-gdtnz   1/1     Running   0          9m17s
+quarkus-demo-deployment-5979886fb7-grf59   1/1     Running   0          9m17s
+</code></pre></div></div>
+
+<p>Bir servis oluşturun.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: the-service
+spec:
+  selector:
+    app: quarkus-demo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: NodePort 
+</span><span class="no">EOF
+
+</span><span class="c"># durumunu izliyoruz.</span>
+watch kubectl get services
+
+NAME    TYPE           CLUSTER-IP      EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>          AGE
+myapp   LoadBalancer   172.30.103.41   &lt;pending&gt;     8080:31974/TCP   4s
+</code></pre></div></div>
+
+:ET

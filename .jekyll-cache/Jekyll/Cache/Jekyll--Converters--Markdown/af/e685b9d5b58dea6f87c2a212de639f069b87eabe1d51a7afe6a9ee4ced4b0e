@@ -1,0 +1,13 @@
+I"�<h1 id="güvenlik">güvenlik</h1>
+
+<p>Kaynaklar</p>
+
+<ul>
+  <li>https://snyk.io/wp-content/uploads/10-best-practices-to-containerize-Java-applications-with-Docker.pdf</li>
+  <li>https://snyk.io/blog/docker-for-java-developers/</li>
+  <li>https://www.tutorialworks.com/docker-java-best-practices/</li>
+  <li>https://akobor.me/posts/heap-size-and-resource-limits-in-kubernetes-for-jvm-applications (kaynaklar ve xms açısından yaklaşmış)</li>
+  <li>https://medium.com/marionete/managing-java-heap-size-in-kubernetes-3807159e2438</li>
+  <li>https://developers.redhat.com/blog/2020/05/11/top-10-must-know-kubernetes-design-patterns</li>
+</ul>
+:ET

@@ -1,0 +1,26 @@
+I"�<h1 id="cka-konuları">CKA Konuları</h1>
+
+<h2 id="genel-bakış---kubernetes-ve-bileşenlerine-genel-bakış">Genel Bakış - Kubernetes ve bileşenlerine genel bakış</h2>
+<h2 id="küme-mimarisi---kubernetes-arkasındaki-mimarisi-yapı">Küme Mimarisi - Kubernetes arkasındaki mimarisi yapı</h2>
+<h2 id="konteynerler---genel-konteyner-mimarisi-ve-kubernetes-konteyner-ilişkisi">Konteynerler - Genel konteyner mimarisi ve kubernetes konteyner ilişkisi</h2>
+<h2 id="i̇ş-yükleri---en-küçük-iş-birimi-podları-ve-onları-çalıştırmak-için-gerekli-yüksek-seviye-iş-yüklerini-anlamak">İş Yükleri - En küçük iş birimi podları ve onları çalıştırmak için gerekli yüksek seviye iş yüklerini anlamak</h2>
+<h2 id="servisler-yük-dengeleme-ve-ağ---kubernetes-ağ-mimarisi-arkasındaki-kavramların-ve-kaynaklar">Servisler, Yük dengeleme ve Ağ - Kubernetes ağ mimarisi arkasındaki kavramların ve kaynaklar</h2>
+<h2 id="depolama---podlara-uzun-ve-kısa-dönemli-depolama-sağlamak">Depolama - Podlara uzun ve kısa dönemli depolama sağlamak</h2>
+<h2 id="güvenlik---bulut-yerel-iş-yüklerini-güvenli-tutmak">Güvenlik - Bulut-yerel iş yüklerini güvenli tutmak</h2>
+<h2 id="i̇lkeler---kaynak-grupları-için-geçerli-olacak-şekilde-yapılandırabileceğiniz-ilkeler">İlkeler - Kaynak grupları için geçerli olacak şekilde yapılandırabileceğiniz ilkeler</h2>
+<h2 id="planlama-ve-tahliye---planlama-podların-kaynak-ve-ilkelere-uygun-nodlara-eşleştirilmesi-tahliye-kaynak-sıkıntısı-çeken-nodlarda-bir-veya-daha-fazla-podun-proaktif-olarak-başarısız-kabul-edilip-atılması-süreci">Planlama ve Tahliye - Planlama, podların kaynak ve ilkelere uygun nodlara eşleştirilmesi. Tahliye, kaynak sıkıntısı çeken nodlarda bir veya daha fazla podun proaktif olarak başarısız kabul edilip atılması süreci</h2>
+<h2 id="küme-yönetimi---kubernetes-kümesi-oluşturma-veya-yönetmeyle-ilgili-daha-detaylı-düzeyde-ayrıntı">Küme Yönetimi - Kubernetes kümesi oluşturma veya yönetmeyle ilgili daha detaylı düzeyde ayrıntı</h2>
+<h2 id="kubernetesi-genişletme---kubernetes-kümenizin-davranışını-değiştirmenin-farklı-yolları">Kubernetes’i genişletme - Kubernetes kümenizin davranışını değiştirmenin farklı yolları</h2>
+
+<h1 id="kaynaklar">Kaynaklar</h1>
+
+<ul>
+  <li>https://github.com/cncf/curriculum</li>
+  <li>https://github.com/dgkanatsios/CKAD-exercises</li>
+  <li>https://github.com/bmuschko/cka-crash-course/tree/master/exercises</li>
+  <li>https://codeburst.io/kubernetes-ckad-weekly-challenges-overview-and-tips-7282b36a2681</li>
+  <li>https://levelup.gitconnected.com/kubernetes-cka-example-questions-practical-challenge-86318d85b4d</li>
+  <li><a href="https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook">handbook</a></li>
+  <li><a href="https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad">tips</a></li>
+</ul>
+:ET

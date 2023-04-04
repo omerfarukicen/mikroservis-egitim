@@ -1,0 +1,12 @@
+I"z<h1 id="argocd">argocd</h1>
+
+<p>declarative kubernetes cd aracı</p>
+
+<p><img src="/kaynaklar/argo-cd-mimari.png" alt="argocd mimari" /></p>
+
+<p>Kaynaklar</p>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=HX24uMKmJRw&amp;list=PL34sAs7_26wMW4bWKnMIfEd87aPuw75by"> Just me and Opensource - [ Kube 85.1 ] Argo CD continuous deployment to Kubernetes - Part 1 </a></li>
+</ul>
+
+:ET

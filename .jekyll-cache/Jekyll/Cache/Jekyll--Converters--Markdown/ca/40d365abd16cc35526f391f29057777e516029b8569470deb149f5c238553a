@@ -1,0 +1,71 @@
+I"L<h1 id="dashboard">Dashboard</h1>
+
+<p><a href="https://github.com/kubernetes-sigs/kubespray/blob/master/docs/ansible.md">Kullanılabilecek farklı tagler</a></p>
+
+<h3 id="dashboard-alternatif-kurulum">Dashboard alternatif kurulum</h3>
+
+<p><a href="https://github.com/kubernetes/dashboard">Buradaki kurulum</a> ile kurulur.</p>
+
+<h3 id="dışarıdan-erişim-için-nodeport-tanımı">Dışarıdan Erişim için Nodeport Tanımı</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl edit <span class="nt">-n</span> kube-system   svc kubernetes-dashboard
+
+...
+  <span class="nb">type</span>: ClusterIP
+...
+
+<span class="c"># =&gt;</span>
+...
+  <span class="nb">type</span>: NodePort
+... 
+
+<span class="c"># aynı dosyada aşağıdaki satır altına yeni bir satır ekliyoruz.</span>
+...
+    targetPort: 8443
+...
+
+<span class="c">#=&gt;</span>
+...
+    targetPort: 8443
+    nodePort: 30333
+...
+</code></pre></div></div>
+<h3 id="dashboard-için-admin-kullanıcı-oluşturma">Dashboard için admin kullanıcı oluşturma</h3>
+
+<p><a href="https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md">Buradaki kurulum</a> ile tam yetkili kullanıcı oluşturulur.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">admin-user</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">kubernetes-dashboard</span>
+
+<span class="nn">---</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRoleBinding</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">admin-user</span>
+<span class="na">roleRef</span><span class="pi">:</span>
+  <span class="na">apiGroup</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io</span>
+  <span class="na">kind</span><span class="pi">:</span> <span class="s">ClusterRole</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster-admin</span>
+<span class="na">subjects</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">admin-user</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">kubernetes-dashboard</span>
+
+<span class="nn">---</span> 
+
+</code></pre></div></div>
+
+<p>dashboardta kullanılacak token</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+kubectl <span class="nt">-n</span> kubernetes-dashboard get secret <span class="si">$(</span>kubectl <span class="nt">-n</span> kubernetes-dashboard get sa/admin-user <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{.secrets[0].name}"</span><span class="si">)</span> <span class="nt">-o</span> go-template<span class="o">=</span><span class="s2">"{{.data.token | base64decode}}"</span>
+
+</code></pre></div></div>
+
+<p><a href="https://github.com/kubernetes/dashboard/blob/master/docs/images/signin.png">dashboard</a></p>
+:ET

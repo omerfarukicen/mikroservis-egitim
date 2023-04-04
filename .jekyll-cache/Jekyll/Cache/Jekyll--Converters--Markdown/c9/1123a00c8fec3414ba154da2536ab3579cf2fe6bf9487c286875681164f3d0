@@ -1,0 +1,115 @@
+I"�<h1 id="helm">helm</h1>
+
+<p>Bir k8s uygulama kümesinin (deployment, service, configmap, secrets, ingress … birlikte) kolayca yönetilebilmesi ve bir bütün olarak taşınabilmesi için üretilmiş bir yapılandırma paket yönetimidir.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># Script olarak kurulum, istenirse dağıtımların depolarından da kurulabilir. </span>
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+helm version <span class="nt">--short</span>
+
+</code></pre></div></div>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
+</span><span class="gp">#</span><span class="w"> </span>helm aktif durumunu çevresel değişken olarak saklar. 
+<span class="go">helm env
+
+</span></code></pre></div></div>
+
+<p>Helm komutu varsayılan olarak kubectl yapılandırmasını kullanır.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># helm repoları görelim.
+helm repo list
+
+# redis hub sunan helm chars listesi
+helm search hub redis
+
+# redis sunan repositoryler. 
+helm search repo redis
+
+# redis chart tanımı
+helm show chart stable/redis
+
+# redis readme dosyası
+helm show readme stable/redis
+
+helm install &lt;kurulum_adi&gt; stable/postgresql
+
+</code></pre></div></div>
+
+<p>Helm ile kendi chartlarımızı oluşturmak</p>
+
+<p>Bir chart, values.yaml dosyası içerisinde tanımlanmış değerler için bir templateler bütünüdür. Bu dosyaya değerler atanarak templateler güncellenir.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm create ilk-app
+
+</code></pre></div></div>
+
+<p>Bunun sonucunda aşağıdaki dizin oluşur ve tüm olası template alanları oluşturulur.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tree ilk-app
+ilk-app
+├── charts
+├── Chart.yaml
+├── templates
+│   ├── deployment.yaml
+│   ├── _helpers.tpl
+│   ├── hpa.yaml
+│   ├── ingress.yaml
+│   ├── NOTES.txt
+│   ├── serviceaccount.yaml
+│   ├── service.yaml
+│   └── tests
+│       └── test-connection.yaml
+└── values.yaml
+
+3 directories, 10 files
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat ilk-app/Chart.yaml | grep -v "^#"
+apiVersion: v2
+name: ilk-app
+description: A Helm chart for Kubernetes
+type: application
+version: 0.1.0
+appVersion: 1.16.0
+
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+ <span class="na">spec</span><span class="pi">:</span> 
+  <span class="na">replicas</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">.Values.replicaCount</span> <span class="pi">}}</span>
+
+
+<span class="c1">#values.yaml içerisinde tanımlanır.</span>
+
+<span class="na">replicaCount</span><span class="pi">:</span> <span class="m">3</span>
+</code></pre></div></div>
+
+<p>Ayrıca komut satırın bu değer aşağıdaki gibi de girilebilir.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nn">...</span> <span class="s">--set replicaCount=3</span>
+
+</code></pre></div></div>
+
+<p>values.yaml dosyasında neler var görmek için</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#helm char dizininde</span>
+helm inspect values <span class="nb">.</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Birden çok values dosyası kullanabilirsiniz. Sonra gelen önceliklidir. 
+helm install -f myvalues.yaml -f override.yaml  myredis ./redis
+
+</code></pre></div></div>
+
+<h3 id="kaynaklar">Kaynaklar</h3>
+<ul>
+  <li>https://helm.sh/</li>
+  <li>https://helm.sh/docs/chart_best_practices/</li>
+  <li>https://www.youtube.com/watch?v=3GPpm2nZb2s</li>
+</ul>
+:ET

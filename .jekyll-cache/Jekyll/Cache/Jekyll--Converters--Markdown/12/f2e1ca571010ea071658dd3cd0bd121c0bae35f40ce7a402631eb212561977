@@ -1,0 +1,157 @@
+I"O"<h1 id="kaynaklar-ve-limitler">Kaynaklar ve Limitler</h1>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl config set-context <span class="nt">--current</span> <span class="nt">--namespace</span><span class="o">=</span>myspace
+
+kubectl get all
+
+No resources found <span class="k">in </span>myspace namespace.
+
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="s">https://github.com/edib/kubernetes/blob/master/yamls/7-pod-quota-mem-exceed.yaml</span>
+
+<span class="s">https://github.com/edib/kubernetes/blob/master/yamls/7-pod-quota-mem.yaml</span>
+
+<span class="s">https://github.com/edib/kubernetes/blob/master/yamls/7-quota-count.yaml</span>
+
+<span class="s">https://github.com/edib/kubernetes/blob/master/yamls/7-quota-limitrange.yaml</span>
+
+
+<span class="s">https://github.com/edib/kubernetes/blob/master/yamls/7-quota-mem.yaml</span>
+
+
+</code></pre></div></div>
+
+<p>Uygulamamızı kuruyoruz.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment.yml
+</code></pre></div></div>
+
+<p>Podun detaylarına bakalım.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PODNAME</span><span class="o">=</span><span class="si">$(</span>kubectl get pod <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>myboot <span class="nt">-o</span> name<span class="si">)</span>
+kubectl describe <span class="nv">$PODNAME</span>
+
+Name:         myboot-7cbfbd9b89-7q97b
+Namespace:    funstuff
+Priority:     0
+Node:         node1/10.0.0.246
+Start Time:   Mon, 04 Oct 2021 09:28:36 +0000
+Labels:       <span class="nv">app</span><span class="o">=</span>myboot
+              pod-template-hash<span class="o">=</span>7cbfbd9b89
+Annotations:  cni.projectcalico.org/podIP: 10.1.166.154/32
+              cni.projectcalico.org/podIPs: 10.1.166.154/32
+Status:       Running
+IP:           10.1.166.154
+IPs:
+  IP:           10.1.166.154
+Controlled By:  ReplicaSet/myboot-7cbfbd9b89
+Containers:
+  myboot:
+    Container ID:   containerd://c8fdbebe0b0a4169f5c7cd630beb5028604e473e38ea1473ca117c697a3e13e8
+    Image:          quay.io/rhdevelopers/myboot:v1
+    Image ID:       quay.io/rhdevelopers/myboot@sha256:ea9a142b694725fc7624cda0d7cf5484d7b28239dd3f1c768be16fc3eb7f1bd0
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 04 Oct 2021 09:29:36 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    &lt;none&gt;
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-rhdmf <span class="o">(</span>ro<span class="o">)</span>
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-rhdmf:
+    Type:                    Projected <span class="o">(</span>a volume that contains injected data from multiple sources<span class="o">)</span>
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       &lt;nil&gt;
+    DownwardAPI:             <span class="nb">true
+</span>QoS Class:                   BestEffort
+Node-Selectors:              &lt;none&gt;
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute <span class="nv">op</span><span class="o">=</span>Exists <span class="k">for </span>300s
+                             node.kubernetes.io/unreachable:NoExecute <span class="nv">op</span><span class="o">=</span>Exists <span class="k">for </span>300s
+Events:
+  Type    Reason     Age    From               Message
+  <span class="nt">----</span>    <span class="nt">------</span>     <span class="nt">----</span>   <span class="nt">----</span>               <span class="nt">-------</span>
+  Normal  Scheduled  4m34s  default-scheduler  Successfully assigned funstuff/myboot-7cbfbd9b89-7q97b to node1
+  Normal  Pulling    4m33s  kubelet            Pulling image <span class="s2">"quay.io/rhdevelopers/myboot:v1"</span>
+  Normal  Pulled     3m35s  kubelet            Successfully pulled image <span class="s2">"quay.io/rhdevelopers/myboot:v1"</span> <span class="k">in </span>58.347827289s
+  Normal  Created    3m34s  kubelet            Created container myboot
+  Normal  Started    3m34s  kubelet            Started container myboot
+
+</code></pre></div></div>
+<p>Ayağa kalktı.
+Siliyoruz.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl delete deployment myboot
+</code></pre></div></div>
+
+<p>Kaynak tanımları olanı kuruyoruz.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-resources.yml
+</code></pre></div></div>
+<p>Podun durumuna bakalım.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pods
+
+NAME                      READY   STATUS    RESTARTS   AGE
+myboot-7b7d754c86-kjwlr   0/1     Pending   0          19s
+</code></pre></div></div>
+<p>Daha fazla bilgi almak istiyorsak</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get events <span class="nt">--sort-by</span><span class="o">=</span>.metadata.creationTimestamp
+
+&lt;unknown&gt;   Warning   FailedScheduling    pod/myboot-7b7d754c86-kjwlr    0/6 nodes are available: 6 Insufficient cpu.
+&lt;unknown&gt;   Warning   FailedScheduling    pod/myboot-7b7d754c86-kjwlr    0/6 nodes are available: 6 Insufficient cpu.
+</code></pre></div></div>
+
+<p>Kaynaklarda belirtilen kadar İşlemci ve bellek yoksa uygulama ayağa kalkmaz.</p>
+
+<p>pod açıklamalarından da aynı bilgilere erişebilirsiniz.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PODNAME</span><span class="o">=</span><span class="si">$(</span>kubectl get pod <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>myboot <span class="nt">-o</span> name<span class="si">)</span>
+kubectl describe <span class="nv">$PODNAME</span>
+</code></pre></div></div>
+<p>Uygulamamızı siliyoruz.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl delete <span class="nt">-f</span> https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-resources.yml
+</code></pre></div></div>
+
+<p>Limitleri olan başka bir uygulama kuruyoruz.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-resources-limits.yml
+
+</code></pre></div></div>
+
+<p>İnceleyelim ve ayakta olduğunu görelim.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PODNAME</span><span class="o">=</span><span class="si">$(</span>kubectl get pod <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>myboot <span class="nt">-o</span> name<span class="si">)</span>
+kubectl describe <span class="nv">$PODNAME</span>
+</code></pre></div></div>
+
+<p>Servisini kuralım.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-service.yml
+
+</code></pre></div></div>
+<p>curl ile test edelim.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ip ve portu öğreniyoruz.</span>
+kubectl get svc myboot
+NAME     TYPE           CLUSTER-IP      EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>          AGE
+myboot   LoadBalancer   10.152.183.11   &lt;pending&gt;     8080:32299/TCP   6h38m
+
+<span class="k">while </span><span class="nb">true
+</span><span class="k">do </span>curl <span class="nv">$IP</span>:<span class="nv">$PORT</span>
+<span class="nb">sleep</span> .3
+<span class="k">done</span>
+</code></pre></div></div>
+
+<p>Referanslar
+https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/
+https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</p>
+:ET

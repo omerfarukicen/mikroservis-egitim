@@ -1,0 +1,13 @@
+I"�<h1 id="miniservice">MiniService</h1>
+
+<p>Monolitik uygulamasının bağımsız geliştirme ve ölçeklenebilirlik sorunları ve Mikroservis mimarisinin karmaşıklık sorunlarından ayrılmış mimari bir yaklaşımdır.</p>
+
+<p><img src="kaynaklar/mikro-macro.png" alt="Mini Service" /></p>
+
+<ul>
+  <li>İlgili servisler ortak bir veritabanını kullanır.</li>
+  <li>Servisler arası haberleşme REST API ile sağlanır</li>
+  <li>Servisler ortak codebase paylaşırlar. Core Consepti ve geliştirildiği için daha hızlı geliştirmeler sağlanır</li>
+  <li>Servisleri yatayda genişletebiliyor aynı zamanda mikroservisler arası network trafiği oluşmayacağı için performansı arttırır.</li>
+</ul>
+:ET

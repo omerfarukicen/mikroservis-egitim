@@ -1,0 +1,150 @@
+I"�<h1 id="label">Label</h1>
+
+<p>Servicelerin deploymentlarla ilişkisini test ediyoruz.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl create namespace funstuff
+kubectl config set-context <span class="nt">--current</span> <span class="nt">--namespace</span><span class="o">=</span>funstuff
+</code></pre></div></div>
+
+<ol>
+  <li>Uygulamayı Kur</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># app: mypython</span>
+
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mypython-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mypython
+  template:
+    metadata:
+      labels:
+        app: mypython
+    spec:
+      containers:
+      - name: mypython
+        image: quay.io/rhdevelopers/mypython:v1
+        ports:
+        - containerPort: 8000
+</span><span class="no">EOF
+
+</span></code></pre></div></div>
+
+<ol>
+  <li>Uygulamayı Kur</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># app: mynode</span>
+
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mynode-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mynode
+  template:
+    metadata:
+      labels:
+        app: mynode
+    spec:
+      containers:
+      - name: mynode
+        image: quay.io/rhdevelopers/mynode:v1
+        ports:
+        - containerPort: 8000
+</span><span class="no">EOF
+
+</span><span class="c"># ayağa kalkmasını bekleyelim. </span>
+watch kubectl get pods <span class="nt">--show-labels</span>
+</code></pre></div></div>
+
+<p>Servisi kuralım</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+selector değerine dikkat
+
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  labels:
+    app: mystuff
+spec:
+  ports:
+  - name: http
+    port: 8000
+  selector:
+    inservice: mypods
+  type: LoadBalancer
+</span><span class="no">EOF
+</span></code></pre></div></div>
+
+<p>Kurduğumuz servisin açıklamalarına bakalım</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># hiç endpoints yok</span>
+kubectl describe service my-service
+
+kubectl get endpoints
+
+NAME         ENDPOINTS   AGE
+my-service   &lt;none&gt;      2m6s
+</code></pre></div></div>
+
+<p>servisin ip adresini ve portunun alalım.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl &lt;svc_ip&gt;:&lt;svc_port&gt;
+
+curl: <span class="o">(</span>7<span class="o">)</span> Failed to connect to 35.224.233.213 port 8000: Connection refused
+
+</code></pre></div></div>
+
+<p>deploymentlardaki podlara elle serviceteki labelı ekliyoruz</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># 1. uygulama</span>
+kubectl label pod <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>mypython <span class="nv">inservice</span><span class="o">=</span>mypods
+
+curl &lt;svc_ip&gt;:&lt;svc_port&gt;
+
+Python Hello on mypython-deployment-578c56d87-rhlf8
+
+<span class="c">#2. uygulama</span>
+
+kubectl label pod <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>mypython <span class="nv">inservice</span><span class="o">=</span>mypods
+
+
+<span class="c"># servisin artık 2 deploymenta da gittiğini görüyoruz.</span>
+
+<span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do </span>curl 10.152.183.159:8000<span class="p">;</span> <span class="nb">sleep</span> .3<span class="p">;</span> <span class="k">done
+
+</span>Python Hello on mypython-deployment-578c56d87-rhlf8
+Go Hello on mygo-deployment-d49998955-6fgvq
+Go Hello on mygo-deployment-d49998955-6fgvq
+Python Hello on mypython-deployment-578c56d87-rhlf8
+Go Hello on mygo-deployment-d49998955-6fgvq
+Go Hello on mygo-deployment-d49998955-6fgvq
+Python Hello on mypython-deployment-578c56d87-rhlf8
+
+</code></pre></div></div>
+
+<p>Benzer şekilde label tanımlarını böyle kaldırabiliriz.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+kubectl label pod <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>mypython inservice-
+
+</code></pre></div></div>
+
+:ET

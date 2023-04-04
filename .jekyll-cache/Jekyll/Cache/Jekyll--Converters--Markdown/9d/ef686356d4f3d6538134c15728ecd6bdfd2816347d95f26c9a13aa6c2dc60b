@@ -1,0 +1,25 @@
+I"Ü<h1 id="metallb">MetalLB</h1>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/metallb/metallb/master/manifests/namespace.yaml
+kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/metallb/metallb/master/manifests/metallb.yaml
+<span class="c"># On first install only</span>
+kubectl create secret generic <span class="nt">-n</span> metallb-system memberlist <span class="nt">--from-literal</span><span class="o">=</span><span class="nv">secretkey</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span>openssl rand <span class="nt">-base64</span> 128<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">### metallb-configmap.yaml</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">metallb-system</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">config</span>
+<span class="na">data</span><span class="pi">:</span>
+  <span class="na">config</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">address-pools:</span>
+    <span class="s">- name: default</span>
+      <span class="s">protocol: layer2</span>
+      <span class="s">addresses:</span>
+      <span class="s">- 192.168.1.240-192.168.1.250</span>
+</code></pre></div></div>
+:ET

@@ -1,0 +1,31 @@
+I"/<h2 id="virtualbox-ve-vagrant-kurulumu">Virtualbox ve Vagrant kurulumu</h2>
+<p>İndirin ve kurun</p>
+
+<h2 id="vagrant-kurulumu">Vagrant Kurulumu</h2>
+
+<p>Vagrant kullanımı
+Vagrant masaüstü ortamları için kod ile otomatik sanal makine oluşturma uygulamasıdır. Varsayılan olarak virtualbox kullanır. Windows ve linux hostlar üzerinde çalışır.</p>
+<ul>
+  <li>Bir yerde sanal makinemizi tanıtıcı bir dizin oluşturup (Örn. vm01) komut satırından dizine gidiyoruz ve  aşağıdaki komutu çalıştırıyoruz. Komut, eğer makinede yoksa centos7 imajını vagrant reposundan indirir.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vagrant init generic/ubuntu2004
+</code></pre></div></div>
+<p>Yukarıdaki komut bulunulan dizinde Vagrantfile adında bir config dosyası oluşturur. Dosyanın içini silip aşağıdaki satırları ekleyin ve hostname ve ip karşısındaki alanları değiştirin. Uygun ip blokları için <a href="https://www.wikiwand.com/en/Private_network#/Private_IPv4_address_spaces">buraya</a> bakınız.</p>
+
+<p><img src="https://user-images.githubusercontent.com/4180560/79636826-3e0d9d80-8183-11ea-8ced-eed33d53e184.png" alt="Vagrant virtualbox ağ yapısı" /></p>
+
+<p><a href="kaynaklar/Vagrantfile">Örnek Vagrantfile</a></p>
+
+<p>Dosyadaki <code class="language-plaintext highlighter-rouge">NUMBER_OF_MEMBERS</code> sayısını artırarak istediğimiz sayıda sanal makine üretebiliriz.</p>
+
+<p>Bu dosyadan sanal makine aktif etmek için aşağıdaki komutla poweron ederiz.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vagrant up
+</code></pre></div></div>
+<p>poweron süreci bittikten sonra ssh ile kendi yönlendirmesiyle bağlanabiliriz.Masaüstü komut satırını açıyoruz ve bu ip adresine ssh erişimi yapıyoruz.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh vagrant@&lt;sanal_makine_ip&gt;
+# varsayılan parola: "vagrant"
+
+</code></pre></div></div>
+:ET

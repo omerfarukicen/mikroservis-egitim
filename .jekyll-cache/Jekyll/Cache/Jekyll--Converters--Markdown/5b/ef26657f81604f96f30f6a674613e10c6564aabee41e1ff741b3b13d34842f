@@ -1,0 +1,61 @@
+I"[<h1 id="günlük-kayıtları">Günlük Kayıtları</h1>
+
+<p>https://kubernetes.io/docs/concepts/cluster-administration/logging/</p>
+
+<ul>
+  <li>Kullanılabilecek araçlar
+    <ul>
+      <li>filebeat</li>
+      <li>fluentd</li>
+      <li>fluentbit</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+        env: dev
+    spec:
+      containers:
+      - name: myapp
+        image: quay.io/rhdevelopers/myboot:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+</span><span class="no">EOF
+
+</span><span class="c"># kurulum ayağa kalktı mı bakıyoruz.</span>
+watch kubectl get deployments
+
+NAME                             READY   STATUS    RESTARTS   AGE
+my-deployment-5dc67997c7-5bq4n   1/1     Running   0          34s
+my-deployment-5dc67997c7-m7z9f   1/1     Running   0          34s
+my-deployment-5dc67997c7-s4jc6   1/1     Running   0          34s
+
+</code></pre></div></div>
+
+<p>Logları incelemek için</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl logs my-deployment-5dc67997c7-m7z9f <span class="o">[</span><span class="nt">-f</span><span class="o">]</span>
+</code></pre></div></div>
+
+<h2 id="log-yardımcı-araçları">Log Yardımcı Araçları</h2>
+<ul>
+  <li><a href="https://github.com/wercker/stern">stern</a> - Kubernetes için çoklu bölme ve kapsayıcı günlüğü takibi</li>
+  <li><a href="https://github.com/boz/kail">kail</a> - kubernetes günlük görüntüleyici</li>
+</ul>
+
+:ET

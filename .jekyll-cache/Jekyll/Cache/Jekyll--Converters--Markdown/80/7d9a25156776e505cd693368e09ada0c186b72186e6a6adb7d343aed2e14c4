@@ -1,0 +1,40 @@
+I"�
+<h1 id="secrets-giz">Secrets (giz)</h1>
+
+<p>Uygulamayı Kurun</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment.yml
+
+kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-configuration.yml
+</code></pre></div></div>
+
+<p>secret oluştur</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl create secret generic mysecret <span class="nt">--from-literal</span><span class="o">=</span><span class="nv">user</span><span class="o">=</span><span class="s1">'MyUserName'</span> <span class="nt">--from-literal</span><span class="o">=</span><span class="nv">password</span><span class="o">=</span><span class="s1">'mypassword'</span>
+
+kubectl get secrets
+
+kubectl describe secret mysecret
+
+kubectl get secret mysecret <span class="nt">-o</span> yaml
+
+<span class="nb">echo</span> <span class="s1">'bXlwYXNzd29yZA=='</span> | <span class="nb">base64</span> <span class="nt">--decode</span>
+
+kubectl get secret mysecret <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.data.password}'</span> | <span class="nb">base64</span> <span class="nt">--decode</span>
+</code></pre></div></div>
+
+<p>gizler dizin bağlamakla podlara bağlanır</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="na">volumeMounts</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">mysecretvolume</span>
+            <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/mystuff/mysecretvolume</span>
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl replace <span class="nt">-f</span> https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-configuration-secret.yml
+</code></pre></div></div>
+
+<p>poda bakalım</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PODNAME</span><span class="o">=</span><span class="si">$(</span>kubectl get pod <span class="nt">-l</span> <span class="nv">app</span><span class="o">=</span>myboot <span class="nt">-o</span> name<span class="si">)</span>
+kubectl <span class="nb">exec</span> <span class="nv">$PODNAME</span> <span class="nt">--</span> <span class="nb">cat</span> /mystuff/secretstuff/password
+</code></pre></div></div>
+:ET

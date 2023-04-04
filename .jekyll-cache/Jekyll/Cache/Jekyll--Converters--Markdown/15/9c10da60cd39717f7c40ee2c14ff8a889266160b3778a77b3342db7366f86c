@@ -1,0 +1,7 @@
+I"�<h1 id="taints--affinity">taints &amp; affinity</h1>
+
+<p>Bir Kubernetes Düğümüne, zamanlayıcıya belirli Bölmelerden kaçınması veya planlamaması için sinyal gönderen bir <code class="language-plaintext highlighter-rouge">taint</code> (kusur) uygulanır.</p>
+
+<p>Bir Bölme tanımına bir <code class="language-plaintext highlighter-rouge">toleration</code> uygulanır ve <code class="language-plaintext highlighter-rouge">taint</code> için bir istisna sağlar.</p>
+
+:ET

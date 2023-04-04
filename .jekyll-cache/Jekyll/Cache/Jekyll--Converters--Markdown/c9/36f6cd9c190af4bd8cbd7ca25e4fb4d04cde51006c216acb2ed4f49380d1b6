@@ -1,0 +1,83 @@
+I"6<h1 id="sürekli-güncellemeler-rolling-updates">Sürekli Güncellemeler (Rolling Updates)</h1>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl config set-context <span class="nt">--current</span> <span class="nt">--namespace</span><span class="o">=</span>myspace
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-resources-limits.yml
+
+kubectl apply <span class="nt">-f</span> https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-service.yml
+
+watch kubectl get pods
+
+
+
+<span class="c"># Strateji tipi </span>
+
+kubectl describe deployment myboot
+...
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+...
+
+</code></pre></div></div>
+
+<p>Diğer terminal</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># ip port servisten alıyoruz </span>
+
+<span class="k">while </span><span class="nb">true
+</span><span class="k">do </span>curl <span class="nv">$IP</span>:<span class="nv">$PORT</span>
+<span class="nb">sleep</span> .3
+<span class="k">done</span>
+</code></pre></div></div>
+
+<p>ilk terminal</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># replica sayısını artır</span>
+
+kubectl edit deployment myboot
+
+<span class="c"># yada </span>
+kubectl scale <span class="nt">--replicas</span><span class="o">=</span>2 deploy/myboot
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># yenisinin nasıl ayağa kalktığına bakalım</span>
+kubectl get pods
+</code></pre></div></div>
+
+<p>İmajı değiştirelim.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl edit deployment myboot
+
+<span class="c"># eski imaj</span>
+- image: quay.io/rhdevelopers/myboot:v1
+
+<span class="c"># yeni imaj</span>
+- image: quay.io/rhdevelopers/myboot:v2
+
+
+<span class="c"># ya da </span>
+kubectl <span class="nb">set </span>image deployment myboot <span class="nv">myboot</span><span class="o">=</span>quay.io/rhdevelopers/myboot:v2
+
+<span class="c"># izleyelim</span>
+kubectl get pods
+</code></pre></div></div>
+<p>Diğer terminaldeki çıktıya da bakalım.</p>
+
+<p>kurulumun durumu</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl rollout status deployment myboot
+
+deployment <span class="s2">"myboot"</span> successfully rolled out
+
+<span class="c"># durumu</span>
+kubectl describe deployment myboot
+</code></pre></div></div>
+
+<p>Başka örnek
+https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/</p>
+
+:ET

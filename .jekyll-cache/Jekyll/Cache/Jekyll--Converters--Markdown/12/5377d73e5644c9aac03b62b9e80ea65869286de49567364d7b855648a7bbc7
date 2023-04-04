@@ -1,0 +1,113 @@
+I"<h1 id="i̇yi-pratikler">İyi Pratikler</h1>
+
+<h2 id="erişilebilirlik">Erişilebilirlik</h2>
+
+<ul>
+  <li>liveness and readiness prop’ları doğru şekilde yapılandırıldı mı?</li>
+  <li>Master Node’lar tek sayı ve en az 3 tane mi?</li>
+  <li>ETCD servisleri izole edildi mi?</li>
+  <li>Düzenli etcd yedeklemeleri için bir planınız var mı?</li>
+  <li>Master Node’lar bölgeler arası dağıtıldı mı?</li>
+  <li>Worker (İşçi) Node’lar bölgeler arası dağıtıldı mı?</li>
+  <li>Master ve Worker (işçi) Node’lar için Autoscaling ayarlandı mı?</li>
+  <li>HA yük dengeleme oluşturuldu mu?</li>
+  <li>Scheduler ve controller manager için aktif-pasif yapılandırma var mı?</li>
+  <li>Yüksek erişilebilirlik için doğru sayıda pod kopyası oluşturuldu mu?</li>
+  <li>Spinning up any naked pods?</li>
+  <li>Çoğul küme federasyonu yapılandırıldı mı?*</li>
+  <li>etcd servisleri için heartbeat ve master seçim zaman aşımı ayarlandı mı?</li>
+  <li>Ingress yapılandırıldı mı?</li>
+</ul>
+
+<h2 id="kaynak-yönetimi">Kaynak Yönetimi</h2>
+
+<ul>
+  <li>Konteynerler için kaynak istekleri ve sınırları yapılandırıldı mı?</li>
+  <li>Yerel geçici depolama için belirtilen kaynak istekleri ve sınırları yapılandırıldı mı?</li>
+  <li>Ekipleriniz için ayrı ad alanları oluşturdunuz mu?</li>
+  <li>Ad alanları için varsayılan kaynak istekleri, sınır aralıkları ve sınırları yapılandırıldı mı?</li>
+  <li>Ad alanları için pod ve API Kotaları yapılandırıldı mı?</li>
+  <li>Etcd için yeterli kaynak sağlandı mı?</li>
+  <li>Etcd için anlık bellek kullanımı yapılandırıldı mı?</li>
+  <li>Kubernetes nesnelerine etiketler eklendi mi?</li>
+  <li>Bir düğümde çalışabilen kapsül sayısı sınırlandı mı?</li>
+  <li>Sistem arka plan programları için ayrılmış işlem kaynakları yapılandırıldı mı?</li>
+  <li>API sunucusu için API istek işleme yapılandırıldı mı?</li>
+  <li>Kaynak kalmaması durumunda yapılacaklar yapılandırıldı mı?</li>
+  <li>PersistentVolumes için önerilen ayarları mı kullanıyorsunuz?</li>
+  <li>Etkinleştirilmiş log döndürme var mı?</li>
+  <li>Kubelet’in etiket anahtarlarını ayarlamasını veya değiştirmesini engellediniz mi?</li>
+</ul>
+
+<h2 id="güvenlik">Güvenlik</h2>
+<ul>
+  <li>En son Kubernetes sürümünü mü kullanıyorsunuz?</li>
+  <li>Etkin RBAC (Rol Tabanlı Erişim Kontrolü) var mı?</li>
+  <li>Kullanıcı erişimiyle ilgili en iyi uygulamaları takip ediyor musunuz?</li>
+  <li>Denetim günlüğü etkinleştirildi mi?</li>
+  <li>Kale barındırıcısı mı kuruyorsunuz (Erişim için ara sistem)?</li>
+  <li>Kabul denetleyicisinde AlwaysPullImages etkinleştirildi mi?</li>
+  <li>Pod güvenlik politikası tanımlandı ve kabul denetleyicisinde etkinleştirildi mi?</li>
+  <li>Bir Ağ eklentisi ve yapılandırılmış ağ politikaları mı seçtiniz?</li>
+  <li>Kubelet için kimlik doğrulama uygulandı mı?</li>
+  <li>Kubernetes sırlarını yapılandırdınız mı?</li>
+  <li>Beklemede veri şifrelemeyi etkinleştirdiniz mi?</li>
+  <li>Varsayılan hizmet hesabı devre dışı bırakılsın mı?</li>
+  <li>Güvenlik açıkları için konteynerler tarandı mı?</li>
+  <li>Podlar, konteynerler ve birimler için yapılandırılmış güvenlik bağlamı var mı?</li>
+  <li>Kubernetes loglama etkinleştirildi mi?</li>
+</ul>
+
+<h2 id="ölçeklendirme">Ölçeklendirme</h2>
+
+<ul>
+  <li>Yatak ölçeklendirme yapılandırıldı mı?</li>
+  <li>Dikey ölçeklendirme yapılandırıldı mı?</li>
+  <li>Küme ölçeklendirme yapılandırıldı mı?</li>
+</ul>
+
+<h2 id="depolama-yönetimi">Depolama Yönetimi</h2>
+
+<ul>
+  <li>Kalıcı Birimler için Bulut sağlayıcısı tarafından önerilen ayarları kullanın.</li>
+  <li>PVC’yi yapılandırmaya dahil edin ve asla PV kullanmayın.</li>
+  <li>Varsayılan bir depolama sınıfı (StorageClas) oluşturun.</li>
+  <li>Kullanıcıya bir depolama sınıfı sağlayın.</li>
+  <li>Log döndürmeyi etkinleştirin.</li>
+</ul>
+
+<h2 id="i̇zleme-uyarı-kayıt-ve-analiz">İzleme, Uyarı, Kayıt ve Analiz</h2>
+
+<ul>
+  <li>İzleme hattı kuruldu mu?</li>
+  <li>İzlemek için ölçüm listeleri oluşturuldu mu?</li>
+</ul>
+
+<h2 id="cicd">CI/CD</h2>
+
+<ul>
+  <li>Sürekli Teslimat için Güvenli CI/CD hatları uygulayın</li>
+  <li>İzlenebilirliği artırmak için onay iş akışıyla GitOps’u etkinleştirin</li>
+  <li>Güvenlik açıklarını test edin, entegre edin ve tarayın</li>
+  <li>Konteyner imajları oluşturun ve kurumsal bir depoda tutun.</li>
+  <li>Denetlenebilirliği artırmak için imajları Git commit SHA ile etiketleyin</li>
+  <li>Kesinti süresini önlemek için rolling update ve/veya mavi-yeşil dağıtım modellerini benimseyin</li>
+</ul>
+
+<h2 id="ek">Ek</h2>
+
+<ul>
+  <li>Uçtan uca test (e2e test) yapıldı mı?</li>
+  <li>Dış servisleri kubernetes içinden erişilecek şekilde tasarladınız mı?</li>
+</ul>
+
+<h2 id="kaynaklar">Kaynaklar</h2>
+
+<ul>
+  <li>https://www.weave.works/blog/production-ready-checklist-kubernetes</li>
+  <li>https://www.weave.works/weave-kubernetes-platform-how-to-guide/</li>
+  <li>https://learnk8s.io/production-best-practices</li>
+  <li>https://www.youtube.com/results?search_query=%23KubernetesBestPractices</li>
+  <li>https://www.ecloudcontrol.com/kubernetes-production-readiness-checklist/</li>
+</ul>
+:ET

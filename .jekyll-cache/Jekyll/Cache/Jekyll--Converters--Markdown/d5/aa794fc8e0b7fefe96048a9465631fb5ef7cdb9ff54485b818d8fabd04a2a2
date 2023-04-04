@@ -1,0 +1,107 @@
+I"�<h1 id="users">users</h1>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## kullanıcı</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">devs</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">myspace</span>
+
+
+<span class="c1"># role</span>
+<span class="nn">---</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Role</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1beta1</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">devs-full-access</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">myspace</span>
+<span class="na">rules</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">extensions"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">apps"</span><span class="pi">]</span>
+  <span class="na">resources</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">*"</span><span class="pi">]</span>
+  <span class="na">verbs</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">*"</span><span class="pi">]</span>
+<span class="pi">-</span> <span class="na">apiGroups</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">batch"</span><span class="pi">]</span>
+  <span class="na">resources</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jobs</span>
+  <span class="pi">-</span> <span class="s">cronjobs</span>
+  <span class="na">verbs</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">*"</span><span class="pi">]</span>
+
+
+<span class="c1"># rolebinding</span>
+<span class="nn">---</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">RoleBinding</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io/v1beta1</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">devs-user-view</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">myspace</span>
+<span class="na">subjects</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceAccount</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">devs</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">myspace</span>
+<span class="na">roleRef</span><span class="pi">:</span>
+  <span class="na">apiGroup</span><span class="pi">:</span> <span class="s">rbac.authorization.k8s.io</span>
+  <span class="na">kind</span><span class="pi">:</span> <span class="s">Role</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">devs-full-access</span>
+
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl create <span class="nt">-f</span> devs.yaml
+
+</code></pre></div></div>
+
+<p>User Secret’ini al.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># PLACE USER TOKEN HERE</span>
+<span class="c"># Kullanıcı Tokenı </span>
+
+kubectl <span class="nt">-n</span> mys get secret <span class="si">$(</span>kubectl <span class="nt">-n</span> myspace get sa/devs <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{.secrets[0].name}"</span><span class="si">)</span> <span class="nt">-o</span> go-template<span class="o">=</span><span class="s2">"{{.data.token | base64decode}}"</span>
+
+
+<span class="c"># PLACE CERTIFICATE HERE</span>
+<span class="c"># kullanıcı sertifikası</span>
+kubectl <span class="nt">-n</span> myspace get secret <span class="si">$(</span>kubectl <span class="nt">-n</span> myspace get sa/devs <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{.secrets[0].name}"</span><span class="si">)</span> <span class="nt">-o</span> <span class="s2">"jsonpath={.data['ca</span><span class="se">\.</span><span class="s2">crt']}"</span>
+
+
+<span class="c"># PLACE CERTIFICATE HERE</span>
+<span class="c"># superuser kubeconfigte tek cluster tanımlı ise </span>
+kubectl config view <span class="nt">--flatten</span><span class="o">=</span><span class="nb">true</span>  <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.clusters[0].cluster.certificate-authority-data}'</span>
+
+</code></pre></div></div>
+
+<p>kubeconfig dosyasının içine yukardaki çıktıları yerleştir.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Config</span>
+<span class="na">preferences</span><span class="pi">:</span> <span class="pi">{}</span>
+
+<span class="c1"># Define the cluster</span>
+<span class="na">clusters</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">cluster</span><span class="pi">:</span>
+    <span class="na">certificate-authority-data</span><span class="pi">:</span> <span class="s">PLACE CERTIFICATE HERE</span>
+    <span class="c1"># You'll need the API endpoint of your Cluster here:</span>
+    <span class="na">server</span><span class="pi">:</span> <span class="s">https://YOUR_KUBERNETES_API_ENDPOINT</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">my-cluster</span>
+
+<span class="c1"># Define the user</span>
+<span class="na">users</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">mynamespace-user</span>
+  <span class="na">user</span><span class="pi">:</span>
+    <span class="na">as-user-extra</span><span class="pi">:</span> <span class="pi">{}</span>
+    <span class="na">client-key-data</span><span class="pi">:</span> <span class="s">PLACE CERTIFICATE HERE</span>
+    <span class="na">token</span><span class="pi">:</span> <span class="s">PLACE USER TOKEN HERE</span>
+
+<span class="c1"># Define the context: linking a user to a cluster</span>
+<span class="na">contexts</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">context</span><span class="pi">:</span>
+    <span class="na">cluster</span><span class="pi">:</span> <span class="s">my-cluster</span>
+    <span class="na">namespace</span><span class="pi">:</span> <span class="s">mynamespace</span>
+    <span class="na">user</span><span class="pi">:</span> <span class="s">mynamespace-user</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">mynamespace</span>
+
+<span class="c1"># Define current context</span>
+<span class="na">current-context</span><span class="pi">:</span> <span class="s">mynamespace</span>
+</code></pre></div></div>
+<p>https://github.com/cruise-automation/rbacsync
+https://medium.com/cruise/open-sourcing-rbacsync-48758df685b0</p>
+:ET

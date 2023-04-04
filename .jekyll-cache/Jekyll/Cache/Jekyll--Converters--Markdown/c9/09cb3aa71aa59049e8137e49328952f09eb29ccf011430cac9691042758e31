@@ -1,0 +1,130 @@
+I"�<h1 id="bileşenler">Bileşenler</h1>
+
+<p>https://kubernetes.io/docs/concepts/overview/components/</p>
+
+<p>Kontrol düzlemi, veri düzlemi ve yönetim düzlemi, bilişim kaynaklarındaki iletişim mimarisinin üç temel bileşenidir. <strong>Kontrol düzlemi ve yönetim düzlemi</strong>, tüm ağın taşımak için var olduğu trafiği taşıyan <strong>veri düzlemine</strong> hizmet eder. Yönetimsel trafik taşıyan yönetim düzlemi, kontrol düzleminin bir alt kümesi olarak kabul edilir. Veri düzlemi asıl vereceğimiz hizmetin trafiğinin aktığı düzlemdir.</p>
+
+<h2 id="kontrol-düzlemi-bileşenleri">Kontrol Düzlemi Bileşenleri</h2>
+
+<h3 id="kube-apiserver">kube-apiserver</h3>
+
+<p>Kubernetes cluster mekanizmasının ortasında yer almaktadır. Master sunucumuza gelen tüm REST request’lerin yönetilmesi bu araç üzerinden gerçekleştirilir. Tüm istekler bu servis tarafından kabul edilir ve doğrulanır, ayrıca etcd veritabanına yapılan tek bağlantı bu ajanla yapılır. Sonuç olarak cluster içerisindeki ana işlem yeridir diyebiliriz. API hizmeti verir. Gelen istekler doğrular.  Kimlik doğrulama, yetkilendirme ve erişim denetimi yapar.</p>
+
+<ul>
+  <li>Static pod olarak kurulur.</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/kubernetes/manifests/kube-apiserver.yaml
+
+</code></pre></div></div>
+
+<h3 id="etcd">etcd</h3>
+
+<p>https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/</p>
+
+<p>Kubernetes üzerinde gerçekleştirilen bütün konfigürasyon ve durumların tutulduğu yüksek hızlı (10000 istek/sn) high-available mod’da çalışabilen, dağıtık, tutarlı bir key-value store’dur.</p>
+
+<ul>
+  <li>Raft algoritmasıyla lider seçimi yapar.</li>
+  <li>Veriler bellekte durur, istenildiği zamanlar diske kalıcı olarak yazılabilir.</li>
+  <li>HTTP protokolü kullanır.</li>
+  <li>Tuttuğu değerler için zaman aşımları tanımlanabilmesine izin verir.</li>
+  <li>Kendi ayarlarına /config şeklinde HTTP protokolüyle erişilebilir.</li>
+</ul>
+
+<h4 id="key-vaue-yapısı">Key-Vaue Yapısı</h4>
+
+<ul>
+  <li>key-value çiftleri düz bir ikili anahtar düzleminde saklanır.</li>
+  <li>Bu anahtar uzayı sözlük gibi sıralanır.</li>
+  <li>Değerler değişmez (immutable) olarak tutulur. Varolan bir değerin değiştirilmesi istenirse eski değeri sürümleyerek korur ve yeni * değer oluşturur. </li>
+  <li>Eski verileri silmek, sıkıştırma (compact) işlemiyle yapılır yoksa verilerin tüm sürümleri hep kalır.</li>
+</ul>
+
+<h4 id="dikkat-edilmedi-gerekenler">Dikkat edilmedi Gerekenler</h4>
+
+<ul>
+  <li>Etcd tek sayı üyelerden oluşan bir küme olarak çalıştırılır.</li>
+  <li>Etcd’ye yeterli kaynak verilmesi gerekir. Çok fazla cpu’ya ihtiyaç duymaz, canlı sistemlerde 8GB bellek ve ortalama bir disk genel * ihtiyaçlarını karşılar.</li>
+  <li>Kümenin performansı ve kararlılığı, ağa ve disk performansına duyarlıdır. Herhangi bir kaynak açlığı, zaman aşımına yol açarak kümenin kararsızlığına neden olabilir. Kararsız bir etcd, hiçbir liderin seçilmediğini gösterir. Bu tür koşullar altında, bir küme mevcut durumunda herhangi bir değişiklik yapamaz, bu da yeni podların oluşturulamaz.</li>
+  <li>
+    <p>Etcd kümelerini kararlı tutmak, Kubernetes kümelerinin kararlılığı için kritik öneme sahiptir. Bu nedenle, garantili kaynak gereksinimleri için özel makinelerde veya yalıtılmış ortamlarda etcd kümelerini çalıştırın.</p>
+  </li>
+  <li>Bağımsız docker container olarak kurulur.</li>
+</ul>
+
+<h3 id="kube-controller-manager">kube-controller-manager</h3>
+<p>Kuberneteste 2 durum vardır. Declarative olarak kubernetese söylenen ve gerçekten varolan durum. Temel olarak controller manager, kümenin durumunu API Server izleme özelliğiyle izler ve bildirildiğinde, geçerli durumu istenen duruma doğru hareket ettirmek için gerekli değişiklikleri yapar.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/kubernetes/manifests/kube-controller-manager.yaml
+</code></pre></div></div>
+
+<h3 id="scheduler">scheduler</h3>
+
+<p>Bir pod’un hangi node üzerinde çalışacağına karar verir , etiketlere göre podları nodlara dağıtır, kubelet’i tetikler ve ilgili pod ve içindeki konteyner çalıştırılır. Kısacası yeni bir pod oluşturulması isteğine karşı API server’ı izler. </p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/kubernetes/manifests/kube-scheduler.yaml
+</code></pre></div></div>
+<h2 id="düğüm-bileşenleri">Düğüm Bileşenleri</h2>
+
+<h3 id="kubelet">kubelet</h3>
+
+<p>Her bir kubernetes node’unda çalışan agent’tır. İlk işi bulunduğu node’u API Server’a Node resource olarak kayıt ederek Kubernetes tarafından görülmesini sağlamaktır. Bu işlemden sonra sürekli olarak API server’ı dinleyerek bulunduğu node’a herhangi bir Pod schedule edip edilmediğini kontrol eder. Schedule eden bir Pod varsa bulunduğu node üzerinde Pod’un içerisindeki tanımlanan container’ları çalıştırır. Buna ek olarak sürekli olarak node’da çalışan container’ların ayakta olup olmadığını kontrol ederek erişilebilir olmalarını sağlar.</p>
+
+<ul>
+  <li>Sistem servisi olarak çalışır.</li>
+  <li>```sh
+systemctl cat kubelet</li>
+</ul>
+
+<p>/etc/kubernetes/kubelet.env</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+## coredns
+
+kube-sytem nste deployment olarak kurulur.
+
+### kube-proxy
+
+Service ve Endpoint objelerinin erişebilirliğini sağlamak için node üzerindeki network kurallarını ayarlar ve connection forwarding işlemini gerçekleştirir. Görevlerinden biri de Kubernetes Service’lere ve Pod'lara virtual IP atamasıdır.
+
+* daemonset olarak oluşur. 
+
+### CNI 
+    https://docs.projectcalico.org/reference/architecture/overview
+
+##### calico
+
+kube-system altında calico-kube-controllers adında deployment olarak kurulur. calico-node olarak daemonset üretir. 
+
+```sh
+# önemli dizinler
+/opt/cni/bin/
+
+
+
+</code></pre></div></div>
+
+<h3 id="container-runtime">container-runtime</h3>
+
+<ul>
+  <li>sistem servisi olarak kurulur.</li>
+</ul>
+
+<p>https://www.inovex.de/de/blog/containers-docker-containerd-nabla-kata-firecracker/
+https://thenewstack.io/a-security-comparison-of-docker-cri-o-and-containerd/</p>
+
+<h2 id="ek-özellikler">Ek Özellikler</h2>
+
+<h1 id="coredns">coredns</h1>
+<h1 id="web-ui">web ui</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/ # metrics-server
+</code></pre></div></div>
+
+<h1 id="prometheus">prometheus</h1>
+
+<h1 id="küme-düzeyinde-loglama">Küme Düzeyinde Loglama</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://kubernetes.io/docs/concepts/cluster-administration/logging/
+</code></pre></div></div>
+
+:ET

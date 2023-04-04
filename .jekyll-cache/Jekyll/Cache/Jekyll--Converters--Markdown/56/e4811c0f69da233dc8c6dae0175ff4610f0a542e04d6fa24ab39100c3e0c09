@@ -1,0 +1,79 @@
+I"�<h1 id="i̇ç-yük-dengeleme">İç Yük Dengeleme</h1>
+
+<ul>
+  <li>nginx.conf configmapte saklanarak tcp load balance özelliği kullanılabilir.</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-lb-conf</span>
+<span class="na">data</span><span class="pi">:</span>
+  <span class="na">nginx.conf</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">user nginx;</span>
+    <span class="s">worker_processes  1;</span>
+    <span class="s">events {</span>
+      <span class="s">worker_connections  50;</span>
+    <span class="s">}</span>
+
+    <span class="s">stream {</span>
+        <span class="s">upstream myservis_lb {</span>
+        <span class="s">server $host_ip1:9200;</span>
+        <span class="s">server $host_ip2:9200;</span>
+        <span class="s">server $host_ip3:9200;</span>
+      <span class="s">}</span>
+          <span class="s">server {</span>
+            <span class="s">listen     9200;</span>
+            <span class="s">proxy_pass myservis_lb;</span>
+        <span class="s">}</span>
+    <span class="s">}</span>
+
+<span class="s">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-lb-tcp</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-lb-tcp</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-lb-tcp</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">9200</span>
+        <span class="na">volumeMounts</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-lb-conf</span>
+              <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/etc/nginx/nginx.conf</span>
+              <span class="na">subPath</span><span class="pi">:</span> <span class="s">nginx.conf</span>
+              <span class="na">readOnly</span><span class="pi">:</span> <span class="no">true</span>
+      <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-lb-conf</span>
+        <span class="na">configMap</span><span class="pi">:</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-lb-conf</span>
+          <span class="na">items</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="s">nginx.conf</span>
+              <span class="na">path</span><span class="pi">:</span> <span class="s">nginx.conf</span>
+
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">ports</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">port</span><span class="pi">:</span> <span class="m">9200</span>
+    <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
+    <span class="na">targetPort</span><span class="pi">:</span> <span class="m">9200</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx-lb-tcp</span>
+
+</code></pre></div></div>
+:ET

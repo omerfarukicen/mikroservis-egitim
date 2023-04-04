@@ -1,0 +1,35 @@
+I"<h2 id="önkoşullar">Önkoşullar</h2>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=r3uOBb3BM-0&amp;list=PLh9ECzBB8tJN9bckI6FbWB03HkmogKrFT">algoritmalar ve veri yapıları</a></li>
+  <li><a href="https://www.youtube.com/watch?v=3bhBo9YCTpo&amp;list=PLh9ECzBB8tJPTWIUbZjHZMMGuZcpHUv5h">Algoritma Analizi ve Big-O</a></li>
+  <li><a href="https://www.youtube.com/playlist?list=PLh9ECzBB8tJNzJqD64MAS0SK5IeNCKCzY">programlamaya giriş</a></li>
+  <li><a href="https://www.youtube.com/watch?v=r2q_XRKrqHQ&amp;list=PLh9ECzBB8tJO9eiwfQbcA2ThMbUSkbOWf">işletim sistemleri</a></li>
+  <li><a href="https://www.youtube.com/watch?v=_Kc9ImFpqro&amp;list=PLh9ECzBB8tJOnxXrUTOqXfurKOZkN4mEY">linux</a>
+    <ul>
+      <li>Text Editors</li>
+      <li>User Environment</li>
+      <li>Manipulating Text</li>
+      <li>Awk and Sed commands</li>
+      <li>Network Operations</li>
+      <li>The Bash Shell and Basic Scripting</li>
+      <li>Local Security Principles</li>
+      <li>Common Applications</li>
+      <li>Command Line Operations</li>
+      <li>Finding Linux Documentation</li>
+      <li>Processes</li>
+      <li>File Operations</li>
+    </ul>
+  </li>
+  <li><a href="https://www.youtube.com/watch?v=pHKZw5EyTi4&amp;list=PLh9ECzBB8tJOS7WQKdeUaAa5fmPLYAouD">Veri tabanı temelleri</a></li>
+  <li><a href="https://www.youtube.com/playlist?list=PLDUOF2Be-kzn8h0-eI0HSADJsaDDu3IUj">ağ kavramları</a></li>
+  <li><a href="https://www.youtube.com/watch?v=hUnST9FY39I">Konteynerler</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Jta9jw9kAVc">Mikroservisler</a></li>
+  <li><a href="https://www.youtube.com/watch?v=LI9FEQyopSg">Devops</a></li>
+  <li><a href="https://www.youtube.com/playlist?list=PLAocyzWJktm5nxI97bQaFiiXtWO8tawCC">Devops</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Utjni_LbMxc">Gitops ve Kubernetes</a></li>
+  <li>[Netops] -</li>
+  <li>Docker ve konteyner imajları oluşturma</li>
+</ul>
+
+:ET

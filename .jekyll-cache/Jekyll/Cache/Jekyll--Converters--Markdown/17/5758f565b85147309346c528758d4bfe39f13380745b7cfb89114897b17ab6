@@ -1,0 +1,22 @@
+I"™<h1 id="jobs--cronjobs">Jobs &amp; Cronjobs</h1>
+
+<p>https://redhat-scholars.github.io/kubernetes-tutorial/kubernetes-tutorial/jobs-cronjobs.html</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">batch/v1beta1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">CronJob</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">whale-say-cronjob</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">schedule</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*/1</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*"</span> 
+  <span class="na">jobTemplate</span><span class="pi">:</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">template</span><span class="pi">:</span>
+        <span class="na">spec</span><span class="pi">:</span>
+          <span class="na">containers</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">whale-say-container</span>
+            <span class="na">image</span><span class="pi">:</span> <span class="s">docker/whalesay</span>
+            <span class="na">command</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">cowsay"</span><span class="pi">,</span><span class="s2">"</span><span class="s">Hello</span><span class="nv"> </span><span class="s">DevNation"</span><span class="pi">]</span>
+          <span class="na">restartPolicy</span><span class="pi">:</span> <span class="s">Never</span>
+
+</code></pre></div></div>
+:ET

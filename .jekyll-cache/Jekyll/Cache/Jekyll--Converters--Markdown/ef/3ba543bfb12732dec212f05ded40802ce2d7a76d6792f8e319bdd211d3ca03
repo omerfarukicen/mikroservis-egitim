@@ -1,0 +1,130 @@
+I"�<h1 id="volumes">volumes</h1>
+
+<p>https://redhat-scholars.github.io/kubernetes-tutorial/kubernetes-tutorial/volumes-persistentvolumes.html</p>
+
+<h2 id="static">Static</h2>
+<p>Statik provizyon, küme yöneticilerinin mevcut depolama aygıtını aktif eder. Bu şekilde yapıldığında PV ve PVC manuel olarak sağlanmalıdır.</p>
+
+<h2 id="dynamic-provisioning">Dynamic Provisioning</h2>
+<p>kullanıcı istediği zaman depolama aracını kullanabilir. Bunun için storageclass lazım. Bu storageclasstan alan isteyen bir pvc.</p>
+
+<h3 id="static-pv">static pv</h3>
+<p>https://github.com/edib/kubernetes/tree/master/yamls/nfs-pv</p>
+
+<p>pv</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">PersistentVolume</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nfs-pv</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">capacity</span><span class="pi">:</span>
+    <span class="na">storage</span><span class="pi">:</span> <span class="s">10Gi</span>
+  <span class="na">volumeMode</span><span class="pi">:</span> <span class="s">Filesystem</span>
+  <span class="na">accessModes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ReadWriteMany</span>
+  <span class="na">persistentVolumeReclaimPolicy</span><span class="pi">:</span> <span class="s">Recycle</span>
+  <span class="na">storageClassName</span><span class="pi">:</span> <span class="s">nfs</span>
+  <span class="na">mountOptions</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">hard</span>
+    <span class="pi">-</span> <span class="s">nfsvers=4.1</span>
+  <span class="na">nfs</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s">/srv/nfs4</span>
+    <span class="na">server</span><span class="pi">:</span> <span class="s">10.0.0.253</span>
+
+</code></pre></div></div>
+<p>pvc</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">PersistentVolumeClaim</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nfs-client-pvc</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">storageClassName</span><span class="pi">:</span> <span class="s">nfs-client</span>
+  <span class="na">accessModes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">ReadWriteMany</span>
+  <span class="na">resources</span><span class="pi">:</span>
+    <span class="na">requests</span><span class="pi">:</span>
+      <span class="na">storage</span><span class="pi">:</span> <span class="s">10Gi</span>
+</code></pre></div></div>
+
+<p>deployment</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-pv-pod-sc</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">volumes</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-pv-storage</span>
+      <span class="na">persistentVolumeClaim</span><span class="pi">:</span>
+        <span class="na">claimName</span><span class="pi">:</span> <span class="s">nfs-client-pvc</span>
+  <span class="na">containers</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+      <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+      <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">80</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">nginx-server"</span>
+      <span class="na">volumeMounts</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">mountPath</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/share/nginx/html"</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-pv-storage</span>
+ 
+</code></pre></div></div>
+
+<h3 id="nfs-provisioner">nfs provisioner</h3>
+<p>https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+helm <span class="nb">install </span>nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner <span class="se">\</span>
+    <span class="nt">--set</span> nfs.server<span class="o">=</span>x.x.x.x <span class="se">\</span>
+    <span class="nt">--set</span> nfs.path<span class="o">=</span>/exported/path
+
+</code></pre></div></div>
+<p>Alternatif</p>
+
+<p>https://github.com/edib/kubernetes/tree/master/yamls/nfs-provisioner</p>
+
+<ul>
+  <li>
+    <p>1 kere provisioner üretince bir daha pv üretmeye gerek kalmıyor.</p>
+  </li>
+  <li>
+    <p>Helm ile nfs provisioner üzerinden loki stack kurulumu</p>
+  </li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm repo add grafana https://grafana.github.io/helm-charts
+
+helm show grafana/loki-stack <span class="o">&gt;</span> ../../helm/values.yaml
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#values.yaml</span>
+<span class="na">loki</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">persistence</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">storageClass</span><span class="pi">:</span> <span class="s">nfs-client</span>
+    <span class="na">size</span><span class="pi">:</span> <span class="s">1G</span>
+
+<span class="na">promtail</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="na">grafana</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">sidecar</span><span class="pi">:</span>
+    <span class="na">datasources</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">image</span><span class="pi">:</span>
+    <span class="na">tag</span><span class="pi">:</span> <span class="s">8.1.6</span>
+
+<span class="na">prometheus</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">persistence</span><span class="pi">:</span>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">storageClass</span><span class="pi">:</span> <span class="s">nfs-client</span>
+    <span class="na">size</span><span class="pi">:</span> <span class="s">1G</span>
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">helm install loki-stack grafana/loki-stack --values values.yaml -n monitoring --create-namespace</span>
+</code></pre></div></div>
+:ET
