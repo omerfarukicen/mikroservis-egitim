@@ -1,0 +1,21 @@
+I"(<h1 id="apigateway-pattern">ApiGateway Pattern</h1>
+
+<p>Büyük mikroservis yapılarında tavsiye edilen bir tasarım desenidir.</p>
+
+<p>Fayadaları:</p>
+
+<ul>
+  <li>Reverse Proxy</li>
+  <li>Response cache</li>
+  <li>Rate limiting</li>
+  <li>Load balancing</li>
+  <li>Authentication-Authorization</li>
+  <li>Retry Policy</li>
+  <li>Circuit Breaker</li>
+  <li>Logging</li>
+  <li>IP whitelist</li>
+  <li>Request Transformation</li>
+  <li>Api Composition</li>
+  <li><img src="./../kaynaklar/apigateway-pattern.png" alt="API Gateway Pattern" /></li>
+</ul>
+:ET

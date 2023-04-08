@@ -1,0 +1,4 @@
+I"S<h2 id="rabbitmq">RabbitMQ</h2>
+
+<p>RabbitMQ smart-broker /dumb consumer modelini kullanır. Yani burada cursor’ın nerede kaldığını broker bilmek zorundadır. Broker mesajın iletilip iletilmediğini kendisine ulaşan bir acknowledge sayesinde takip eder. Böylece mesajın consumer’a iletimi garanti altına alınmış olur.</p>
+:ET

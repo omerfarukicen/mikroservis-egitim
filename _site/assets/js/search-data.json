@@ -1,339 +1,339 @@
 {"0": {
+    "doc": "ApiGateway Pattern",
+    "title": "ApiGateway Pattern",
+    "content": "Büyük mikroservis yapılarında tavsiye edilen bir tasarım desenidir. Faydaları: . ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html"
+  },"1": {
+    "doc": "ApiGateway Pattern",
+    "title": "1.Reverse Proxy",
+    "content": "Bir sunucu mimarisi öğesidir ve gelen istekleri ön uç sunucudan (client) alarak, arka uç sunucularına (server) yönlendiren bir tür ara sunucudur. Bu sayede, istemcilerin doğrudan arka uç sunucularına erişmelerine gerek kalmadan, önyüzdeki (frontend) sunucular üzerinden iletişim kurabilmeleri sağlanır . ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html#1reverse-proxy",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html#1reverse-proxy"
+  },"2": {
+    "doc": "ApiGateway Pattern",
+    "title": "2.  Response cache",
+    "content": "Client yapılan istekler gateway üzerinde cachelenir ve bu sayede latency düşürülür. ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html#2--response-cache",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html#2--response-cache"
+  },"3": {
+    "doc": "ApiGateway Pattern",
+    "title": "3. Rate limiting",
+    "content": "Bir servisin veya API’nin, kullanıcıların belirli bir zaman aralığında yaptıkları istek sayısını sınırlandırması anlamına gelir. | Güvenlik sağlama: Rate limiting, aynı kaynaktan gelen istek sayısını sınırlandırarak, DDoS saldırılarına karşı koruma sağlar. | İş yükünü dengeleme: Rate limiting, farklı kullanıcılara eşit davranarak, sunucu kaynaklarının dengeli kullanımını sağlayarak, aşırı yüklenmeden kaçınır. | . ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html#3-rate-limiting",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html#3-rate-limiting"
+  },"4": {
+    "doc": "ApiGateway Pattern",
+    "title": "4. Load balancing",
+    "content": "Bir ağdaki yükü birden fazla sunucu arasında eşit şekilde dağıtarak, ağın performansını artırmak ve hizmet kesintilerini önlemek için kullanılan bir yöntemdir. | Yüksek performans ve Yüksek erişebilirlik sağlar | . ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html#4-load-balancing",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html#4-load-balancing"
+  },"5": {
+    "doc": "ApiGateway Pattern",
+    "title": "5. Authentication-Authorization",
+    "content": "İlgili backend servislerine erişmeden güvenlik katmanını gateway üzerinde konumlandırabiliyoruz. ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html#5-authentication-authorization",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html#5-authentication-authorization"
+  },"6": {
+    "doc": "ApiGateway Pattern",
+    "title": "6. Retry Policy",
+    "content": "Dağıtık sistemlerde kullanılan bir politika türüdür. Servis kesintilerinin önlenmesi amacıyla yapılmaktadır. ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html#6-retry-policy",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html#6-retry-policy"
+  },"7": {
+    "doc": "ApiGateway Pattern",
+    "title": "7.Circuit Breaker",
+    "content": "Circuit breaker, hataları algılar ve uygulamanın başarısız işlem sayısı belirli bir eşiği geçmesi durumunda ise yeniden kullanılabilir hale gelene kadar işlemleri engeller. ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html#7circuit-breaker",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html#7circuit-breaker"
+  },"8": {
+    "doc": "ApiGateway Pattern",
+    "title": "8. IP checklist",
+    "content": "Belirli ip erişimleri sağlanarak yada erişimleri engellenerek güvenlik arttırılabilir. ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html#8-ip-checklist",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html#8-ip-checklist"
+  },"9": {
+    "doc": "ApiGateway Pattern",
+    "title": "9.Request Transformation",
+    "content": "Client gelen isteklerin header veya bir alan eklenmesi gibi işlemleri yaptıktan sonra ilgili servise yönlendirme işlemi yapabilir. ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html#9request-transformation",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html#9request-transformation"
+  },"10": {
+    "doc": "ApiGateway Pattern",
+    "title": "10. Api Composition",
+    "content": "Birden fazla API’yi birleştirerek, daha kompleks ve işlevsel bir hizmet oluşturmak için kullanılan bir yaklaşımdır. ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/apigateway.html#10-api-composition",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/apigateway.html#10-api-composition"
+  },"11": {
     "doc": "ARGO-CD",
     "title": "argocd",
     "content": "declarative kubernetes cd aracı . Kaynaklar . | Just me and Opensource - [ Kube 85.1 ] Argo CD continuous deployment to Kubernetes - Part 1 | . ",
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/argocd.html#argocd",
     "relUrl": "/docs/06-ek-araclar/argocd.html#argocd"
-  },"1": {
+  },"12": {
     "doc": "ARGO-CD",
     "title": "ARGO-CD",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/argocd.html",
     "relUrl": "/docs/06-ek-araclar/argocd.html"
-  },"2": {
+  },"13": {
     "doc": "İyi Pratikler",
     "title": "İyi Pratikler",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/best-practices.html",
     "relUrl": "/docs/07-gorevler/best-practices.html"
-  },"3": {
+  },"14": {
     "doc": "İyi Pratikler",
     "title": "Erişilebilirlik",
     "content": ". | liveness and readiness prop’ları doğru şekilde yapılandırıldı mı? | Master Node’lar tek sayı ve en az 3 tane mi? | ETCD servisleri izole edildi mi? | Düzenli etcd yedeklemeleri için bir planınız var mı? | Master Node’lar bölgeler arası dağıtıldı mı? | Worker (İşçi) Node’lar bölgeler arası dağıtıldı mı? | Master ve Worker (işçi) Node’lar için Autoscaling ayarlandı mı? | HA yük dengeleme oluşturuldu mu? | Scheduler ve controller manager için aktif-pasif yapılandırma var mı? | Yüksek erişilebilirlik için doğru sayıda pod kopyası oluşturuldu mu? | Spinning up any naked pods? | Çoğul küme federasyonu yapılandırıldı mı?* | etcd servisleri için heartbeat ve master seçim zaman aşımı ayarlandı mı? | Ingress yapılandırıldı mı? | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/best-practices.html#eri%C5%9Filebilirlik",
     "relUrl": "/docs/07-gorevler/best-practices.html#erişilebilirlik"
-  },"4": {
+  },"15": {
     "doc": "İyi Pratikler",
     "title": "Kaynak Yönetimi",
     "content": ". | Konteynerler için kaynak istekleri ve sınırları yapılandırıldı mı? | Yerel geçici depolama için belirtilen kaynak istekleri ve sınırları yapılandırıldı mı? | Ekipleriniz için ayrı ad alanları oluşturdunuz mu? | Ad alanları için varsayılan kaynak istekleri, sınır aralıkları ve sınırları yapılandırıldı mı? | Ad alanları için pod ve API Kotaları yapılandırıldı mı? | Etcd için yeterli kaynak sağlandı mı? | Etcd için anlık bellek kullanımı yapılandırıldı mı? | Kubernetes nesnelerine etiketler eklendi mi? | Bir düğümde çalışabilen kapsül sayısı sınırlandı mı? | Sistem arka plan programları için ayrılmış işlem kaynakları yapılandırıldı mı? | API sunucusu için API istek işleme yapılandırıldı mı? | Kaynak kalmaması durumunda yapılacaklar yapılandırıldı mı? | PersistentVolumes için önerilen ayarları mı kullanıyorsunuz? | Etkinleştirilmiş log döndürme var mı? | Kubelet’in etiket anahtarlarını ayarlamasını veya değiştirmesini engellediniz mi? | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/best-practices.html#kaynak-y%C3%B6netimi",
     "relUrl": "/docs/07-gorevler/best-practices.html#kaynak-yönetimi"
-  },"5": {
+  },"16": {
     "doc": "İyi Pratikler",
     "title": "Güvenlik",
     "content": ". | En son Kubernetes sürümünü mü kullanıyorsunuz? | Etkin RBAC (Rol Tabanlı Erişim Kontrolü) var mı? | Kullanıcı erişimiyle ilgili en iyi uygulamaları takip ediyor musunuz? | Denetim günlüğü etkinleştirildi mi? | Kale barındırıcısı mı kuruyorsunuz (Erişim için ara sistem)? | Kabul denetleyicisinde AlwaysPullImages etkinleştirildi mi? | Pod güvenlik politikası tanımlandı ve kabul denetleyicisinde etkinleştirildi mi? | Bir Ağ eklentisi ve yapılandırılmış ağ politikaları mı seçtiniz? | Kubelet için kimlik doğrulama uygulandı mı? | Kubernetes sırlarını yapılandırdınız mı? | Beklemede veri şifrelemeyi etkinleştirdiniz mi? | Varsayılan hizmet hesabı devre dışı bırakılsın mı? | Güvenlik açıkları için konteynerler tarandı mı? | Podlar, konteynerler ve birimler için yapılandırılmış güvenlik bağlamı var mı? | Kubernetes loglama etkinleştirildi mi? | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/best-practices.html#g%C3%BCvenlik",
     "relUrl": "/docs/07-gorevler/best-practices.html#güvenlik"
-  },"6": {
+  },"17": {
     "doc": "İyi Pratikler",
     "title": "Ölçeklendirme",
     "content": ". | Yatak ölçeklendirme yapılandırıldı mı? | Dikey ölçeklendirme yapılandırıldı mı? | Küme ölçeklendirme yapılandırıldı mı? | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/best-practices.html#%C3%B6l%C3%A7eklendirme",
     "relUrl": "/docs/07-gorevler/best-practices.html#ölçeklendirme"
-  },"7": {
+  },"18": {
     "doc": "İyi Pratikler",
     "title": "Depolama Yönetimi",
     "content": ". | Kalıcı Birimler için Bulut sağlayıcısı tarafından önerilen ayarları kullanın. | PVC’yi yapılandırmaya dahil edin ve asla PV kullanmayın. | Varsayılan bir depolama sınıfı (StorageClas) oluşturun. | Kullanıcıya bir depolama sınıfı sağlayın. | Log döndürmeyi etkinleştirin. | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/best-practices.html#depolama-y%C3%B6netimi",
     "relUrl": "/docs/07-gorevler/best-practices.html#depolama-yönetimi"
-  },"8": {
+  },"19": {
     "doc": "İyi Pratikler",
     "title": "İzleme, Uyarı, Kayıt ve Analiz",
     "content": ". | İzleme hattı kuruldu mu? | İzlemek için ölçüm listeleri oluşturuldu mu? | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/best-practices.html#i%CC%87zleme-uyar%C4%B1-kay%C4%B1t-ve-analiz",
     "relUrl": "/docs/07-gorevler/best-practices.html#i̇zleme-uyarı-kayıt-ve-analiz"
-  },"9": {
+  },"20": {
     "doc": "İyi Pratikler",
     "title": "CI/CD",
     "content": ". | Sürekli Teslimat için Güvenli CI/CD hatları uygulayın | İzlenebilirliği artırmak için onay iş akışıyla GitOps’u etkinleştirin | Güvenlik açıklarını test edin, entegre edin ve tarayın | Konteyner imajları oluşturun ve kurumsal bir depoda tutun. | Denetlenebilirliği artırmak için imajları Git commit SHA ile etiketleyin | Kesinti süresini önlemek için rolling update ve/veya mavi-yeşil dağıtım modellerini benimseyin | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/best-practices.html#cicd",
     "relUrl": "/docs/07-gorevler/best-practices.html#cicd"
-  },"10": {
+  },"21": {
     "doc": "İyi Pratikler",
     "title": "Ek",
     "content": ". | Uçtan uca test (e2e test) yapıldı mı? | Dış servisleri kubernetes içinden erişilecek şekilde tasarladınız mı? | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/best-practices.html#ek",
     "relUrl": "/docs/07-gorevler/best-practices.html#ek"
-  },"11": {
+  },"22": {
     "doc": "İyi Pratikler",
     "title": "Kaynaklar",
     "content": ". | https://www.weave.works/blog/production-ready-checklist-kubernetes | https://www.weave.works/weave-kubernetes-platform-how-to-guide/ | https://learnk8s.io/production-best-practices | https://www.youtube.com/results?search_query=%23KubernetesBestPractices | https://www.ecloudcontrol.com/kubernetes-production-readiness-checklist/ | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/best-practices.html#kaynaklar",
     "relUrl": "/docs/07-gorevler/best-practices.html#kaynaklar"
-  },"12": {
-    "doc": "Bileşenler",
-    "title": "Bileşenler",
-    "content": "https://kubernetes.io/docs/concepts/overview/components/ . Kontrol düzlemi, veri düzlemi ve yönetim düzlemi, bilişim kaynaklarındaki iletişim mimarisinin üç temel bileşenidir. Kontrol düzlemi ve yönetim düzlemi, tüm ağın taşımak için var olduğu trafiği taşıyan veri düzlemine hizmet eder. Yönetimsel trafik taşıyan yönetim düzlemi, kontrol düzleminin bir alt kümesi olarak kabul edilir. Veri düzlemi asıl vereceğimiz hizmetin trafiğinin aktığı düzlemdir. ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/bilesen.html",
-    "relUrl": "/docs/01-mikroservis_giris/bilesen.html"
-  },"13": {
-    "doc": "Bileşenler",
-    "title": "Kontrol Düzlemi Bileşenleri",
-    "content": "kube-apiserver . Kubernetes cluster mekanizmasının ortasında yer almaktadır. Master sunucumuza gelen tüm REST request’lerin yönetilmesi bu araç üzerinden gerçekleştirilir. Tüm istekler bu servis tarafından kabul edilir ve doğrulanır, ayrıca etcd veritabanına yapılan tek bağlantı bu ajanla yapılır. Sonuç olarak cluster içerisindeki ana işlem yeridir diyebiliriz. API hizmeti verir. Gelen istekler doğrular.  Kimlik doğrulama, yetkilendirme ve erişim denetimi yapar. | Static pod olarak kurulur. | . /etc/kubernetes/manifests/kube-apiserver.yaml . etcd . https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/ . Kubernetes üzerinde gerçekleştirilen bütün konfigürasyon ve durumların tutulduğu yüksek hızlı (10000 istek/sn) high-available mod’da çalışabilen, dağıtık, tutarlı bir key-value store’dur. | Raft algoritmasıyla lider seçimi yapar. | Veriler bellekte durur, istenildiği zamanlar diske kalıcı olarak yazılabilir. | HTTP protokolü kullanır. | Tuttuğu değerler için zaman aşımları tanımlanabilmesine izin verir. | Kendi ayarlarına /config şeklinde HTTP protokolüyle erişilebilir. | . Key-Vaue Yapısı . | key-value çiftleri düz bir ikili anahtar düzleminde saklanır. | Bu anahtar uzayı sözlük gibi sıralanır. | Değerler değişmez (immutable) olarak tutulur. Varolan bir değerin değiştirilmesi istenirse eski değeri sürümleyerek korur ve yeni * değer oluşturur.  | Eski verileri silmek, sıkıştırma (compact) işlemiyle yapılır yoksa verilerin tüm sürümleri hep kalır. | . Dikkat edilmedi Gerekenler . | Etcd tek sayı üyelerden oluşan bir küme olarak çalıştırılır. | Etcd’ye yeterli kaynak verilmesi gerekir. Çok fazla cpu’ya ihtiyaç duymaz, canlı sistemlerde 8GB bellek ve ortalama bir disk genel * ihtiyaçlarını karşılar. | Kümenin performansı ve kararlılığı, ağa ve disk performansına duyarlıdır. Herhangi bir kaynak açlığı, zaman aşımına yol açarak kümenin kararsızlığına neden olabilir. Kararsız bir etcd, hiçbir liderin seçilmediğini gösterir. Bu tür koşullar altında, bir küme mevcut durumunda herhangi bir değişiklik yapamaz, bu da yeni podların oluşturulamaz. | Etcd kümelerini kararlı tutmak, Kubernetes kümelerinin kararlılığı için kritik öneme sahiptir. Bu nedenle, garantili kaynak gereksinimleri için özel makinelerde veya yalıtılmış ortamlarda etcd kümelerini çalıştırın. | Bağımsız docker container olarak kurulur. | . kube-controller-manager . Kuberneteste 2 durum vardır. Declarative olarak kubernetese söylenen ve gerçekten varolan durum. Temel olarak controller manager, kümenin durumunu API Server izleme özelliğiyle izler ve bildirildiğinde, geçerli durumu istenen duruma doğru hareket ettirmek için gerekli değişiklikleri yapar. /etc/kubernetes/manifests/kube-controller-manager.yaml . scheduler . Bir pod’un hangi node üzerinde çalışacağına karar verir , etiketlere göre podları nodlara dağıtır, kubelet’i tetikler ve ilgili pod ve içindeki konteyner çalıştırılır. Kısacası yeni bir pod oluşturulması isteğine karşı API server’ı izler.  . /etc/kubernetes/manifests/kube-scheduler.yaml . ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/bilesen.html#kontrol-d%C3%BCzlemi-bile%C5%9Fenleri",
-    "relUrl": "/docs/01-mikroservis_giris/bilesen.html#kontrol-düzlemi-bileşenleri"
-  },"14": {
-    "doc": "Bileşenler",
-    "title": "Düğüm Bileşenleri",
-    "content": "kubelet . Her bir kubernetes node’unda çalışan agent’tır. İlk işi bulunduğu node’u API Server’a Node resource olarak kayıt ederek Kubernetes tarafından görülmesini sağlamaktır. Bu işlemden sonra sürekli olarak API server’ı dinleyerek bulunduğu node’a herhangi bir Pod schedule edip edilmediğini kontrol eder. Schedule eden bir Pod varsa bulunduğu node üzerinde Pod’un içerisindeki tanımlanan container’ları çalıştırır. Buna ek olarak sürekli olarak node’da çalışan container’ların ayakta olup olmadığını kontrol ederek erişilebilir olmalarını sağlar. | Sistem servisi olarak çalışır. | ```sh systemctl cat kubelet | . /etc/kubernetes/kubelet.env . ## coredns kube-sytem nste deployment olarak kurulur. ### kube-proxy Service ve Endpoint objelerinin erişebilirliğini sağlamak için node üzerindeki network kurallarını ayarlar ve connection forwarding işlemini gerçekleştirir. Görevlerinden biri de Kubernetes Service’lere ve Pod'lara virtual IP atamasıdır. * daemonset olarak oluşur. ### CNI https://docs.projectcalico.org/reference/architecture/overview ##### calico kube-system altında calico-kube-controllers adında deployment olarak kurulur. calico-node olarak daemonset üretir. ```sh # önemli dizinler /opt/cni/bin/ . container-runtime . | sistem servisi olarak kurulur. | . https://www.inovex.de/de/blog/containers-docker-containerd-nabla-kata-firecracker/ https://thenewstack.io/a-security-comparison-of-docker-cri-o-and-containerd/ . ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/bilesen.html#d%C3%BC%C4%9F%C3%BCm-bile%C5%9Fenleri",
-    "relUrl": "/docs/01-mikroservis_giris/bilesen.html#düğüm-bileşenleri"
-  },"15": {
-    "doc": "Bileşenler",
-    "title": "Ek Özellikler",
-    "content": " ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/bilesen.html#ek-%C3%B6zellikler",
-    "relUrl": "/docs/01-mikroservis_giris/bilesen.html#ek-özellikler"
-  },"16": {
-    "doc": "Bileşenler",
-    "title": "coredns",
-    "content": " ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/bilesen.html#coredns",
-    "relUrl": "/docs/01-mikroservis_giris/bilesen.html#coredns"
-  },"17": {
-    "doc": "Bileşenler",
-    "title": "web ui",
-    "content": "https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/ # metrics-server . ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/bilesen.html#web-ui",
-    "relUrl": "/docs/01-mikroservis_giris/bilesen.html#web-ui"
-  },"18": {
-    "doc": "Bileşenler",
-    "title": "prometheus",
-    "content": " ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/bilesen.html#prometheus",
-    "relUrl": "/docs/01-mikroservis_giris/bilesen.html#prometheus"
-  },"19": {
-    "doc": "Bileşenler",
-    "title": "Küme Düzeyinde Loglama",
-    "content": "https://kubernetes.io/docs/concepts/cluster-administration/logging/ . ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/bilesen.html#k%C3%BCme-d%C3%BCzeyinde-loglama",
-    "relUrl": "/docs/01-mikroservis_giris/bilesen.html#küme-düzeyinde-loglama"
-  },"20": {
+  },"23": {
     "doc": "Canlılık ve Hazırlık",
     "title": "Canlılık ve Hazırlık",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/canlilik-hazirlik.html",
     "relUrl": "/docs/05-onemli-kavramlar/canlilik-hazirlik.html"
-  },"21": {
+  },"24": {
     "doc": "Canlılık ve Hazırlık",
     "title": "Liveness",
     "content": ". | Kubernetes’e uygulamanın canlı olup/olmadığının bilgisini verir. | Eğer Readiness Probe’u fail olursa kubernetes uygulamaya trafik yollamayı keser. | . ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/canlilik-hazirlik.html#liveness",
     "relUrl": "/docs/05-onemli-kavramlar/canlilik-hazirlik.html#liveness"
-  },"22": {
+  },"25": {
     "doc": "Canlılık ve Hazırlık",
     "title": "Readiness",
     "content": ". | Kubernetes’e uygulamanın ne zaman trafik almaya hazır olduğunun bilgisini verir. | Eğer uygulama sağlıksız ise kubernetes Pod’u siler ve Pod’un yerine yeni bir tane başlatır. | . ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/canlilik-hazirlik.html#readiness",
     "relUrl": "/docs/05-onemli-kavramlar/canlilik-hazirlik.html#readiness"
-  },"23": {
+  },"26": {
     "doc": "Canlılık ve Hazırlık",
     "title": "Startup",
     "content": ". | Herhangi bir sebeple yavaş ayağa kalkan Pod’ların başlama durumunu kontrol için Startup propları kullanılır. | Startup proplarının kontrol yaptığı sürede liveness ve readiness propları çalışmaz. | . Probe’lar konfigüre edilebilirdirler: . | initialDelaySeconds: Ne kadar süre sonra health check probe’u test edilmeye başlanacak. | periodSeconds: Ne kadar süre aralıklarıyla test için bu istekler iletilecek. | timeoutSeconds: Ne kadar süre isteğin cevabı beklenecek. | successThreshold: Kaç tane başarılı istekten sonra başarılı sayılacak. | failureThreshold: Kaç tane fail istekten sonra hatalı sayılacak. | . kubectl config set-context --current --namespace=myspace . Uygulamayı kur . kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-startup-live-ready.yml . Bekleyip duruma bakalım . kubectl describe deployment myboot ... Image: quay.io/rhdevelopers/myboot:v1 Port: 8080/TCP Host Port: 0/TCP Limits: cpu: 1 memory: 400Mi Requests: cpu: 250m memory: 300Mi Liveness: http-get http://:8080/ delay=10s timeout=2s period=5s #success=1 #failure=3 Readiness: http-get http://:8080/health delay=10s timeout=1s period=3s #success=1 #failure=3 ... Bozalım . kubectl exec -it &lt;podadı&gt; /bin/bash curl $ip:8080/misbehave kubectl get pod | grep myboot myboot-654df6dd8f-nps2t 0/1 Running 0 45m myboot-654df6dd8f-rmddr 1/1 Running 0 36m myboot-654df6dd8f-c6sk5 1/1 Running 0 36m kubectl get endpoints myboot -o json | jq '.subsets[].addresses[].ip' \"10.1.166.158\" \"10.1.166.159\" . yeni sürüm kuralım . kubectl set image deployment/myboot myboot=quay.io/rhdevelopers/myboot:v3 watch kubectl get pods NAME READY STATUS RESTARTS AGE myboot-56659c9d69-6sglj 1/1 Running 0 2m2s myboot-56659c9d69-mdllq 1/1 Running 0 97s myboot-56659c9d69-zjt6q 1/1 Running 0 72s . /shot endpointten erişiyoruz . curl localhost:8080/shot . ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/canlilik-hazirlik.html#startup",
     "relUrl": "/docs/05-onemli-kavramlar/canlilik-hazirlik.html#startup"
-  },"24": {
+  },"27": {
     "doc": "CKA Konuları",
     "title": "CKA Konuları",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html",
     "relUrl": "/docs/07-gorevler/cka.html"
-  },"25": {
+  },"28": {
     "doc": "CKA Konuları",
     "title": "Genel Bakış - Kubernetes ve bileşenlerine genel bakış",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#genel-bak%C4%B1%C5%9F---kubernetes-ve-bile%C5%9Fenlerine-genel-bak%C4%B1%C5%9F",
     "relUrl": "/docs/07-gorevler/cka.html#genel-bakış---kubernetes-ve-bileşenlerine-genel-bakış"
-  },"26": {
+  },"29": {
     "doc": "CKA Konuları",
     "title": "Küme Mimarisi - Kubernetes arkasındaki mimarisi yapı",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#k%C3%BCme-mimarisi---kubernetes-arkas%C4%B1ndaki-mimarisi-yap%C4%B1",
     "relUrl": "/docs/07-gorevler/cka.html#küme-mimarisi---kubernetes-arkasındaki-mimarisi-yapı"
-  },"27": {
+  },"30": {
     "doc": "CKA Konuları",
     "title": "Konteynerler - Genel konteyner mimarisi ve kubernetes konteyner ilişkisi",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#konteynerler---genel-konteyner-mimarisi-ve-kubernetes-konteyner-ili%C5%9Fkisi",
     "relUrl": "/docs/07-gorevler/cka.html#konteynerler---genel-konteyner-mimarisi-ve-kubernetes-konteyner-ilişkisi"
-  },"28": {
+  },"31": {
     "doc": "CKA Konuları",
     "title": "İş Yükleri - En küçük iş birimi podları ve onları çalıştırmak için gerekli yüksek seviye iş yüklerini anlamak",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#i%CC%87%C5%9F-y%C3%BCkleri---en-k%C3%BC%C3%A7%C3%BCk-i%C5%9F-birimi-podlar%C4%B1-ve-onlar%C4%B1-%C3%A7al%C4%B1%C5%9Ft%C4%B1rmak-i%C3%A7in-gerekli-y%C3%BCksek-seviye-i%C5%9F-y%C3%BCklerini-anlamak",
     "relUrl": "/docs/07-gorevler/cka.html#i̇ş-yükleri---en-küçük-iş-birimi-podları-ve-onları-çalıştırmak-için-gerekli-yüksek-seviye-iş-yüklerini-anlamak"
-  },"29": {
+  },"32": {
     "doc": "CKA Konuları",
     "title": "Servisler, Yük dengeleme ve Ağ - Kubernetes ağ mimarisi arkasındaki kavramların ve kaynaklar",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#servisler-y%C3%BCk-dengeleme-ve-a%C4%9F---kubernetes-a%C4%9F-mimarisi-arkas%C4%B1ndaki-kavramlar%C4%B1n-ve-kaynaklar",
     "relUrl": "/docs/07-gorevler/cka.html#servisler-yük-dengeleme-ve-ağ---kubernetes-ağ-mimarisi-arkasındaki-kavramların-ve-kaynaklar"
-  },"30": {
+  },"33": {
     "doc": "CKA Konuları",
     "title": "Depolama - Podlara uzun ve kısa dönemli depolama sağlamak",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#depolama---podlara-uzun-ve-k%C4%B1sa-d%C3%B6nemli-depolama-sa%C4%9Flamak",
     "relUrl": "/docs/07-gorevler/cka.html#depolama---podlara-uzun-ve-kısa-dönemli-depolama-sağlamak"
-  },"31": {
+  },"34": {
     "doc": "CKA Konuları",
     "title": "Güvenlik - Bulut-yerel iş yüklerini güvenli tutmak",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#g%C3%BCvenlik---bulut-yerel-i%C5%9F-y%C3%BCklerini-g%C3%BCvenli-tutmak",
     "relUrl": "/docs/07-gorevler/cka.html#güvenlik---bulut-yerel-iş-yüklerini-güvenli-tutmak"
-  },"32": {
+  },"35": {
     "doc": "CKA Konuları",
     "title": "İlkeler - Kaynak grupları için geçerli olacak şekilde yapılandırabileceğiniz ilkeler",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#i%CC%87lkeler---kaynak-gruplar%C4%B1-i%C3%A7in-ge%C3%A7erli-olacak-%C5%9Fekilde-yap%C4%B1land%C4%B1rabilece%C4%9Finiz-ilkeler",
     "relUrl": "/docs/07-gorevler/cka.html#i̇lkeler---kaynak-grupları-için-geçerli-olacak-şekilde-yapılandırabileceğiniz-ilkeler"
-  },"33": {
+  },"36": {
     "doc": "CKA Konuları",
     "title": "Planlama ve Tahliye - Planlama, podların kaynak ve ilkelere uygun nodlara eşleştirilmesi. Tahliye, kaynak sıkıntısı çeken nodlarda bir veya daha fazla podun proaktif olarak başarısız kabul edilip atılması süreci",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#planlama-ve-tahliye---planlama-podlar%C4%B1n-kaynak-ve-ilkelere-uygun-nodlara-e%C5%9Fle%C5%9Ftirilmesi-tahliye-kaynak-s%C4%B1k%C4%B1nt%C4%B1s%C4%B1-%C3%A7eken-nodlarda-bir-veya-daha-fazla-podun-proaktif-olarak-ba%C5%9Far%C4%B1s%C4%B1z-kabul-edilip-at%C4%B1lmas%C4%B1-s%C3%BCreci",
     "relUrl": "/docs/07-gorevler/cka.html#planlama-ve-tahliye---planlama-podların-kaynak-ve-ilkelere-uygun-nodlara-eşleştirilmesi-tahliye-kaynak-sıkıntısı-çeken-nodlarda-bir-veya-daha-fazla-podun-proaktif-olarak-başarısız-kabul-edilip-atılması-süreci"
-  },"34": {
+  },"37": {
     "doc": "CKA Konuları",
     "title": "Küme Yönetimi - Kubernetes kümesi oluşturma veya yönetmeyle ilgili daha detaylı düzeyde ayrıntı",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#k%C3%BCme-y%C3%B6netimi---kubernetes-k%C3%BCmesi-olu%C5%9Fturma-veya-y%C3%B6netmeyle-ilgili-daha-detayl%C4%B1-d%C3%BCzeyde-ayr%C4%B1nt%C4%B1",
     "relUrl": "/docs/07-gorevler/cka.html#küme-yönetimi---kubernetes-kümesi-oluşturma-veya-yönetmeyle-ilgili-daha-detaylı-düzeyde-ayrıntı"
-  },"35": {
+  },"38": {
     "doc": "CKA Konuları",
     "title": "Kubernetes’i genişletme - Kubernetes kümenizin davranışını değiştirmenin farklı yolları",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#kubernetesi-geni%C5%9Fletme---kubernetes-k%C3%BCmenizin-davran%C4%B1%C5%9F%C4%B1n%C4%B1-de%C4%9Fi%C5%9Ftirmenin-farkl%C4%B1-yollar%C4%B1",
     "relUrl": "/docs/07-gorevler/cka.html#kubernetesi-genişletme---kubernetes-kümenizin-davranışını-değiştirmenin-farklı-yolları"
-  },"36": {
+  },"39": {
     "doc": "CKA Konuları",
     "title": "Kaynaklar",
     "content": ". | https://github.com/cncf/curriculum | https://github.com/dgkanatsios/CKAD-exercises | https://github.com/bmuschko/cka-crash-course/tree/master/exercises | https://codeburst.io/kubernetes-ckad-weekly-challenges-overview-and-tips-7282b36a2681 | https://levelup.gitconnected.com/kubernetes-cka-example-questions-practical-challenge-86318d85b4d | handbook | tips | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/cka.html#kaynaklar",
     "relUrl": "/docs/07-gorevler/cka.html#kaynaklar"
-  },"37": {
-    "doc": "ConfigMaps",
-    "title": "configmap",
-    "content": "ConfigMap, uygulamanızın yapılandırmasını harici hale getirmenize izin veren Kubernetes kaynağıdır. | https://12factor.net/config | . Uygulamayı ve servisi kuralım . kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment.yml kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-service.yml . configure tanımına bakalım . curl $IP:$PORT/configure . çevresel değişkenleri elle girelim (amele yöntem) . kubectl set env deployment/myboot GREETING=\"namaste\" kubectl set env deployment/myboot LOVE=\"Aloha\" kubectl set env deployment/myboot DBCONN=\"jdbc:sqlserver://45.91.12.123:1443;user=MyUserName;password=*****;\" # podlar yeni çdleri almak için yeniden oluşacaklardır. NAME READY STATUS RESTARTS AGE myboot-66d7d57687-jsbz7 1/1 Terminating 0 5m myboot-785ff6bddc-ghwpc 1/1 Running 0 13s . yeni çdleri görebiliriz. kubectl describe deployment myboot ... Containers: myboot: Image: quay.io/burrsutter/myboot:v1 Port: 8080/TCP Host Port: 0/TCP Environment: GREETING: namaste LOVE: Aloha DBCONN: jdbc:sqlserver://45.91.12.123:1443;user=MyUserName;password=*****; Mounts: &lt;none&gt; Volumes: &lt;none&gt; ... çdleri kaldıralım . kubectl set env deployment/myboot GREETING- kubectl set env deployment/myboot LOVE- kubectl set env deployment/myboot DBCONN- . curl ile bakalım . curl $IP:$PORT/configure Configuration for : myboot-66d7d57687-xkgw6 databaseConn=Default msgBroker=Default greeting=Default love=Default . ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/configmaps.html#configmap",
-    "relUrl": "/docs/03-kaynaklar-temel/configmaps.html#configmap"
-  },"38": {
-    "doc": "ConfigMaps",
-    "title": "ConfigMap",
-    "content": "https://github.com/redhat-scholars/kubernetes-tutorial/blob/master/apps/config/some.properties . kubectl create cm my-config --from-env-file=apps/config/some.properties kubectl get cm kubectl get cm my-config kubectl get cm my-config -o json ... \"data\": { \"GREETING\": \"jambo\", \"LOVE\": \"Amour\" }, \"kind\": \"ConfigMap\", ... kubectl describe cm my-config Name: my-config Namespace: myspace Labels: &lt;none&gt; Annotations: &lt;none&gt; Data ==== GREETING: ==== jambo LOVE: ==== Amour Events: &lt;none&gt; . Bu configmap’i kullanan uygulamayı kuralım . kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-configuration.yml . İşe yaramış mı? . curl $IP:$PORT/configure Configuration for : myboot-84bfcff474-x6xnt databaseConn=Default msgBroker=Default greeting=jambo love=Amour . Başka bir configmap oluşturup ona geçiyoruz . kubectl delete cm my-config kubectl create cm my-config --from-env-file=apps/config/other.properties kubectl delete pod -l app=myboot curl $IP:$PORT/configure Configuration for : myboot-694954fc6d-nzdvx databaseConn=jdbc:sqlserver://123.123.123.123:1443;user=MyUserName;password=*****; msgBroker=tcp://localhost:61616?jms.useAsyncSend=true hello=Default love=Default . config map . apiVersion: v1 kind: ConfigMap metadata: name: game-demo data: # özellik tipi anahtarlar; her anahtar bir değeri adresler player_initial_lives: \"3\" ui_properties_file_name: \"user-interface.properties\" # # dosya tipi anahtarlar game.properties: | enemy.types=aliens,monsters player.maximum-lives=5 user-interface.properties: | color.good=purple color.bad=yellow allow.textmode=true . deployment . apiVersion: v1 kind: Pod metadata: name: configmap-demo-pod spec: containers: - name: demo image: game.example/demo-game env: # Bir ortam değişkeni tanımla - name: PLAYER_INITIAL_LIVES # burada isimlendirme büyük harf diğerinden farklı valueFrom: configMapKeyRef: name: game-demo # configmap adı key: player_initial_lives # değeri alacağı anahtar - name: UI_PROPERTIES_FILE_NAME valueFrom: configMapKeyRef: name: game-demo key: ui_properties_file_name volumeMounts: - name: config mountPath: \"/config\" readOnly: true volumes: # Önce pod seviyesinde dizini tanımlıyoruz ve yukarda container'ın içine bağlıyoruz. - name: config configMap: # Bağlayacağınız configMap'in adı name: game-demo # Dosya olarak oluşturacağımız ConfigMapteki anahtarlar dizini. items: - key: \"game.properties\" path: \"game.properties\" - key: \"user-interface.properties\" path: \"user-interface.properties\" . ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/configmaps.html#configmap-1",
-    "relUrl": "/docs/03-kaynaklar-temel/configmaps.html#configmap-1"
-  },"39": {
-    "doc": "ConfigMaps",
-    "title": "Configmapten script çalıştırma",
-    "content": "#!/bin/sh echo \"Hello from the script baked into the container\" echo \"Sleeping for eternity!\" sleep infinity . kubectl create configmap cf-echoscript from-file run.sh . Deployment . apiVersion: apps/v1 kind: Deployment metadata: name: echoscript labels: app: echoscript spec: replicas: 1 selector: matchLabels: app: echoscript template: metadata: labels: app: echoscript spec: containers: - name: echoscript image: busybox command: [\"/bin/sh\"] args: [\"/scripts-dir/run.sh\"] volumeMounts: - name: scripts-vol mountPath: /scripts-dir volumes: - name: scripts-vol configMap: name: cf-echoscript . kubectl apply -f echoscript-deployment.yaml . Referans https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/ . Temizlik . kubectl delete deployment myboot kubectl delete cm my-config kubectl delete service myboot . ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/configmaps.html#configmapten-script-%C3%A7al%C4%B1%C5%9Ft%C4%B1rma",
-    "relUrl": "/docs/03-kaynaklar-temel/configmaps.html#configmapten-script-çalıştırma"
   },"40": {
-    "doc": "ConfigMaps",
-    "title": "ConfigMaps",
-    "content": " ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/configmaps.html",
-    "relUrl": "/docs/03-kaynaklar-temel/configmaps.html"
-  },"41": {
     "doc": "Daemonsets",
     "title": "Daemonsets",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/daemonsets.html",
     "relUrl": "/docs/04-kaynaklar-diger/daemonsets.html"
-  },"42": {
+  },"41": {
     "doc": "Dashboard",
     "title": "Dashboard",
     "content": "Kullanılabilecek farklı tagler . Dashboard alternatif kurulum . Buradaki kurulum ile kurulur. Dışarıdan Erişim için Nodeport Tanımı . kubectl edit -n kube-system svc kubernetes-dashboard ... type: ClusterIP ... # =&gt; ... type: NodePort ... # aynı dosyada aşağıdaki satır altına yeni bir satır ekliyoruz... targetPort: 8443 ... #=&gt; ... targetPort: 8443 nodePort: 30333 ... Dashboard için admin kullanıcı oluşturma . Buradaki kurulum ile tam yetkili kullanıcı oluşturulur. apiVersion: v1 kind: ServiceAccount metadata: name: admin-user namespace: kubernetes-dashboard --- apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRoleBinding metadata: name: admin-user roleRef: apiGroup: rbac.authorization.k8s.io kind: ClusterRole name: cluster-admin subjects: - kind: ServiceAccount name: admin-user namespace: kubernetes-dashboard --- . dashboardta kullanılacak token . kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath=\"{.secrets[0].name}\") -o go-template=\"{{.data.token | base64decode}}\" . dashboard . ",
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/dashboard.html",
     "relUrl": "/docs/06-ek-araclar/dashboard.html"
+  },"42": {
+    "doc": "Domain Driven Design",
+    "title": "Domain Driven Design(İş alanı alt alanlara göre ayrıştırma (Decompose by subdomain):",
+    "content": "Domain Driven Design (DDD), bir yazılım projesinin karmaşık iş kurallarının ve problem alanlarının analizi ve modellemesi için bir yaklaşımdır. Bu yaklaşım, karmaşık iş süreçlerini ve bağlamlarını daha kolay anlamak için iş alanlarını (domain) öne çıkarır.Sonuç olarak, DDD, yazılım sistemlerinin karmaşık iş süreçlerine daha iyi uyum sağlamasına, müşteri ihtiyaçlarını karşılamasına ve daha modüler ve esnek hale gelmesine yardımcı olan bir yazılım tasarım yaklaşımıdır. DDD, temelde iki çeşide ayrılır: . | Strategic DDD: İş alanı tasarımının genel stratejisini belirleyen ve bir organizasyondaki tüm sınırlı bağlamlar arasındaki ilişkileri ele alan bir yaklaşımdır. Bu yaklaşım, sınırlı bağlamların belirlenmesi, iş alanı modellerinin ve kurallarının tanımlanması, bağlamsal arayüzlerin tasarlanması ve iş alanı servislerinin oluşturulması gibi konuları ele alır. | Tactical DDD: Belirli bir sınırlı bağlam içindeki nesne modellerinin ve sınıfların nasıl organize edileceğini ve bu modellerin birbiriyle nasıl etkileşeceğini tasarlamak için kullanılan bir yaklaşımdır. Taktik tasarım, bir iş alanındaki öğelerin (entity, value object, aggregate, repository vb.) nasıl düzenleneceğini, birbirleriyle nasıl etkileşimde bulunacaklarını ve hangi kurallara uyacaklarını belirlemekle ilgilidir. | . ",
+    "url": "http://localhost:4000/k8s-docs/docs/02-mikroservis_ayrismasi/domain_driven_design.html#domain-driven-designi%CC%87%C5%9F-alan%C4%B1-alt-alanlara-g%C3%B6re-ayr%C4%B1%C5%9Ft%C4%B1rma-decompose-by-subdomain",
+    "relUrl": "/docs/02-mikroservis_ayrismasi/domain_driven_design.html#domain-driven-designi̇ş-alanı-alt-alanlara-göre-ayrıştırma-decompose-by-subdomain"
   },"43": {
-    "doc": "Docker",
-    "title": "Konteynerler",
-    "content": "devops mimarisi docker işlemesi . ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/docker.html#konteynerler",
-    "relUrl": "/docs/01-mikroservis_giris/docker.html#konteynerler"
+    "doc": "Domain Driven Design",
+    "title": "1. Strategic DDD",
+    "content": "Domain Expert : İşin uzmanı ve yazılımın geliştirilmesi için gerekli tüm teorik bilgilere sahiptir. Ubiquitous Language : Domain expert arasındaki ortak iletişimi sağlamakta, sağlanması gerektiğini ifade etmektedir. Domain expert’ler, alanlarına dair her ne kadar derin ve yeterli bilgiye sahip olsalar da yazılım geliştirme hakkında hiçbir şey bilmiyor olabilirler. Aynı şey yukarıda gördüğümüz gibi bir yazılım geliştirici için de geçerli olabilir ve çalışılacak alana dair herhangi bir bilgi söz konusu olmayabilir. İşte böyle bir durumda DDD yazılım geliştiricisi ile domain expert’ler arasında her iki tarafında rahat anlaşabilmesi için ortak dil bulunmasını önermektedir. Ubiquitous language’in önerdiği ortak dilin geliştirilmesi ister istemez domain model’e yansıyacaktır. Çünkü domain model, yapılacak işin omurgasıdır. Haliyle otomatik olarak bu ortak dil koda yansımış olacaktır. Zaten ortak dil kullanmanın en büyük avantajı bu dilin tekrarlı kullanımında dilin zayıf yönlerini belirlememizi sağlamasıdır. Bu durumda domain model hızlı bir şekilde düzeltme yapabilmemizi sağlayacak ve böylece ortak dilde bir şey değişirse bu domain model aracılığıyla doğrudan kod üzerinde de değişikliğe sebebiyet vermiş olacaktır. Bounded Context : Bounded Context, birbirlerinden ayrılmış ve sınırları belirlenmiş yapılanmalardır. Esasında bu içeriğimizin başlangıç paragrafında belirtilen alt kırılımlardaki her bir ana kırılım bir Bounded Context’e karşılık gelmektedir. Bounded Context’leri mikro servis mimarilerdeki her bir servise karşılık gelen projeler/microservis olarak da düşenebilirsiniz. Context Mapping: Bounded context’lerin kendi aralarındaki iletişim mimarisine dayalı birbirleriyle olan kesişim noktalarını izah edebilmeye context mapping denmektedir. Yani bir başka deyişle context mapping, bounded context’ler ile bunlardan sorumlu ekipler arasındaki ilişkiyi belirlemenize olanak sağlayan araçtır. Buna bir örnek vermemiz gerekirse eğer; siparişler tablosunda(bounded context) müşteri numarasının olması amma velakin müşteri tablosunda(bounded context) siparişe dair herhangi birşeyin olmaması yani bu sınırların ayarlanması bir Context Mapping’dir. ",
+    "url": "http://localhost:4000/k8s-docs/docs/02-mikroservis_ayrismasi/domain_driven_design.html#1-strategic-ddd",
+    "relUrl": "/docs/02-mikroservis_ayrismasi/domain_driven_design.html#1-strategic-ddd"
   },"44": {
-    "doc": "Docker",
-    "title": "Önemli Kavramlar",
-    "content": "Imajlar . imaj katmanları imaj katmanları 2 . Konteynerler . Kayıt Depoları (registries) . ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/docker.html#%C3%B6nemli-kavramlar",
-    "relUrl": "/docs/01-mikroservis_giris/docker.html#önemli-kavramlar"
+    "doc": "Domain Driven Design",
+    "title": "2. Tactical DDD",
+    "content": "Entity: Bir varlığı temsil eden bir nesne, örneğin bir müşteri veya bir sipariş. Value Object: Değer nesneleri, bir kimlik veya özellik kümesi ile tanımlanabilen, ancak kendilerinin bir benzersiz kimliği olmayan nesnelerdir. Örneğin, bir tarih aralığı veya bir para birimi değeri. Aggregate: Bir dizi ilişkili varlığı birleştiren bir grup. Aggregate, bir işlem sırasında birbirleriyle bütünleşik olarak değiştirilebilir. Repository: Varlıkların ve agregatların kalıcı saklama yerlerini temsil eden bir arayüz. Service: Bir işlevi gerçekleştiren bir iş mantığı parçasıdır. Örneğin, bir ödeme işlemi gerçekleştirmek veya bir envanter güncellemesi yapmak için bir hizmet kullanılabilir. Factory: Nesneleri yaratmak için kullanılan bir yöntemdir. Örneğin, bir müşteri nesnesi oluşturmak için bir müşteri fabrikası kullanılabilir. Domain Event: Bir uygulamada gerçekleşen bir olayı temsil eden bir nesnedir. Örneğin, bir siparişin tamamlandığı bir olaya sahip olmak mümkündür. Eric Evans’a göre domain model: Domain Model, belirli bir diyagram değildir! Diyagramın iletmeyi amaçladığı fikirdir. Ve bu sadece alan uzmanının kafasındaki bilgi değil, bu bilginin titiz bir şekilde organize edilmiş bir soyutlamasıdır. ",
+    "url": "http://localhost:4000/k8s-docs/docs/02-mikroservis_ayrismasi/domain_driven_design.html#2-tactical-ddd",
+    "relUrl": "/docs/02-mikroservis_ayrismasi/domain_driven_design.html#2-tactical-ddd"
   },"45": {
-    "doc": "Docker",
-    "title": "İstemci Kullanımı",
-    "content": "docker run -d docker run -it docker exec docker rmi docker ps command docker container name docker inspect command . İmaj üretme yöntemleri . Aktif imajı kaydetmek . docker commit . Dockerfile . Her komut satırı bir katman üretir. docker build -t imaj-adı &lt;path&gt; docker push . Örnek Dockerfile . ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/docker.html#i%CC%87stemci-kullan%C4%B1m%C4%B1",
-    "relUrl": "/docs/01-mikroservis_giris/docker.html#i̇stemci-kullanımı"
-  },"46": {
-    "doc": "Docker",
-    "title": "Docker",
+    "doc": "Domain Driven Design",
+    "title": "Domain Driven Design",
     "content": " ",
-    "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/docker.html",
-    "relUrl": "/docs/01-mikroservis_giris/docker.html"
+    "url": "http://localhost:4000/k8s-docs/docs/02-mikroservis_ayrismasi/domain_driven_design.html",
+    "relUrl": "/docs/02-mikroservis_ayrismasi/domain_driven_design.html"
+  },"46": {
+    "doc": "Event -Driven Architecture",
+    "title": "Event -Driven Architecture",
+    "content": ". Senkron: Synchronous communication (senkron iletişim), bir veri alışverişi işleminin iki taraf arasında gerçek zamanlı olarak gerçekleştirildiği bir iletişim yöntemidir. İki taraf arasında belirli bir sırayla ve zamanlama ile bilgi alışverişi yapılır.Bu iletişim yönteminde, veri gönderen taraf, veriyi göndermeden önce veri alıcı tarafın hazır olduğunu doğrulamak için bekler. Veri alıcı taraf, veri gönderen tarafın işlemi tamamlamasını bekler ve ardından yanıt verir. Senkron iletişimde, veri gönderme işlemi tamamlanmadan önce veri alışverişi tamamlanmaz. Senkron iletişimde, veri alışverişi işleminin bir tarafından kaynaklanan bir gecikme, diğer taraftaki işlemi geciktirebilir. Bu nedenle, yüksek trafikli uygulamalarda senkron iletişim yerine, asenkron iletişim tercih edilmelidir. Asenkron: Veri alışverişinde gerçek zamanlı olmayan bir iletişim yöntemidir.Asenkron mesaj bize scability,reciliency ve High availability sağlar. Event-driven architecture (EDA): Etkinlik temelli mimari anlamına gelir. Bu mimari, bir sistemdeki bileşenlerin birbirleriyle iletişim kurmasını ve işlemlerini olaylara (event) yanıt olarak gerçekleştirmesini sağlar.EDA, birçok farklı bileşenin etkileşim içinde olduğu karmaşık sistemlerde kullanılır. Bu bileşenler, birbirleriyle doğrudan iletişim kurmak yerine, bir aracı olarak hareket eden bir olay akışı (event stream) üzerinden iletişim kurarlar. Bu sayede, bir bileşenin diğer bir bileşenin durumunu sürekli olarak takip etmesi yerine, olayların oluşması durumunda olay akışından gelen bilgiyi kullanarak ilgili işlemi gerçekleştirir. | Publish/Subscribe Pattern: Bu pattern, bir veya daha fazla kaynaktan gelen olayları dinleyen ve olayların işlenmesi için bir veya daha fazla tüketicinin kaydolduğu bir yayın kanalı kullanır. Bu sayede kaynaklar ve tüketiciler arasındaki bağımlılık azaltılarak uygulamanın ölçeklenebilirliği artırılır. | Event Sourcing Pattern: Bu pattern, uygulamanın durumunu ve önceki işlemlerini takip etmek için olayların kaydedilmesini kullanır. Bu şekilde uygulamanın mevcut durumu, geçmiş olayların birleştirilmesiyle elde edilir. Bu pattern, uygulamaların ölçeklenebilirliğini artırır ve aynı zamanda kaynakların anlık durumunu kaydetme konusunda daha esnek olmalarına olanak tanır. | CQRS (Command Query Responsibility Segregation) Pattern: Bu pattern, okuma işlemlerinin yazma işlemlerinden ayrılmasını ve bunların farklı uygulama katmanlarında ele alınmasını sağlar. Bu, uygulamaların ölçeklenebilirliğini artırır ve aynı zamanda farklı işlemlere farklı hizmet düzeyleri sunmalarına olanak tanır. | Sagas Pattern: Bu pattern, uzun ömürlü ve karmaşık iş akışlarına sahip uygulamalar için kullanılır. Bu pattern, iş akışındaki her adımda bir olayın tetiklenmesi ve bir sonraki adımda hangi işlemin gerçekleştirileceğine karar verilmesiyle çalışır. Bu, uygulamaların daha karmaşık senaryolarda çalışmasına olanak tanır. | . ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/event_driven.html",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/event_driven.html"
   },"47": {
+    "doc": "Event -Driven Architecture",
+    "title": "Publish/Subscribe Pattern",
+    "content": "Servisler arası haberleşmenin event mesajlar üzerinden asenkron şekilde yapılmasını sağlamaktadır. FIFO(first in first out) ilk giren ilk çıkacak şekildedir Publisher mesajları üretip gönderirken Subscribers ise mesajı tüketmek ile sorumludur. ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/event_driven.html#publishsubscribe-pattern",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/event_driven.html#publishsubscribe-pattern"
+  },"48": {
     "doc": "Güvenlik",
     "title": "güvenlik",
     "content": "Kaynaklar . | https://snyk.io/wp-content/uploads/10-best-practices-to-containerize-Java-applications-with-Docker.pdf | https://snyk.io/blog/docker-for-java-developers/ | https://www.tutorialworks.com/docker-java-best-practices/ | https://akobor.me/posts/heap-size-and-resource-limits-in-kubernetes-for-jvm-applications (kaynaklar ve xms açısından yaklaşmış) | https://medium.com/marionete/managing-java-heap-size-in-kubernetes-3807159e2438 | https://developers.redhat.com/blog/2020/05/11/top-10-must-know-kubernetes-design-patterns | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/guvenlik.html#g%C3%BCvenlik",
     "relUrl": "/docs/07-gorevler/guvenlik.html#güvenlik"
-  },"48": {
+  },"49": {
     "doc": "Güvenlik",
     "title": "Güvenlik",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/guvenlik.html",
     "relUrl": "/docs/07-gorevler/guvenlik.html"
-  },"49": {
+  },"50": {
     "doc": "Helm",
     "title": "helm",
     "content": "Bir k8s uygulama kümesinin (deployment, service, configmap, secrets, ingress … birlikte) kolayca yönetilebilmesi ve bir bütün olarak taşınabilmesi için üretilmiş bir yapılandırma paket yönetimidir. # Script olarak kurulum, istenirse dağıtımların depolarından da kurulabilir. curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash helm version --short . helm repo add stable https://kubernetes-charts.storage.googleapis.com/ # helm aktif durumunu çevresel değişken olarak saklar. helm env . Helm komutu varsayılan olarak kubectl yapılandırmasını kullanır. # helm repoları görelim. helm repo list # redis hub sunan helm chars listesi helm search hub redis # redis sunan repositoryler. helm search repo redis # redis chart tanımı helm show chart stable/redis # redis readme dosyası helm show readme stable/redis helm install &lt;kurulum_adi&gt; stable/postgresql . Helm ile kendi chartlarımızı oluşturmak . Bir chart, values.yaml dosyası içerisinde tanımlanmış değerler için bir templateler bütünüdür. Bu dosyaya değerler atanarak templateler güncellenir. helm create ilk-app . Bunun sonucunda aşağıdaki dizin oluşur ve tüm olası template alanları oluşturulur. tree ilk-app ilk-app ├── charts ├── Chart.yaml ├── templates │ ├── deployment.yaml │ ├── _helpers.tpl │ ├── hpa.yaml │ ├── ingress.yaml │ ├── NOTES.txt │ ├── serviceaccount.yaml │ ├── service.yaml │ └── tests │ └── test-connection.yaml └── values.yaml 3 directories, 10 files . cat ilk-app/Chart.yaml | grep -v \"^#\" apiVersion: v2 name: ilk-app description: A Helm chart for Kubernetes type: application version: 0.1.0 appVersion: 1.16.0 . spec: replicas: {{ .Values.replicaCount }} #values.yaml içerisinde tanımlanır. replicaCount: 3 . Ayrıca komut satırın bu değer aşağıdaki gibi de girilebilir... --set replicaCount=3 . values.yaml dosyasında neler var görmek için . #helm char dizininde helm inspect values . # Birden çok values dosyası kullanabilirsiniz. Sonra gelen önceliklidir. helm install -f myvalues.yaml -f override.yaml myredis ./redis . Kaynaklar . | https://helm.sh/ | https://helm.sh/docs/chart_best_practices/ | https://www.youtube.com/watch?v=3GPpm2nZb2s | . ",
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/helm.html#helm",
     "relUrl": "/docs/06-ek-araclar/helm.html#helm"
-  },"50": {
+  },"51": {
     "doc": "Helm",
     "title": "Helm",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/helm.html",
     "relUrl": "/docs/06-ek-araclar/helm.html"
-  },"51": {
+  },"52": {
     "doc": "Yatay Pod Ölçekleme",
     "title": "hpa",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/hpa.html#hpa",
     "relUrl": "/docs/04-kaynaklar-diger/hpa.html#hpa"
-  },"52": {
+  },"53": {
     "doc": "Yatay Pod Ölçekleme",
     "title": "Yatay Pod Ölçekleme",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/hpa.html",
     "relUrl": "/docs/04-kaynaklar-diger/hpa.html"
-  },"53": {
+  },"54": {
     "doc": "Görevler",
     "title": "Görevler",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/",
     "relUrl": "/docs/07-gorevler/"
-  },"54": {
+  },"55": {
     "doc": "Diğer Kaynaklar",
     "title": "Diğer Kaynaklar",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/",
     "relUrl": "/docs/04-kaynaklar-diger/"
-  },"55": {
-    "doc": "Temel Kaynaklar",
-    "title": "Temel Kaynaklar",
-    "content": " ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/",
-    "relUrl": "/docs/03-kaynaklar-temel/"
   },"56": {
     "doc": "Ek Araçlar",
     "title": "Ek Araçlar",
@@ -341,432 +341,384 @@
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/",
     "relUrl": "/docs/06-ek-araclar/"
   },"57": {
-    "doc": "Kurulum",
-    "title": "Kurulum",
-    "content": " ",
-    "url": "http://localhost:4000/k8s-docs/docs/02-kurulum/",
-    "relUrl": "/docs/02-kurulum/"
-  },"58": {
     "doc": "Mikroservis Giriş",
     "title": "Mikroservis Giriş",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/",
     "relUrl": "/docs/01-mikroservis_giris/"
+  },"58": {
+    "doc": "Mikroservislerde haberleşme",
+    "title": "Mikroservislerde haberleşme",
+    "content": " ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/"
   },"59": {
+    "doc": "Mikroservis Ayrışması",
+    "title": "Mikroservis Ayrışması",
+    "content": " ",
+    "url": "http://localhost:4000/k8s-docs/docs/02-mikroservis_ayrismasi/",
+    "relUrl": "/docs/02-mikroservis_ayrismasi/"
+  },"60": {
     "doc": "Önemli Kaynaklar",
     "title": "Önemli Kaynaklar",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/",
     "relUrl": "/docs/05-onemli-kavramlar/"
-  },"60": {
+  },"61": {
     "doc": "Ana Sayfa",
     "title": "Mikroservis Eğitimi",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/#mikroservis-e%C4%9Fitimi",
     "relUrl": "/#mikroservis-eğitimi"
-  },"61": {
+  },"62": {
     "doc": "Ana Sayfa",
     "title": "1.Mikroservise Giriş",
     "content": ". | Monolitik uygulama analizi (Three tier) | Mikroservis çözümü | Miniservis çözümü | . ",
     "url": "http://localhost:4000/k8s-docs/#1mikroservise-giri%C5%9F",
     "relUrl": "/#1mikroservise-giriş"
-  },"62": {
+  },"63": {
     "doc": "Ana Sayfa",
     "title": "2.Mikroservis Ayrışması",
-    "content": ". | Domain Driven Design Yaklaşımı | İş kabiliyetlerine göre ayrıştırma (Decompose by business capability) | İş alanı alt alanlara göre ayrıştırma (Decompose by subdomain): | Monolitik uygulamadan geçiş (Decompose By Strangler) | . ",
+    "content": ". | İş kabiliyetlerine göre ayrıştırma (Decompose by business capability) | İş alanı alt alanlara göre ayrıştırma (Decompose by subdomain): | Monolitik uygulamadan geçiş (Decompose By Strangler) | . ",
     "url": "http://localhost:4000/k8s-docs/#2mikroservis-ayr%C4%B1%C5%9Fmas%C4%B1",
     "relUrl": "/#2mikroservis-ayrışması"
-  },"63": {
+  },"64": {
     "doc": "Ana Sayfa",
     "title": "3.Mikroservis Haberleşme",
     "content": ". | Event -Driven Architecture | RabbitMQ ve Apache Kafka | ApiGateway Pattern | . ",
     "url": "http://localhost:4000/k8s-docs/#3mikroservis-haberle%C5%9Fme",
     "relUrl": "/#3mikroservis-haberleşme"
-  },"64": {
+  },"65": {
     "doc": "Ana Sayfa",
     "title": "4.Mikroservislerde Veri yönetimi",
     "content": ". | Database per service | Shared Database per Service | Referans veri yönetimi | . ",
     "url": "http://localhost:4000/k8s-docs/#4mikroservislerde-veri-y%C3%B6netimi",
     "relUrl": "/#4mikroservislerde-veri-yönetimi"
-  },"65": {
+  },"66": {
     "doc": "Ana Sayfa",
     "title": "5.Mikroservis İzleme",
     "content": ". | Health Check | Log Aggregation | Distrubuted Tracing | . ",
     "url": "http://localhost:4000/k8s-docs/#5mikroservis-i%CC%87zleme",
     "relUrl": "/#5mikroservis-i̇zleme"
-  },"66": {
+  },"67": {
     "doc": "Ana Sayfa",
     "title": "6. Mikroservis Güvenlik",
     "content": ". | Oauth2 Protokolleri | Session yönetimi | . ",
     "url": "http://localhost:4000/k8s-docs/#6-mikroservis-g%C3%BCvenlik",
     "relUrl": "/#6-mikroservis-güvenlik"
-  },"67": {
+  },"68": {
     "doc": "Ana Sayfa",
     "title": "7. Mikroservisler Test süreci",
     "content": ". | Tüketici odaklı sözleşme testi(Consumer-driven contract test) | Tüketici tarafı sözleşme testi(Consumer-side contract test) | . ",
     "url": "http://localhost:4000/k8s-docs/#7-mikroservisler-test-s%C3%BCreci",
     "relUrl": "/#7-mikroservisler-test-süreci"
-  },"68": {
+  },"69": {
     "doc": "Ana Sayfa",
     "title": "8. Mikroservis kullanılan tasarımlar",
     "content": ". | Saga (Orchestration-Caleography) | CQRS (Command Query Responsibility Segregation) | . ",
     "url": "http://localhost:4000/k8s-docs/#8-mikroservis-kullan%C4%B1lan-tasar%C4%B1mlar",
     "relUrl": "/#8-mikroservis-kullanılan-tasarımlar"
-  },"69": {
+  },"70": {
     "doc": "Ana Sayfa",
     "title": "9. Demo Proje",
     "content": ". | Saga pattern ile ilgili Spring Boot projesi | . ",
     "url": "http://localhost:4000/k8s-docs/#9-demo-proje",
     "relUrl": "/#9-demo-proje"
-  },"70": {
+  },"71": {
     "doc": "Ana Sayfa",
     "title": "10. Günümüzde Mikroservis yapıları",
     "content": ". | Yazılım Dilleri | Kullanılan diğer araçlar | Tasarım Örnekleri | . ",
     "url": "http://localhost:4000/k8s-docs/#10-g%C3%BCn%C3%BCm%C3%BCzde-mikroservis-yap%C4%B1lar%C4%B1",
     "relUrl": "/#10-günümüzde-mikroservis-yapıları"
-  },"71": {
+  },"72": {
     "doc": "Ana Sayfa",
     "title": "Ana Sayfa",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/",
     "relUrl": "/"
-  },"72": {
+  },"73": {
     "doc": "Ingress",
     "title": "ingress",
     "content": "Ingress için, L7 (özellikle http protokolü) yeteneği olan service diyebiliriz. Ingress özelliği, bir ingress controller(IC) kaynağına ihtiyaç duyar. Kubernetes’e IC’yi başka bir sağlayıcıdan kurmamız gerkeir. En popüler olanı ingress nginx controller’dır. kubectl apply -f https://gist.github.com/rockcyj/a298fafad969e5ca8e77c3e66fa815fe/raw/57254e34049c963cf83a4619b0d2fb6d5b21b24f/ingress-nginx-controller-1.yaml . kind: Ingress apiVersion: extensions/v1beta1 metadata: name: dashboard-ingress namespace: kube-system annotations: kubernetes.io/ingress.class: nginx nginx.ingress.kubernetes.io/backend-protocol: HTTPS nginx.ingress.kubernetes.io/ssl-passthrough: 'true' nginx.ingress.kubernetes.io/ssl-redirect: 'true' spec: rules: - host: dashboard.mylocal http: paths: - path: / pathType: Prefix backend: serviceName: kubernetes-dashboard servicePort: 443 . kind: Ingress apiVersion: extensions/v1beta1 metadata: name: grafana-ingress namespace: monitoring annotations: kubernetes.io/ingress.class: nginx spec: rules: - host: grafana.mylocal http: paths: - path: / pathType: Prefix backend: serviceName: loki-stack-grafana servicePort: 80 . https://redhat-scholars.github.io/kubernetes-tutorial/kubernetes-tutorial/ingress.html . | ingress yaml dosyaları https://github.com/redhat-scholars/kubernetes-tutorial/tree/master/apps/kubefiles | . ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/ingress.html#ingress",
     "relUrl": "/docs/04-kaynaklar-diger/ingress.html#ingress"
-  },"73": {
+  },"74": {
     "doc": "Ingress",
     "title": "Ingress",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/ingress.html",
     "relUrl": "/docs/04-kaynaklar-diger/ingress.html"
-  },"74": {
+  },"75": {
+    "doc": "Decompose by business capability",
+    "title": "İş kabiliyetlerine göre ayrıştırma (Decompose by business capability)",
+    "content": "İşin organik yapılanmasına görür ve ona göre ayrıştırma yapılır (işin çözdüğü, ya da yaptığı alanlara göre). İş kabiliyetleri, organizasyonun amacı, yapısı, iş süreçleri ve uzmanlık alanları göz önünde bulundurularak tespit edilebilir. Buradan da organizasyonun yapısı ortaya çıkar. Örneğin İnsan Kaynakları, Satış bölümleri, iş kabiliyeti sayılır. Eğer bu yapıyı örnek alarak uygulamanın mikroservis mimarisi ayrıştırılırsa “iş kabiliyeti”ne göre ayrıştırma gerçekleşmiş olur. ",
+    "url": "http://localhost:4000/k8s-docs/docs/02-mikroservis_ayrismasi/iskabiliyetlerinegore.html#i%CC%87%C5%9F-kabiliyetlerine-g%C3%B6re-ayr%C4%B1%C5%9Ft%C4%B1rma-decompose-by-business-capability",
+    "relUrl": "/docs/02-mikroservis_ayrismasi/iskabiliyetlerinegore.html#i̇ş-kabiliyetlerine-göre-ayrıştırma-decompose-by-business-capability"
+  },"76": {
+    "doc": "Decompose by business capability",
+    "title": "Decompose by business capability",
+    "content": " ",
+    "url": "http://localhost:4000/k8s-docs/docs/02-mikroservis_ayrismasi/iskabiliyetlerinegore.html",
+    "relUrl": "/docs/02-mikroservis_ayrismasi/iskabiliyetlerinegore.html"
+  },"77": {
     "doc": "Jobs & Cronjobs",
     "title": "Jobs &amp; Cronjobs",
     "content": "https://redhat-scholars.github.io/kubernetes-tutorial/kubernetes-tutorial/jobs-cronjobs.html . apiVersion: batch/v1beta1 kind: CronJob metadata: name: whale-say-cronjob spec: schedule: \"*/1 * * * *\" jobTemplate: spec: template: spec: containers: - name: whale-say-container image: docker/whalesay command: [\"cowsay\",\"Hello DevNation\"] restartPolicy: Never . ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/jobs-cronjobs.html#jobs--cronjobs",
     "relUrl": "/docs/04-kaynaklar-diger/jobs-cronjobs.html#jobs--cronjobs"
-  },"75": {
+  },"78": {
     "doc": "Jobs & Cronjobs",
     "title": "Jobs & Cronjobs",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/jobs-cronjobs.html",
     "relUrl": "/docs/04-kaynaklar-diger/jobs-cronjobs.html"
-  },"76": {
+  },"79": {
     "doc": "Kaynaklar ve Limitler",
     "title": "Kaynaklar ve Limitler",
     "content": "kubectl config set-context --current --namespace=myspace kubectl get all No resources found in myspace namespace. https://github.com/edib/kubernetes/blob/master/yamls/7-pod-quota-mem-exceed.yaml https://github.com/edib/kubernetes/blob/master/yamls/7-pod-quota-mem.yaml https://github.com/edib/kubernetes/blob/master/yamls/7-quota-count.yaml https://github.com/edib/kubernetes/blob/master/yamls/7-quota-limitrange.yaml https://github.com/edib/kubernetes/blob/master/yamls/7-quota-mem.yaml . Uygulamamızı kuruyoruz. kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment.yml . Podun detaylarına bakalım. PODNAME=$(kubectl get pod -l app=myboot -o name) kubectl describe $PODNAME Name: myboot-7cbfbd9b89-7q97b Namespace: funstuff Priority: 0 Node: node1/10.0.0.246 Start Time: Mon, 04 Oct 2021 09:28:36 +0000 Labels: app=myboot pod-template-hash=7cbfbd9b89 Annotations: cni.projectcalico.org/podIP: 10.1.166.154/32 cni.projectcalico.org/podIPs: 10.1.166.154/32 Status: Running IP: 10.1.166.154 IPs: IP: 10.1.166.154 Controlled By: ReplicaSet/myboot-7cbfbd9b89 Containers: myboot: Container ID: containerd://c8fdbebe0b0a4169f5c7cd630beb5028604e473e38ea1473ca117c697a3e13e8 Image: quay.io/rhdevelopers/myboot:v1 Image ID: quay.io/rhdevelopers/myboot@sha256:ea9a142b694725fc7624cda0d7cf5484d7b28239dd3f1c768be16fc3eb7f1bd0 Port: 8080/TCP Host Port: 0/TCP State: Running Started: Mon, 04 Oct 2021 09:29:36 +0000 Ready: True Restart Count: 0 Environment: &lt;none&gt; Mounts: /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-rhdmf (ro) Conditions: Type Status Initialized True Ready True ContainersReady True PodScheduled True Volumes: kube-api-access-rhdmf: Type: Projected (a volume that contains injected data from multiple sources) TokenExpirationSeconds: 3607 ConfigMapName: kube-root-ca.crt ConfigMapOptional: &lt;nil&gt; DownwardAPI: true QoS Class: BestEffort Node-Selectors: &lt;none&gt; Tolerations: node.kubernetes.io/not-ready:NoExecute op=Exists for 300s node.kubernetes.io/unreachable:NoExecute op=Exists for 300s Events: Type Reason Age From Message ---- ------ ---- ---- ------- Normal Scheduled 4m34s default-scheduler Successfully assigned funstuff/myboot-7cbfbd9b89-7q97b to node1 Normal Pulling 4m33s kubelet Pulling image \"quay.io/rhdevelopers/myboot:v1\" Normal Pulled 3m35s kubelet Successfully pulled image \"quay.io/rhdevelopers/myboot:v1\" in 58.347827289s Normal Created 3m34s kubelet Created container myboot Normal Started 3m34s kubelet Started container myboot . Ayağa kalktı. Siliyoruz. kubectl delete deployment myboot . Kaynak tanımları olanı kuruyoruz. kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-resources.yml . Podun durumuna bakalım. kubectl get pods NAME READY STATUS RESTARTS AGE myboot-7b7d754c86-kjwlr 0/1 Pending 0 19s . Daha fazla bilgi almak istiyorsak . kubectl get events --sort-by=.metadata.creationTimestamp &lt;unknown&gt; Warning FailedScheduling pod/myboot-7b7d754c86-kjwlr 0/6 nodes are available: 6 Insufficient cpu. &lt;unknown&gt; Warning FailedScheduling pod/myboot-7b7d754c86-kjwlr 0/6 nodes are available: 6 Insufficient cpu. Kaynaklarda belirtilen kadar İşlemci ve bellek yoksa uygulama ayağa kalkmaz. pod açıklamalarından da aynı bilgilere erişebilirsiniz. PODNAME=$(kubectl get pod -l app=myboot -o name) kubectl describe $PODNAME . Uygulamamızı siliyoruz. kubectl delete -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-resources.yml . Limitleri olan başka bir uygulama kuruyoruz. kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-resources-limits.yml . İnceleyelim ve ayakta olduğunu görelim. PODNAME=$(kubectl get pod -l app=myboot -o name) kubectl describe $PODNAME . Servisini kuralım. kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-service.yml . curl ile test edelim. # ip ve portu öğreniyoruz. kubectl get svc myboot NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE myboot LoadBalancer 10.152.183.11 &lt;pending&gt; 8080:32299/TCP 6h38m while true do curl $IP:$PORT sleep .3 done . Referanslar https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/ https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ . ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/kaynaklar-limitler.html",
     "relUrl": "/docs/04-kaynaklar-diger/kaynaklar-limitler.html"
-  },"77": {
+  },"80": {
     "doc": "kubeadm",
     "title": "kubeadm",
     "content": "Kaynaklar . | Topoloji | https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/ | . ",
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/kubeadm.html",
     "relUrl": "/docs/06-ek-araclar/kubeadm.html"
-  },"78": {
-    "doc": "Kubespray",
-    "title": "kubespray",
-    "content": "Resmi Sitesi . Kubespray kubernetes kurulum ve bakımlarını otomatikleştiren, ansible üzerine geliştirilmiş, resmi bir araçtır. Sağladıkları: . | Otomasyon | HA: https://github.com/kubernetes-sigs/kubespray/blob/master/docs/ha-mode.md | node ekleme ve çıkarma, güncelleme | Eklenti ekleme, çıkarma | . ",
-    "url": "http://localhost:4000/k8s-docs/docs/02-kurulum/kubespray.html#kubespray",
-    "relUrl": "/docs/02-kurulum/kubespray.html#kubespray"
-  },"79": {
-    "doc": "Kubespray",
-    "title": "Kurulum",
-    "content": "graph TD A(Ansible Controller) --&gt; B(Master &amp; Etcd) A(Ansible Controller) --&gt; C(Master &amp; Etcd) A(Ansible Controller) --&gt; D(Master &amp; Etcd) A(Ansible Controller) ---&gt; E(Worker) A(Ansible Controller) ---&gt; F(..) A(Ansible Controller) ---&gt; G(Worker) . graph TD A(Ansible Controller) --&gt; B[Etcd] A(Ansible Controller) --&gt; C[Etcd] A(Ansible Controller) --&gt; D(Etcd) A(Ansible Controller) ---&gt; E(Master) A(Ansible Controller) ---&gt; F(Master) A(Ansible Controller) ---&gt; G(Master) A(Ansible Controller) ----&gt; H(Worker) A(Ansible Controller) ----&gt; J(..) A(Ansible Controller) ----&gt; K(Worker) . ",
-    "url": "http://localhost:4000/k8s-docs/docs/02-kurulum/kubespray.html#kurulum",
-    "relUrl": "/docs/02-kurulum/kubespray.html#kurulum"
-  },"80": {
-    "doc": "Kubespray",
-    "title": "Desktop Ortama Kurmak (Bonus)",
-    "content": "Kendi ortamımızda test etmek istiyorsak vagrant dosyasındaki vagrant ve virtualbox araçlarıyla hızlıca deneyebiliriz. | Ansible kontrol makinası WSL ya da bir linux makinası olmak zorundadır. | Sunucular arasındaki erişimler için buraya uyulmak zorundadır. | . Kontrol makinasında pip3’ün kurulu olması gerekir. | requirements.txtye göre gerekenleri kurun. | . sudo pip3 install -r requirements.txt . | inventory/sample hazır şablonunu inventory/mycluster olarak kopyala | . cp -rfp inventory/sample inventory/mycluster . | Kubernetes kuracağınız sunucuların listesini Ansible’a veriyoruz. | . declare -a IPS=(&lt;server1_ip&gt; &lt;server2_ip&gt; &lt;server3_ip&gt;) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} . | inventory/mycluster/group_vars klasörü altındaki bu dosyaları gözden geçirin, değiştirmek istediklerinizi değiştirin. | . cat inventory/mycluster/group_vars/all/all.yml cat inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml . | Ansible ile Kubespray’i çalıştırın ve Kubernetes kümenizi kurun. Burada sudo yetkisine sahip bir kullanıcı gerekmektedir. Eğer sunuculara parola ile erişiyorsanız -kK size erişim parolası ve sudo parolasını soracaktır. | . ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml ansible-playbook -i inventory/mycluster/hosts.yaml -b cluster.yml -u &lt;kullanıcı&gt; -kK . | Eksik bir şey yoksa yukarıdaki IPS tanımında verilen sunuculara kubernetes kümesi kurulacaktır. | . ",
-    "url": "http://localhost:4000/k8s-docs/docs/02-kurulum/kubespray.html#desktop-ortama-kurmak-bonus",
-    "relUrl": "/docs/02-kurulum/kubespray.html#desktop-ortama-kurmak-bonus"
   },"81": {
-    "doc": "Kubespray",
-    "title": "Yeni nod ekleme",
-    "content": "declare -a IPS=(&lt;server1_ip&gt; &lt;server2_ip&gt; &lt;server3_ip&gt; &lt;yeni_nod_ip&gt;) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} ansible-playbook -i inventory/mycluster/hosts.yaml -b cluster.yml -u &lt;kullanıcı&gt; -kK --limit=kube_control_plane . ",
-    "url": "http://localhost:4000/k8s-docs/docs/02-kurulum/kubespray.html#yeni-nod-ekleme",
-    "relUrl": "/docs/02-kurulum/kubespray.html#yeni-nod-ekleme"
-  },"82": {
-    "doc": "Kubespray",
-    "title": "Dashboard ve yeni eklenti kurma",
-    "content": ". | Kaynaklar Node Ekleme, Değiştirme | . ",
-    "url": "http://localhost:4000/k8s-docs/docs/02-kurulum/kubespray.html#dashboard-ve-yeni-eklenti-kurma",
-    "relUrl": "/docs/02-kurulum/kubespray.html#dashboard-ve-yeni-eklenti-kurma"
-  },"83": {
-    "doc": "Kubespray",
-    "title": "Kubespray",
-    "content": " ",
-    "url": "http://localhost:4000/k8s-docs/docs/02-kurulum/kubespray.html",
-    "relUrl": "/docs/02-kurulum/kubespray.html"
-  },"84": {
     "doc": "kustomize",
     "title": "kustomize",
     "content": "Referans official site kustomize - Customization of kubernetes YAML configurations kustomize - Customization of kubernetes YAML configurations kustomize examples . ",
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/kustomize.html",
     "relUrl": "/docs/06-ek-araclar/kustomize.html"
-  },"85": {
+  },"82": {
     "doc": "Etiketler",
     "title": "Label",
     "content": "Servicelerin deploymentlarla ilişkisini test ediyoruz. kubectl create namespace funstuff kubectl config set-context --current --namespace=funstuff . | Uygulamayı Kur | . # app: mypython cat &lt;&lt;EOF | kubectl apply -f - apiVersion: apps/v1 kind: Deployment metadata: name: mypython-deployment spec: replicas: 1 selector: matchLabels: app: mypython template: metadata: labels: app: mypython spec: containers: - name: mypython image: quay.io/rhdevelopers/mypython:v1 ports: - containerPort: 8000 EOF . | Uygulamayı Kur | . # app: mynode cat &lt;&lt;EOF | kubectl apply -f - apiVersion: apps/v1 kind: Deployment metadata: name: mynode-deployment spec: replicas: 1 selector: matchLabels: app: mynode template: metadata: labels: app: mynode spec: containers: - name: mynode image: quay.io/rhdevelopers/mynode:v1 ports: - containerPort: 8000 EOF # ayağa kalkmasını bekleyelim. watch kubectl get pods --show-labels . Servisi kuralım . selector değerine dikkat cat &lt;&lt;EOF | kubectl apply -f - apiVersion: v1 kind: Service metadata: name: my-service labels: app: mystuff spec: ports: - name: http port: 8000 selector: inservice: mypods type: LoadBalancer EOF . Kurduğumuz servisin açıklamalarına bakalım . # hiç endpoints yok kubectl describe service my-service kubectl get endpoints NAME ENDPOINTS AGE my-service &lt;none&gt; 2m6s . servisin ip adresini ve portunun alalım. curl &lt;svc_ip&gt;:&lt;svc_port&gt; curl: (7) Failed to connect to 35.224.233.213 port 8000: Connection refused . deploymentlardaki podlara elle serviceteki labelı ekliyoruz . # 1. uygulama kubectl label pod -l app=mypython inservice=mypods curl &lt;svc_ip&gt;:&lt;svc_port&gt; Python Hello on mypython-deployment-578c56d87-rhlf8 #2. uygulama kubectl label pod -l app=mypython inservice=mypods # servisin artık 2 deploymenta da gittiğini görüyoruz. while true; do curl 10.152.183.159:8000; sleep .3; done Python Hello on mypython-deployment-578c56d87-rhlf8 Go Hello on mygo-deployment-d49998955-6fgvq Go Hello on mygo-deployment-d49998955-6fgvq Python Hello on mypython-deployment-578c56d87-rhlf8 Go Hello on mygo-deployment-d49998955-6fgvq Go Hello on mygo-deployment-d49998955-6fgvq Python Hello on mypython-deployment-578c56d87-rhlf8 . Benzer şekilde label tanımlarını böyle kaldırabiliriz. kubectl label pod -l app=mypython inservice- . ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/label.html#label",
     "relUrl": "/docs/05-onemli-kavramlar/label.html#label"
-  },"86": {
+  },"83": {
     "doc": "Etiketler",
     "title": "Etiketler",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/label.html",
     "relUrl": "/docs/05-onemli-kavramlar/label.html"
-  },"87": {
+  },"84": {
     "doc": "İç Yük Dengeleme",
     "title": "İç Yük Dengeleme",
     "content": ". | nginx.conf configmapte saklanarak tcp load balance özelliği kullanılabilir. | . apiVersion: v1 kind: ConfigMap metadata: name: nginx-lb-conf data: nginx.conf: | user nginx; worker_processes 1; events { worker_connections 50; } stream { upstream myservis_lb { server $host_ip1:9200; server $host_ip2:9200; server $host_ip3:9200; } server { listen 9200; proxy_pass myservis_lb; } } --- apiVersion: apps/v1 kind: Deployment metadata: name: nginx-lb-tcp spec: selector: matchLabels: app: nginx-lb-tcp replicas: 1 template: metadata: labels: app: nginx-lb-tcp spec: containers: - name: nginx image: nginx ports: - containerPort: 9200 volumeMounts: - name: nginx-lb-conf mountPath: /etc/nginx/nginx.conf subPath: nginx.conf readOnly: true volumes: - name: nginx-lb-conf configMap: name: nginx-lb-conf items: - key: nginx.conf path: nginx.conf --- apiVersion: v1 kind: Service metadata: name: nginx spec: ports: - port: 9200 protocol: TCP targetPort: 9200 selector: app: nginx-lb-tcp . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/lb-dis-servisler.html",
     "relUrl": "/docs/07-gorevler/lb-dis-servisler.html"
-  },"88": {
+  },"85": {
     "doc": "Günlük Kayıtları",
     "title": "Günlük Kayıtları",
     "content": "https://kubernetes.io/docs/concepts/cluster-administration/logging/ . | Kullanılabilecek araçlar . | filebeat | fluentd | fluentbit | . | . cat &lt;&lt;EOF | kubectl apply -f - apiVersion: apps/v1 kind: Deployment metadata: name: my-deployment spec: replicas: 3 selector: matchLabels: app: myapp template: metadata: labels: app: myapp env: dev spec: containers: - name: myapp image: quay.io/rhdevelopers/myboot:v1 imagePullPolicy: Always ports: - containerPort: 8080 EOF # kurulum ayağa kalktı mı bakıyoruz. watch kubectl get deployments NAME READY STATUS RESTARTS AGE my-deployment-5dc67997c7-5bq4n 1/1 Running 0 34s my-deployment-5dc67997c7-m7z9f 1/1 Running 0 34s my-deployment-5dc67997c7-s4jc6 1/1 Running 0 34s . Logları incelemek için . kubectl logs my-deployment-5dc67997c7-m7z9f [-f] . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/logs.html",
     "relUrl": "/docs/07-gorevler/logs.html"
-  },"89": {
+  },"86": {
     "doc": "Günlük Kayıtları",
     "title": "Log Yardımcı Araçları",
     "content": ". | stern - Kubernetes için çoklu bölme ve kapsayıcı günlüğü takibi | kail - kubernetes günlük görüntüleyici | . ",
     "url": "http://localhost:4000/k8s-docs/docs/07-gorevler/logs.html#log-yard%C4%B1mc%C4%B1-ara%C3%A7lar%C4%B1",
     "relUrl": "/docs/07-gorevler/logs.html#log-yardımcı-araçları"
-  },"90": {
+  },"87": {
     "doc": "MetalLB",
     "title": "MetalLB",
     "content": "kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/master/manifests/namespace.yaml kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/master/manifests/metallb.yaml # On first install only kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey=\"$(openssl rand -base64 128)\" . ### metallb-configmap.yaml apiVersion: v1 kind: ConfigMap metadata: namespace: metallb-system name: config data: config: | address-pools: - name: default protocol: layer2 addresses: - 192.168.1.240-192.168.1.250 . ",
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/metallb.html",
     "relUrl": "/docs/06-ek-araclar/metallb.html"
-  },"91": {
-    "doc": "MicroK8s",
-    "title": "microk8s",
-    "content": "Resmi Sitesi . Canonical firmasının Kubernetes dağıtımıdır. ",
-    "url": "http://localhost:4000/k8s-docs/docs/02-kurulum/micro8s.html#microk8s",
-    "relUrl": "/docs/02-kurulum/micro8s.html#microk8s"
-  },"92": {
-    "doc": "MicroK8s",
-    "title": "linux için",
-    "content": "sudo snap install microk8s --classic # kurulmasını bekliyoruz. microk8s status --wait-ready alias kubectl=\"microk8s kubectl\" alias k=\"kubectl\" alias m=\"microk8s\" . Kullanılabilir ek hizmetler. m status microk8s is running high-availability: no datastore master nodes: 127.0.0.1:19001 datastore standby nodes: none addons: enabled: ha-cluster # Configure high availability on the current node disabled: ambassador # Ambassador API Gateway and Ingress cilium # SDN, fast with full network policy dashboard # The Kubernetes dashboard dns # CoreDNS fluentd # Elasticsearch-Fluentd-Kibana logging and monitoring gpu # Automatic enablement of Nvidia CUDA helm # Helm 2 - the package manager for Kubernetes helm3 # Helm 3 - Kubernetes package manager host-access # Allow Pods connecting to Host services smoothly ingress # Ingress controller for external access istio # Core Istio service mesh services jaeger # Kubernetes Jaeger operator with its simple config keda # Kubernetes-based Event Driven Autoscaling knative # The Knative framework on Kubernetes. kubeflow # Kubeflow for easy ML deployments linkerd # Linkerd is a service mesh for Kubernetes and other frameworks metallb # Loadbalancer for your Kubernetes cluster metrics-server # K8s Metrics Server for API access to service metrics multus # Multus CNI enables attaching multiple network interfaces to pods openebs # OpenEBS is the open-source storage solution for Kubernetes openfaas # openfaas serverless framework portainer # Portainer UI for your Kubernetes cluster prometheus # Prometheus operator for monitoring and logging rbac # Role-Based Access Control for authorisation registry # Private image registry exposed on localhost:32000 storage # Storage class; allocates storage from host directory traefik # traefik Ingress controller for external access . komutlar . microk8s Available subcommands are: add-node # cilium # Another CNI config ctr # containerd client dashboard-proxy dbctl # backup and restore the Kubernetes datastore. disable enable helm3 helm istioctl # service mesh join juju kubectl leave # The node will depart from the cluster it is in. linkerd # service mesh refresh-certs # Replace the CA certificates with the ca.crt and ca.key found in CA_DIR. remove-node reset start status stop inspect # This script will inspect your microk8s installation. It will report any issue it finds, and create a tarball of logs and traces which can be attached to an issue filed against the microk8s project. # istediğimiz servisleri etkinleştiriyoruz # registry: kendi registryniz olsun isterseniz. microk8s enable dashboard dns registry # dashboarda nodeport üzerinden erişmek için kubectl -n kube-system patch svc kubernetes-dashboard --type='json' -p '[{\"op\":\"replace\",\"path\":\"/spec/type\",\"value\":\"NodePort\"}]' # dashboard nodeportunu öğreniyoruz. k describe svc kubernetes-dashboard -n kube-system | grep NodePort # dashboarda erişim için aşağıdaki komuttan çıkan token'ı kullanıyoruz. kubectl -n kube-system get secret $(kubectl -n kube-system get sa default -o jsonpath=\"{.secrets[0].name}\") -o go-template=\"{{ .data.token | base64decode }}\" &amp;&amp; echo . yeni node eklemek . microk8s add-node # çıkan komutu diğer nodlarda microk8s kurduktan sonra çalıştırın . ",
-    "url": "http://localhost:4000/k8s-docs/docs/02-kurulum/micro8s.html#linux-i%C3%A7in",
-    "relUrl": "/docs/02-kurulum/micro8s.html#linux-için"
-  },"93": {
-    "doc": "MicroK8s",
-    "title": "MicroK8s",
-    "content": " ",
-    "url": "http://localhost:4000/k8s-docs/docs/02-kurulum/micro8s.html",
-    "relUrl": "/docs/02-kurulum/micro8s.html"
-  },"94": {
+  },"88": {
     "doc": "Mikroservis çözümü",
     "title": "Mikroservis Nedir?",
     "content": "Tek başına, tek sorumluluğu olan ve tek iş yapan sadece o işe ait işleri yürüten modüler projelerdir.Monolitik mimariler başlığında belirtilen sorunlardan kurtulmanın bir yolu mikroservis mimarisine geçmektir. Mikroservis, tanımı gereği küçük,geliştirilmesi ortalama iki üç hafta süren, bağımsız (otonom), diğer mikroservislerle sıkı sıkıya bağımlılığı bulunmayan, tek başına çalışan, kendine ait veritabanı olan, geliştirme sürecinden kuruluma kadar bağımsız olan,yatayda ve dikeyde kendi başına ölçeklenebilen uygulamalardır. ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/mikroservis.html#mikroservis-nedir",
     "relUrl": "/docs/01-mikroservis_giris/mikroservis.html#mikroservis-nedir"
-  },"95": {
+  },"89": {
     "doc": "Mikroservis çözümü",
     "title": "Ölçeklenebilirlik",
     "content": ". Mikroservisler, her biri belirli bir işlevselliği yerine getiren küçük, bağımsız hizmetlerdir. Bu, her bir mikroservisin farklı bir kaynağı işlemesi ve ayrı bir ölçeklendirme seviyesine sahip olması anlamına gelir. Böylece, bir mikroservisin artan talebi karşılamak için ölçeklendirilmesi, tüm uygulamanın ölçeklendirilmesine gerek kalmadan gerçekleştirilebilir. ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/mikroservis.html#%C3%B6l%C3%A7eklenebilirlik",
     "relUrl": "/docs/01-mikroservis_giris/mikroservis.html#ölçeklenebilirlik"
-  },"96": {
+  },"90": {
     "doc": "Mikroservis çözümü",
     "title": "Bağımsız geliştirme ve Yayınlama",
     "content": "Monolitik mimarilerde modülerlik, programlama dili yapıları ile (örneğin Java’da package) ya da derleme varlıkları ile ifade edilir. Monolitik uygulamalarda modülerliği koruyan bir yapı yoktur. Zaman geçtikce modüller arasındaki bağımlılık artar ve yönetilemez duruma gelir. Mikroservislerde ise modülerlik birimi servislerdir.Contract uygun şekilde bağımsız deploy işlemleri yapabilir . ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/mikroservis.html#ba%C4%9F%C4%B1ms%C4%B1z-geli%C5%9Ftirme-ve-yay%C4%B1nlama",
     "relUrl": "/docs/01-mikroservis_giris/mikroservis.html#bağımsız-geliştirme-ve-yayınlama"
-  },"97": {
+  },"91": {
     "doc": "Mikroservis çözümü",
     "title": "Hata izolasyonu",
     "content": "Mikroservislerden birinde oluşan hata herhangi bir domino etkisi oluşturmadan sadece ilgili mikroservis etkilenir.Diğer mikroservisler hizmet etmeye devam eder. ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/mikroservis.html#hata-izolasyonu",
     "relUrl": "/docs/01-mikroservis_giris/mikroservis.html#hata-izolasyonu"
-  },"98": {
+  },"92": {
     "doc": "Mikroservis çözümü",
     "title": "Teknoloji Bağımsızlığı",
     "content": "Her mikroservisin ihtiyaç duyulan teknoloji ile yazılabilir. Gelişen teknoloji dünyasında uygulamanızın yeni teknolojilere adaptasyonu ve geçişi kolaylaştıracaktır. ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/mikroservis.html#teknoloji-ba%C4%9F%C4%B1ms%C4%B1zl%C4%B1%C4%9F%C4%B1",
     "relUrl": "/docs/01-mikroservis_giris/mikroservis.html#teknoloji-bağımsızlığı"
-  },"99": {
+  },"93": {
     "doc": "Mikroservis çözümü",
     "title": "Dezavantajları",
     "content": ". | Karmaşıklık artmasına | İşletim Maliyetlerinin artmasına | Test etkinlik sürelerinin artması | . neden olmaktadır. ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/mikroservis.html#dezavantajlar%C4%B1",
     "relUrl": "/docs/01-mikroservis_giris/mikroservis.html#dezavantajları"
-  },"100": {
+  },"94": {
     "doc": "Mikroservis çözümü",
     "title": "Mikroservis çözümü",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/mikroservis.html",
     "relUrl": "/docs/01-mikroservis_giris/mikroservis.html"
-  },"101": {
+  },"95": {
     "doc": "Mini Servis",
     "title": "MiniService",
     "content": "Monolitik uygulamasının bağımsız geliştirme ve ölçeklenebilirlik sorunları ve Mikroservis mimarisinin karmaşıklık sorunlarından ayrılmış mimari bir yaklaşımdır. | İlgili servisler ortak bir veritabanını kullanır. | Servisler arası haberleşme REST API ile sağlanır | Servisler ortak codebase paylaşırlar. Core Consepti ve geliştirildiği için daha hızlı geliştirmeler sağlanır | Servisleri yatayda genişletebiliyor aynı zamanda mikroservisler arası network trafiği oluşmayacağı için performansı arttırır. | . ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/miniservis.html#miniservice",
     "relUrl": "/docs/01-mikroservis_giris/miniservis.html#miniservice"
-  },"102": {
+  },"96": {
     "doc": "Mini Servis",
     "title": "Mini Servis",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/miniservis.html",
     "relUrl": "/docs/01-mikroservis_giris/miniservis.html"
-  },"103": {
+  },"97": {
     "doc": "Monolitik uygulama analizi",
     "title": "Sorunları",
     "content": ". | Ölçeklenebilirlik sağlayamaması : Ölçeklenebilirlik artan talep ve kullanım durumlarında verimli ve sorunsuz şekilde genişleme kabiliyetidir.Monolitik uygulamalarda modülerliği koruyan bir yapı yoktur. Zaman geçtikce modüller arasındaki bağımlılık artar ve yönetilemez duruma gelir.Veritabanın tek olması modüllerin tek bir uygulamanın içinde olması yüke uygun olarak modülün yatayda genişletilemiyor. | Bağımsız Geliştirme ve Yayınlama yapılamıyor. | Teknoloji bağımsızlığı sunmuyor | Hız sorunlarının olması | Hata izolasyonun olmaması | . ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/monolitik.html#sorunlar%C4%B1",
     "relUrl": "/docs/01-mikroservis_giris/monolitik.html#sorunları"
-  },"104": {
+  },"98": {
     "doc": "Monolitik uygulama analizi",
     "title": "Monolitik uygulama analizi",
     "content": ". Monolitik uygulamalar, başlangıçta belirlenen teknolojilerle geliştirilen ve proje sonuçlandırılana kadar aynı teknolojilerle sürdürülen, tek bir proje yapısında tasarımı ve gerçekleştirimi yapılan, derleme sonucu tek bir paket oluşan (WAR/EAR) ve oluşan bu paket ile kurulumunun (deploy) yapıldığı uygulamalardır. Monolitik mimarilerin, çok küçük boyutlu uygulamalar ya da büyük uygulamaların başlangıcında aşağıdaki faydaları sağlamaktadır: . | Daha basit bir yapı: Monolitik uygulamalar, tüm işlevleri tek bir kod tabanında birleştirdiği için daha basit bir yapıya sahiptir. | Kolaylıkla yönetilebilir: Tek bir uygulama olduğundan, tüm işlevlerin birbiriyle uyumlu olması daha kolaydır ve uygulamanın yönetimi daha kolay hale gelir. | Daha hızlı geliştirme: Monolitik uygulamalar, birden çok işlevin bir arada olduğu karmaşık bir yapıya sahip olmadığı için, daha hızlı bir şekilde geliştirilebilir. | Daha kolay test edilebilir: Tüm işlevler tek bir uygulamada olduğundan, test etmek daha kolaydır ve hata ayıklama süreci daha hızlı hale gelir. | . ",
     "url": "http://localhost:4000/k8s-docs/docs/01-mikroservis_giris/monolitik.html",
     "relUrl": "/docs/01-mikroservis_giris/monolitik.html"
-  },"105": {
-    "doc": "Pod, ReplicaSet, Deployment",
-    "title": "Pod, ReplicaSet, Deployment",
-    "content": "Önce çalışmak için bir ad alanı oluşturun: . kubectl create namespace myspace kubectl config set-context --current --namespace=myspace . ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/pod-rs-deployment.html",
-    "relUrl": "/docs/03-kaynaklar-temel/pod-rs-deployment.html"
-  },"106": {
-    "doc": "Pod, ReplicaSet, Deployment",
-    "title": "Pod",
-    "content": ". | yalnız pod (prodda kullanmayın) | . cat &lt;&lt;EOF | kubectl apply -f - apiVersion: v1 kind: Pod metadata: name: quarkus-demo spec: containers: - name: quarkus-demo image: quay.io/rhdevelopers/quarkus-demo:v1 EOF . | Durumuna bak | . watch kubectl get pods NAME READY STATUS RESTARTS AGE quarkus-demo 0/1 ContainerCreating 0 10s ## bir süre sonra NAME READY STATUS RESTARTS AGE quarkus-demo 1/1 Running 0 18s . Poda erişelim . kubectl exec -it quarkus-demo /bin/sh ## pod içinden web servis çalışıyor mu bakıyoruz? curl localhost:8080 Supersonic Subatomic Java with Quarkus quarkus-demo:1 . Önceki Pod’u silelim: . kubectl delete pod quarkus-demo watch kubectl get pods NAME READY STATUS RESTARTS AGE quarkus-demo 0/1 Terminating 0 9m35s No resources found in myspace namespace. ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/pod-rs-deployment.html#pod",
-    "relUrl": "/docs/03-kaynaklar-temel/pod-rs-deployment.html#pod"
-  },"107": {
-    "doc": "Pod, ReplicaSet, Deployment",
-    "title": "ReplicaSet",
-    "content": "cat &lt;&lt;EOF | kubectl apply -f - apiVersion: apps/v1 kind: ReplicaSet metadata: name: rs-quarkus-demo spec: replicas: 3 selector: matchLabels: app: quarkus-demo template: metadata: labels: app: quarkus-demo env: dev spec: containers: - name: quarkus-demo image: quay.io/rhdevelopers/quarkus-demo:v1 EOF . Etiketleriyle podları getirin . watch kubectl get pods --show-labels NAME READY STATUS RESTARTS AGE LABELS rs-quarkus-demo-jd6jk 1/1 Running 0 58s app=quarkus-demo,env=dev rs-quarkus-demo-mlnng 1/1 Running 0 58s app=quarkus-demo,env=dev rs-quarkus-demo-t26gt 1/1 Running 0 58s app=quarkus-demo,env=dev # replicasetleri getirin. kubectl get rs NAME DESIRED CURRENT READY AGE rs-quarkus-demo 3 3 3 79s . ReplicaSet’i tanımlayın . kubectl describe rs rs-quarkus-demo Name: rs-quarkus-demo Namespace: myspace Selector: app=quarkus-demo Labels: &lt;none&gt; Annotations: kubectl.kubernetes.io/last-applied-configuration: {\"apiVersion\":\"apps/v1\",\"kind\":\"ReplicaSet\",\"metadata\":{\"annotations\":{},\"name\":\"rs-quarkus-demo\",\"namespace\":\"myspace\"},\"spec\":{\"replicas... Replicas: 3 current / 3 desired Pods Status: 3 Running / 0 Waiting / 0 Succeeded / 0 Failed Pod Template: Labels: app=quarkus-demo env=dev Containers: quarkus-demo: Image: quay.io/rhdevelopers/quarkus-demo:v1 Port: &lt;none&gt; Host Port: &lt;none&gt; Environment: &lt;none&gt; Mounts: &lt;none&gt; Volumes: &lt;none&gt; Events: Type Reason Age From Message ---- ------ ---- ---- ------- Normal SuccessfulCreate 89s replicaset-controller Created pod: rs-quarkus-demo-jd6jk Normal SuccessfulCreate 89s replicaset-controller Created pod: rs-quarkus-demo-t26gt Normal SuccessfulCreate 89s replicaset-controller Created pod: rs-quarkus-demo-mlnng . Bu rs tarafından kontrol edilen nodlar . kubectl get pod rs-quarkus-demo-mlnng -o json | jq \".metadata.ownerReferences[]\" { \"apiVersion\": \"apps/v1\", \"blockOwnerDeletion\": true, \"controller\": true, \"kind\": \"ReplicaSet\", \"name\": \"rs-quarkus-demo\", \"uid\": \"1ed3bb94-dfa5-40ef-8f32-fbc9cf265324\" } . Başka bir ekranda izlerken diğer ekranda podu silin . # 1. terminal watch kubectl get pods --show-labels # 2. terminal kubectl delete pod rs-quarkus-demo-mlnng . | terminalde silinen podun yeniden üretildiğini farkedeceksiniz. | . ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/pod-rs-deployment.html#replicaset",
-    "relUrl": "/docs/03-kaynaklar-temel/pod-rs-deployment.html#replicaset"
-  },"108": {
-    "doc": "Pod, ReplicaSet, Deployment",
-    "title": "Deployment",
-    "content": "cat &lt;&lt;EOF | kubectl apply -f - apiVersion: apps/v1 kind: Deployment metadata: name: quarkus-demo-deployment spec: replicas: 3 selector: matchLabels: app: quarkus-demo template: metadata: labels: app: quarkus-demo env: dev spec: containers: - name: quarkus-demo image: quay.io/rhdevelopers/quarkus-demo:v1 imagePullPolicy: Always ports: - containerPort: 8080 EOF . kubectl get pods --show-labels NAME READY STATUS RESTARTS AGE LABELS quarkus-demo-deployment-5979886fb7-c888m 1/1 Running 0 17s app=quarkus-demo,env=dev,pod-template-hash=5979886fb7 quarkus-demo-deployment-5979886fb7-gdtnz 1/1 Running 0 17s app=quarkus-demo,env=dev,pod-template-hash=5979886fb7 quarkus-demo-deployment-5979886fb7-grf59 1/1 Running 0 17s app=quarkus-demo,env=dev,pod-template-hash=5979886f . kubectl exec -it quarkus-demo-deployment-5979886fb7-c888m -- curl localhost:8080 . Sonraki . ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/pod-rs-deployment.html#deployment",
-    "relUrl": "/docs/03-kaynaklar-temel/pod-rs-deployment.html#deployment"
-  },"109": {
-    "doc": "Secrets",
-    "title": "Secrets (giz)",
-    "content": "Uygulamayı Kurun . kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment.yml kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-configuration.yml . secret oluştur . kubectl create secret generic mysecret --from-literal=user='MyUserName' --from-literal=password='mypassword' kubectl get secrets kubectl describe secret mysecret kubectl get secret mysecret -o yaml echo 'bXlwYXNzd29yZA==' | base64 --decode kubectl get secret mysecret -o jsonpath='{.data.password}' | base64 --decode . gizler dizin bağlamakla podlara bağlanır . volumeMounts: - name: mysecretvolume mountPath: /mystuff/mysecretvolume . kubectl replace -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-configuration-secret.yml . poda bakalım . PODNAME=$(kubectl get pod -l app=myboot -o name) kubectl exec $PODNAME -- cat /mystuff/secretstuff/password . ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/secrets.html#secrets-giz",
-    "relUrl": "/docs/03-kaynaklar-temel/secrets.html#secrets-giz"
-  },"110": {
-    "doc": "Secrets",
-    "title": "Secrets",
+  },"99": {
+    "doc": "RabbitMQ ve Apache Kafka",
+    "title": "RabbitMQ",
+    "content": "RabbitMQ smart-broker /dumb consumer modelini kullanır. Yani burada cursor’ın nerede kaldığını broker bilmek zorundadır. Broker mesajın iletilip iletilmediğini kendisine ulaşan bir acknowledge sayesinde takip eder. Böylece mesajın consumer’a iletimi garanti altına alınmış olur. | Dezavantajları : Consumer’ların online olduğunu var sayar ve acknowledge gelmediği sürece mesajın durumunu beklemede olarak işaretler.Yüksek hacimli mesajlaşma için uygun olmayabilir. | Avantajları : Genel amaçlı kullanım için uygundur. Farklı protokoller kullanmak istiyorsanız(AMQP 0–9–1, STOMP, MQTT, AMQP 1.0) . | . ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/rabbitmq-kafka.html#rabbitmq",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/rabbitmq-kafka.html#rabbitmq"
+  },"100": {
+    "doc": "RabbitMQ ve Apache Kafka",
+    "title": "Apache Kafka",
+    "content": "Kafka dumb-broker / smart consumer modelini kullanılır. Bunun anlamı; broker kendisinden bir mesaj talep edildiğinde o mesajı verir ancak mesajın iletilip iletilmediği ile ilgilenmez veya queue içerisinde cursor’ın nerede kaldığını bilmez. Cursor’ın nerede kaldığını consumer bilmek zorundadır. Genellikle büyük ölçekli mesajlaşma uygulamalarında veya streaming uygulamalarında kullanılır. Yüksek trafik ve düşük gecikme(High throughput and low latency) sağladığı için çok hızlıdır. Kafka Topic . Genel olarak, bir topic belirli bir alana veya birbiriyle ilişkili olan nesnelerin tutulacağı alana verilen bir isimlendirmedir. Producer’den gönderilen mesajların tutulduğu veri deposudur. Veritabanındaki tablo’ya benzer diyebiliriz. Topic’ler farklı türde mesajlar da barındırabilir. Partition — Offset . Bir topic içerisindeki alt parçalardır. Bu parçalara “partitions” denir. Topic altındaki partitions sayısınını yapıya göre belirlemek gerekir. Partition üzerinde Offsetler bulunmaktadır. Incremental Id diyebiliriz.Mesajlar bu offset değerlerine göre okunmaktadır. Brokers . Topic’lerin çalıştığı sunuculara broker denir. Bir çok broker aynı anda çalışabilir. Bu da aslında Kafka Cluster(Master-Slave)’ını oluşturur. Her broker’ın kendisine ait bir Id’si (kimlik numarası) vardır. Genellikle kafka cluster’ları en az 3 broker’dan oluşur.Herhangi bir broker’a bağlandığınızda (bağlandığınız broker, bootstrap broker ismini alır)aslında tüm cluster’a bağlanmış olursunuz.Partion lideri olan bir broker var. Producer ve Consumer partion lideri olan broker gönderiliyor.Mesaj okunacaksada partion lideri olan brokerdan okunuyor. Producer . Topic’lere mesajları gönderen uygulamalardır. Mesaj birimleri burada oluşur. | ACK : 0 -&gt; “Fire and forget” yaklaşımında Producer herhangi bir yanıt beklemez yani onay (acknowledgment) almaz. Mesaj broker’a gönderildiğinde başarılı olarak alınıp alınmadığı umursanmaz. Herhangi bir yanıt beklenmediğinden oldukça hızlı çalışır. Not:Burada verinin kabolma riski vardır | ACK : 1-&gt;“Synchronous send” yaklaşımında ise mesaj gönderildikten sonra, yanıt gelene kadar beklenir fakat bu yaklaşımın en büyük dezavantajı, yavaş çalışabilir olmasıdır çünkü yanıt gelene kadar beklenir. | ACK : 2-&gt;“Asynchronous send” yaklaşımı için, diğer iki yaklaşımın ortası diyebiliriz. “Asynchronous send” de olduğu gibi, yanıt beklemez fakat “call-back” hizmeti vardır.Producer mesajı gönderirken, parametre olarak “CallBack” interface’inden türetilen bir sınıfı verirseniz, bu sınıfın ilişkisel metoduna kafka’dan yanıt geldiğinde geri çağrım yapılacaktır. | . Consumer . Consumer, topic’e yazılan veriyi okur. Okuma işlemini yaparken de partition içerisindeki offset sırasına-kuralına göre yapar. Zookeeper . | Broker’ları yönetir. | Hangi partition’ın lider olacağına karar verir. Örneğin bir partition işlevini yitirdiğinde, bir başka partition’ın lider olması gerekir. | Zookeeper, herhangi bir değişiklik olduğunda kafkaya bildirim gönderir, bilgilendirir. Örneğin bir topic oluşturulduğunda ya da bir broker çöktüğünde ya da bir topic silindiğinde. | Zookeeper birden fazla instance olarak çalışabilir fakat yine birisinin lider olması gerekir. | . Yardımcı Linkler . | https://www.rabbitmq.com/documentation.html | https://kafka.apache.org/documentation/ | https://pulsar.apache.org/docs/2.11.x/ | . ",
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/rabbitmq-kafka.html#apache-kafka",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/rabbitmq-kafka.html#apache-kafka"
+  },"101": {
+    "doc": "RabbitMQ ve Apache Kafka",
+    "title": "RabbitMQ ve Apache Kafka",
     "content": " ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/secrets.html",
-    "relUrl": "/docs/03-kaynaklar-temel/secrets.html"
-  },"111": {
+    "url": "http://localhost:4000/k8s-docs/docs/03-mikroservis_haberlesmesi/rabbitmq-kafka.html",
+    "relUrl": "/docs/03-mikroservis_haberlesmesi/rabbitmq-kafka.html"
+  },"102": {
     "doc": "Service Mesh",
     "title": "Service Mesh",
     "content": ". | Microservis Bağlantısı: Mikroservislerin birbirleriyle konuşmasını ve bağlantıların akıllı bir şekilde yönlendirilmesini sağlar. | Güvenlik: Merkezi bir yapılandırmayla servisler arası güvenli iletişim ve merkezi erişim ve sınırlandırma politikaları uygulanabilir. | İzleme: Servis mesh kurulumlarına doğrudan izleme araçları gömülü ve kullanıma hazır olarak gelir. Bu sayede kim kimle ne kadar konuşuyor, gecikme nerede var vb. detaylı trafik bilgileri tüm servisler için görünür olur. | Ayrıştırma: Tüm bu işlemler, koddan bağımsız olarak yapılabilir. Kodda fonksiyonel gereksinimler dışında bir bilgi bulunmaz. | Esnek Kurulumlar: Hizmet kesintilerine gerek kalmadan yeni sürümleri, sınırlı, kontrollü bir şekilde test edip, sürüm değişikliği yapabiliriz. | . ",
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/service-mesh.html",
     "relUrl": "/docs/06-ek-araclar/service-mesh.html"
-  },"112": {
+  },"103": {
     "doc": "Service Mesh",
     "title": "Istio",
     "content": "Istio, mevcut dağıtılmış uygulamalar üzerinde şeffaf bir şekilde katman oluşturan açık kaynaklı bir hizmet ağıdır (service mesh). Istio, çok az veya hiç kodu değişikliği olmadan yük dengeleme, hizmetten hizmete kimlik doğrulama ve izleme sağlar. Neler Sağlar? . | TLS şifrelemesi, kimlik doğrulama ve yetkilendirme ile bir kümede, hizmetten hizmete güvenli iletişim | HTTP, gRPC, WebSocket ve TCP trafiği için otomatik yük dengeleme | Zengin yönlendirme kuralları, yeniden denemeler, yük devretmeler ve hata yerleştirme ile trafik davranışının ayrıntılı kontrolü | Erişim kontrollerini, hız sınırlarını ve kotaları destekleyen, takılabilir bir politika katmanı ve yapılandırma API’si | Küme girişi ve çıkışı dahil olmak üzere bir küme içindeki tüm trafik için otomatik ölçümler, günlükler ve izlemeler | . İstio Kaynakları . Gateway . Istio’nun ingress denetleyicisidir. VirtualService . ingress tanımıdır. Destination Rules . Yönlendirme ve iş kuralı tanımları . ",
     "url": "http://localhost:4000/k8s-docs/docs/06-ek-araclar/service-mesh.html#istio",
     "relUrl": "/docs/06-ek-araclar/service-mesh.html#istio"
-  },"113": {
-    "doc": "Service",
-    "title": "Service",
-    "content": "Yapı . https://medium.com/avmconsulting-blog/service-types-in-kubernetes-24a1587677d6 . https://octopus.com/docs/deployments/kubernetes/deploy-container . https://matthewpalmer.net/kubernetes-app-developer/articles/service-kubernetes-example-tutorial.html . Uygun ad alanına geçin . kubectl config set-context --current --namespace=myspace . Deploymentları kontrol edin. kubectl get deployments NAME READY UP-TO-DATE AVAILABLE AGE quarkus-demo-deployment 3/3 3 3 8m33s # rsleri kontrol edin kubectl get rs NAME DESIRED CURRENT READY AGE quarkus-demo-deployment-5979886fb7 3 3 3 8m56s # podlara bak kubectl get pods NAME READY STATUS RESTARTS AGE quarkus-demo-deployment-5979886fb7-c888m 1/1 Running 0 9m17s quarkus-demo-deployment-5979886fb7-gdtnz 1/1 Running 0 9m17s quarkus-demo-deployment-5979886fb7-grf59 1/1 Running 0 9m17s . Bir servis oluşturun. cat &lt;&lt;EOF | kubectl apply -f - apiVersion: v1 kind: Service metadata: name: the-service spec: selector: app: quarkus-demo ports: - protocol: TCP port: 80 targetPort: 8080 type: NodePort EOF # durumunu izliyoruz. watch kubectl get services NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE myapp LoadBalancer 172.30.103.41 &lt;pending&gt; 8080:31974/TCP 4s . ",
-    "url": "http://localhost:4000/k8s-docs/docs/03-kaynaklar-temel/service.html",
-    "relUrl": "/docs/03-kaynaklar-temel/service.html"
-  },"114": {
+  },"104": {
     "doc": "StatefulSets",
     "title": "statefulsets",
     "content": ". | Benzersiz ağ tanımlayıcıları. | kalıcı depolama. | Sıralı, graceful deployment ve ölçeklendirme. | Sıralı, otomatik güncellemeler. | . ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/statefulsets.html#statefulsets",
     "relUrl": "/docs/04-kaynaklar-diger/statefulsets.html#statefulsets"
-  },"115": {
+  },"105": {
     "doc": "StatefulSets",
     "title": "sınırlandırmalar",
     "content": ". | Bir storageclass ya da pv ye bağlı olmalı | Silmek veriyi silmez | Headless service’e ihtiyacı var. (Load balance yapmayan servis) . | selector olursa tek ipye gider. | selector olmazsa endpointleri elle oluşturursun. | . | silerken sağlıklı öldürmeyi yapmak için podların scaleini 0 yapın. | | . apiVersion: v1 kind: Service metadata: name: nginx labels: app: nginx spec: ports: - port: 80 name: web clusterIP: None selector: app: nginx --- apiVersion: apps/v1 kind: StatefulSet metadata: name: web spec: selector: matchLabels: app: nginx # has to match .spec.template.metadata.labels serviceName: \"nginx\" replicas: 3 # by default is 1 template: metadata: labels: app: nginx # has to match .spec.selector.matchLabels spec: terminationGracePeriodSeconds: 10 containers: - name: nginx image: k8s.gcr.io/nginx-slim:0.8 ports: - containerPort: 80 name: web volumeMounts: - name: www mountPath: /usr/share/nginx/html volumeClaimTemplates: - metadata: name: www spec: accessModes: [ \"ReadWriteOnce\" ] storageClassName: \"nfs-client\" resources: requests: storage: 1Gi . https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/ . ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/statefulsets.html#s%C4%B1n%C4%B1rland%C4%B1rmalar",
     "relUrl": "/docs/04-kaynaklar-diger/statefulsets.html#sınırlandırmalar"
-  },"116": {
+  },"106": {
     "doc": "StatefulSets",
     "title": "StatefulSets",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/statefulsets.html",
     "relUrl": "/docs/04-kaynaklar-diger/statefulsets.html"
-  },"117": {
+  },"107": {
+    "doc": "Decompose By Strangler",
+    "title": "Monolitik uygulamadan geçiş (Decompose By Strangler)",
+    "content": "Eski bir uygulamanızın geçişini sağlamak için bu pattern kullanılmaktadır. Büyük bir Monolith uygulamasını sıfırdan yeniden yazmak büyük bir çaba gerektirir ve bununla ilişkili oldukça fazla risk içerir. Bizim için en büyük zorluklardan biri eski sistem hakkında iyi bir anlayışa sahip olmaktı. Eski sistemle ilgili teknik borcu yeni modern sistemimize taşımak istemedik. Ayrıca monolitiği sıfırdan yeniden yazmaya devam ederseniz, tamamlanana kadar yeni sistemi kullanmaya başlayamazsınız. Yeni sistem geliştirilip beklendiği gibi işleyene kadar bir belirsizlik koridorundasınız .Bunun için öncelikle miniservis geçisi sonrasında mikroservis geçişini yapıyorsunuz. Strangler Kalıbını uygulamak için 3 adım: . | Dönüştür | Birlikte Var Ol | Ortadan Kaldır | . Ayrıştırdıktan sonra bunun canlıda testini sağlamak için gelen trafiğin belli bölümünü buraya geçiriyorsunuz. ",
+    "url": "http://localhost:4000/k8s-docs/docs/02-mikroservis_ayrismasi/stranger.html#monolitik-uygulamadan-ge%C3%A7i%C5%9F-decompose-by-strangler",
+    "relUrl": "/docs/02-mikroservis_ayrismasi/stranger.html#monolitik-uygulamadan-geçiş-decompose-by-strangler"
+  },"108": {
+    "doc": "Decompose By Strangler",
+    "title": "Decompose By Strangler",
+    "content": " ",
+    "url": "http://localhost:4000/k8s-docs/docs/02-mikroservis_ayrismasi/stranger.html",
+    "relUrl": "/docs/02-mikroservis_ayrismasi/stranger.html"
+  },"109": {
     "doc": "Sürekli Güncellemeler",
     "title": "Sürekli Güncellemeler (Rolling Updates)",
     "content": "kubectl config set-context --current --namespace=myspace . kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-deployment-resources-limits.yml kubectl apply -f https://raw.githubusercontent.com/redhat-scholars/kubernetes-tutorial/master/apps/kubefiles/myboot-service.yml watch kubectl get pods # Strateji tipi kubectl describe deployment myboot ... Replicas: 1 desired | 1 updated | 1 total | 1 available | 0 unavailable StrategyType: RollingUpdate MinReadySeconds: 0 RollingUpdateStrategy: 25% max unavailable, 25% max surge ... Diğer terminal . # ip port servisten alıyoruz while true do curl $IP:$PORT sleep .3 done . ilk terminal . # replica sayısını artır kubectl edit deployment myboot # yada kubectl scale --replicas=2 deploy/myboot . # yenisinin nasıl ayağa kalktığına bakalım kubectl get pods . İmajı değiştirelim. kubectl edit deployment myboot # eski imaj - image: quay.io/rhdevelopers/myboot:v1 # yeni imaj - image: quay.io/rhdevelopers/myboot:v2 # ya da kubectl set image deployment myboot myboot=quay.io/rhdevelopers/myboot:v2 # izleyelim kubectl get pods . Diğer terminaldeki çıktıya da bakalım. kurulumun durumu . kubectl rollout status deployment myboot deployment \"myboot\" successfully rolled out # durumu kubectl describe deployment myboot . Başka örnek https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/ . ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/surekli-guncellemeler.html#s%C3%BCrekli-g%C3%BCncellemeler-rolling-updates",
     "relUrl": "/docs/05-onemli-kavramlar/surekli-guncellemeler.html#sürekli-güncellemeler-rolling-updates"
-  },"118": {
+  },"110": {
     "doc": "Sürekli Güncellemeler",
     "title": "Sürekli Güncellemeler",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/surekli-guncellemeler.html",
     "relUrl": "/docs/05-onemli-kavramlar/surekli-guncellemeler.html"
-  },"119": {
+  },"111": {
     "doc": "İtme ve Çekme",
     "title": "taints &amp; affinity",
     "content": "Bir Kubernetes Düğümüne, zamanlayıcıya belirli Bölmelerden kaçınması veya planlamaması için sinyal gönderen bir taint (kusur) uygulanır. Bir Bölme tanımına bir toleration uygulanır ve taint için bir istisna sağlar. ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/taints-affinity.html#taints--affinity",
     "relUrl": "/docs/05-onemli-kavramlar/taints-affinity.html#taints--affinity"
-  },"120": {
+  },"112": {
     "doc": "İtme ve Çekme",
     "title": "İtme ve Çekme",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/05-onemli-kavramlar/taints-affinity.html",
     "relUrl": "/docs/05-onemli-kavramlar/taints-affinity.html"
-  },"121": {
+  },"113": {
     "doc": "Vagrant Kurulumu",
     "title": "Virtualbox ve Vagrant kurulumu",
     "content": "İndirin ve kurun . ",
     "url": "http://localhost:4000/k8s-docs/docs/vagrant.html#virtualbox-ve-vagrant-kurulumu",
     "relUrl": "/docs/vagrant.html#virtualbox-ve-vagrant-kurulumu"
-  },"122": {
+  },"114": {
     "doc": "Vagrant Kurulumu",
     "title": "Vagrant Kurulumu",
     "content": "Vagrant kullanımı Vagrant masaüstü ortamları için kod ile otomatik sanal makine oluşturma uygulamasıdır. Varsayılan olarak virtualbox kullanır. Windows ve linux hostlar üzerinde çalışır. | Bir yerde sanal makinemizi tanıtıcı bir dizin oluşturup (Örn. vm01) komut satırından dizine gidiyoruz ve aşağıdaki komutu çalıştırıyoruz. Komut, eğer makinede yoksa centos7 imajını vagrant reposundan indirir. | . vagrant init generic/ubuntu2004 . Yukarıdaki komut bulunulan dizinde Vagrantfile adında bir config dosyası oluşturur. Dosyanın içini silip aşağıdaki satırları ekleyin ve hostname ve ip karşısındaki alanları değiştirin. Uygun ip blokları için buraya bakınız. Örnek Vagrantfile . Dosyadaki NUMBER_OF_MEMBERS sayısını artırarak istediğimiz sayıda sanal makine üretebiliriz. Bu dosyadan sanal makine aktif etmek için aşağıdaki komutla poweron ederiz. vagrant up . poweron süreci bittikten sonra ssh ile kendi yönlendirmesiyle bağlanabiliriz.Masaüstü komut satırını açıyoruz ve bu ip adresine ssh erişimi yapıyoruz. ssh vagrant@&lt;sanal_makine_ip&gt; # varsayılan parola: \"vagrant\" . ",
     "url": "http://localhost:4000/k8s-docs/docs/vagrant.html",
     "relUrl": "/docs/vagrant.html"
-  },"123": {
+  },"115": {
     "doc": "Volumes",
     "title": "volumes",
     "content": "https://redhat-scholars.github.io/kubernetes-tutorial/kubernetes-tutorial/volumes-persistentvolumes.html . ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/volumes.html#volumes",
     "relUrl": "/docs/04-kaynaklar-diger/volumes.html#volumes"
-  },"124": {
+  },"116": {
     "doc": "Volumes",
     "title": "Static",
     "content": "Statik provizyon, küme yöneticilerinin mevcut depolama aygıtını aktif eder. Bu şekilde yapıldığında PV ve PVC manuel olarak sağlanmalıdır. ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/volumes.html#static",
     "relUrl": "/docs/04-kaynaklar-diger/volumes.html#static"
-  },"125": {
+  },"117": {
     "doc": "Volumes",
     "title": "Dynamic Provisioning",
     "content": "kullanıcı istediği zaman depolama aracını kullanabilir. Bunun için storageclass lazım. Bu storageclasstan alan isteyen bir pvc. static pv . https://github.com/edib/kubernetes/tree/master/yamls/nfs-pv . pv . apiVersion: v1 kind: PersistentVolume metadata: name: nfs-pv spec: capacity: storage: 10Gi volumeMode: Filesystem accessModes: - ReadWriteMany persistentVolumeReclaimPolicy: Recycle storageClassName: nfs mountOptions: - hard - nfsvers=4.1 nfs: path: /srv/nfs4 server: 10.0.0.253 . pvc . apiVersion: v1 kind: PersistentVolumeClaim metadata: name: nfs-client-pvc spec: storageClassName: nfs-client accessModes: - ReadWriteMany resources: requests: storage: 10Gi . deployment . apiVersion: v1 kind: Pod metadata: name: nginx-pv-pod-sc spec: volumes: - name: nginx-pv-storage persistentVolumeClaim: claimName: nfs-client-pvc containers: - name: nginx image: nginx ports: - containerPort: 80 name: \"nginx-server\" volumeMounts: - mountPath: \"/usr/share/nginx/html\" name: nginx-pv-storage . nfs provisioner . https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner . helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/ helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \\ --set nfs.server=x.x.x.x \\ --set nfs.path=/exported/path . Alternatif . https://github.com/edib/kubernetes/tree/master/yamls/nfs-provisioner . | 1 kere provisioner üretince bir daha pv üretmeye gerek kalmıyor. | Helm ile nfs provisioner üzerinden loki stack kurulumu . | . helm repo add grafana https://grafana.github.io/helm-charts helm show grafana/loki-stack &gt; ../../helm/values.yaml . #values.yaml loki: enabled: true persistence: enabled: true storageClass: nfs-client size: 1G promtail: enabled: true grafana: enabled: true sidecar: datasources: enabled: true image: tag: 8.1.6 prometheus: enabled: true persistence: enabled: true storageClass: nfs-client size: 1G . helm install loki-stack grafana/loki-stack --values values.yaml -n monitoring --create-namespace . ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/volumes.html#dynamic-provisioning",
     "relUrl": "/docs/04-kaynaklar-diger/volumes.html#dynamic-provisioning"
-  },"126": {
+  },"118": {
     "doc": "Volumes",
     "title": "Volumes",
     "content": " ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/volumes.html",
     "relUrl": "/docs/04-kaynaklar-diger/volumes.html"
-  },"127": {
+  },"119": {
     "doc": "Yetkiler",
     "title": "users",
     "content": "## kullanıcı --- apiVersion: v1 kind: ServiceAccount metadata: name: devs namespace: myspace # role --- kind: Role apiVersion: rbac.authorization.k8s.io/v1beta1 metadata: name: devs-full-access namespace: myspace rules: - apiGroups: [\"\", \"extensions\", \"apps\"] resources: [\"*\"] verbs: [\"*\"] - apiGroups: [\"batch\"] resources: - jobs - cronjobs verbs: [\"*\"] # rolebinding --- kind: RoleBinding apiVersion: rbac.authorization.k8s.io/v1beta1 metadata: name: devs-user-view namespace: myspace subjects: - kind: ServiceAccount name: devs namespace: myspace roleRef: apiGroup: rbac.authorization.k8s.io kind: Role name: devs-full-access . kubectl create -f devs.yaml . User Secret’ini al. # PLACE USER TOKEN HERE # Kullanıcı Tokenı kubectl -n mys get secret $(kubectl -n myspace get sa/devs -o jsonpath=\"{.secrets[0].name}\") -o go-template=\"{{.data.token | base64decode}}\" # PLACE CERTIFICATE HERE # kullanıcı sertifikası kubectl -n myspace get secret $(kubectl -n myspace get sa/devs -o jsonpath=\"{.secrets[0].name}\") -o \"jsonpath={.data['ca\\.crt']}\" # PLACE CERTIFICATE HERE # superuser kubeconfigte tek cluster tanımlı ise kubectl config view --flatten=true -o jsonpath='{.clusters[0].cluster.certificate-authority-data}' . kubeconfig dosyasının içine yukardaki çıktıları yerleştir. apiVersion: v1 kind: Config preferences: {} # Define the cluster clusters: - cluster: certificate-authority-data: PLACE CERTIFICATE HERE # You'll need the API endpoint of your Cluster here: server: https://YOUR_KUBERNETES_API_ENDPOINT name: my-cluster # Define the user users: - name: mynamespace-user user: as-user-extra: {} client-key-data: PLACE CERTIFICATE HERE token: PLACE USER TOKEN HERE # Define the context: linking a user to a cluster contexts: - context: cluster: my-cluster namespace: mynamespace user: mynamespace-user name: mynamespace # Define current context current-context: mynamespace . https://github.com/cruise-automation/rbacsync https://medium.com/cruise/open-sourcing-rbacsync-48758df685b0 . ",
     "url": "http://localhost:4000/k8s-docs/docs/04-kaynaklar-diger/yetkiler.html#users",
     "relUrl": "/docs/04-kaynaklar-diger/yetkiler.html#users"
-  },"128": {
+  },"120": {
     "doc": "Yetkiler",
     "title": "Yetkiler",
     "content": " ",

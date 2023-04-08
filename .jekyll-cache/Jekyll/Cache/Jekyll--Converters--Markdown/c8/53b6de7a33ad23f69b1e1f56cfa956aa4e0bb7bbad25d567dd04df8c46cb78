@@ -1,0 +1,19 @@
+I"<h1 id="monolitik-uygulamadan-geçiş-decompose-by-strangler">Monolitik uygulamadan geçiş (Decompose By Strangler)</h1>
+
+<p>Eski bir uygulamanızın geçişini sağlamak için bu pattern kullanılmaktadır. Büyük bir Monolith uygulamasını sıfırdan yeniden yazmak büyük bir çaba gerektirir ve bununla ilişkili oldukça fazla risk içerir. Bizim için en büyük zorluklardan biri eski sistem hakkında iyi bir anlayışa sahip olmaktı. Eski sistemle ilgili teknik borcu yeni modern sistemimize taşımak istemedik. Ayrıca monolitiği sıfırdan yeniden yazmaya devam ederseniz, tamamlanana kadar yeni sistemi kullanmaya başlayamazsınız. Yeni sistem geliştirilip beklendiği gibi işleyene kadar bir belirsizlik koridorundasınız .Bunun için öncelikle miniservis geçisi sonrasında mikroservis geçişini yapıyorsunuz.</p>
+
+<p>Strangler Kalıbını uygulamak için 3 adım:</p>
+
+<ol>
+  <li>Dönüştür</li>
+  <li>Birlikte Var Ol</li>
+  <li>Ortadan Kaldır</li>
+</ol>
+
+<p><img src="./../kaynaklar/stranger-pattern1.png" alt="StrangerPatter1" /></p>
+
+<p>Ayrıştırdıktan sonra bunun canlıda testini sağlamak için gelen trafiğin belli bölümünü buraya geçiriyorsunuz.</p>
+
+<p><img src="./../kaynaklar/stranger-pattern2.jpeg" alt="StrangerPatter2" /></p>
+
+:ET

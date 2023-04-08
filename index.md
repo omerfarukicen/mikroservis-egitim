@@ -15,7 +15,6 @@ nav_order: 0
 
 ## 2.Mikroservis Ayrışması
 
-* [Domain Driven Design Yaklaşımı](docs/01-temel-kavramlar/docker.html)
 * [İş kabiliyetlerine göre ayrıştırma (Decompose by business capability)](docs/01-temel-kavramlar/docker.html)
 * [İş alanı alt alanlara göre ayrıştırma (Decompose by subdomain):](docs/01-temel-kavramlar/docker.html)
 * [Monolitik uygulamadan geçiş (Decompose By Strangler)](docs/01-temel-kavramlar/docker.html)
