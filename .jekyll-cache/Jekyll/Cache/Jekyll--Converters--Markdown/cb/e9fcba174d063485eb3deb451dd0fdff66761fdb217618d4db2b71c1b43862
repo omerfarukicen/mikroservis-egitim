@@ -1,0 +1,49 @@
+I"<h2 id="rabbitmq">RabbitMQ</h2>
+
+<p>RabbitMQ smart-broker /dumb consumer modelini kullanır. Yani burada cursor’ın nerede kaldığını broker bilmek zorundadır. Broker mesajın iletilip iletilmediğini kendisine ulaşan bir acknowledge sayesinde takip eder. Böylece mesajın consumer’a iletimi garanti altına alınmış olur.</p>
+
+<ul>
+  <li>
+    <p>Dezavantajları : Consumer’ların online olduğunu var sayar ve acknowledge gelmediği sürece mesajın durumunu beklemede olarak işaretler.Yüksek hacimli mesajlaşma için uygun olmayabilir.</p>
+  </li>
+  <li>
+    <p>Avantajları : Genel amaçlı kullanım için uygundur. Farklı protokoller kullanmak istiyorsanız(AMQP 0–9–1, STOMP, MQTT, AMQP 1.0)</p>
+  </li>
+</ul>
+
+<p><img src="./../kaynaklar/rabbit-mq.jpeg" alt="RabbitMQ" /></p>
+
+<h2 id="apache-kafka">Apache Kafka</h2>
+
+<p>Kafka dumb-broker / smart consumer modelini kullanılır. Bunun anlamı; broker kendisinden bir mesaj talep edildiğinde o mesajı verir ancak mesajın iletilip iletilmediği ile ilgilenmez veya queue içerisinde cursor’ın nerede kaldığını bilmez. Cursor’ın nerede kaldığını consumer bilmek zorundadır. Genellikle büyük ölçekli mesajlaşma uygulamalarında veya streaming uygulamalarında kullanılır.
+Yüksek trafik ve düşük gecikme(High throughput and low latency) sağladığı için çok hızlıdır.</p>
+
+<h3 id="kafka-topic">Kafka Topic</h3>
+
+<p>Genel olarak, bir topic belirli bir alana veya birbiriyle ilişkili olan nesnelerin tutulacağı alana verilen bir isimlendirmedir. Producer’den gönderilen mesajların tutulduğu veri deposudur. Veritabanındaki tablo’ya benzer diyebiliriz. Topic’ler farklı türde mesajlar da barındırabilir.</p>
+
+<h3 id="partition--offset">Partition — Offset</h3>
+
+<p>Bir topic içerisindeki alt parçalardır. Bu parçalara “partitions” denir. Topic altındaki partitions sayısınını yapıya göre belirlemek gerekir. Partition üzerinde Offsetler bulunmaktadır. Incremental Id diyebiliriz.Mesajlar bu offset değerlerine göre okunmaktadır.</p>
+
+<h3 id="brokers">Brokers</h3>
+
+<p>Topic’lerin çalıştığı sunuculara broker denir. Bir çok broker aynı anda çalışabilir. Bu da aslında Kafka Cluster(Master-Slave)’ını oluşturur. Her broker’ın kendisine ait bir Id’si (kimlik numarası) vardır. Genellikle kafka cluster’ları en az 3 broker’dan oluşur.Herhangi bir broker’a bağlandığınızda (bağlandığınız broker, bootstrap broker ismini alır)aslında tüm cluster’a bağlanmış olursunuz.Partion lideri olan bir broker var. Producer ve Consumer partion lideri olan broker gönderiliyor.Mesaj okunacaksada partion lideri olan brokerdan okunuyor.</p>
+
+<h3 id="producer">Producer</h3>
+
+<p>Topic’lere mesajları gönderen uygulamalardır. Mesaj birimleri burada oluşur.</p>
+
+<ul>
+  <li>ACK : 0 -&gt; “Fire and forget” yaklaşımında Producer herhangi bir yanıt beklemez yani onay (acknowledgment) almaz. Mesaj broker’a gönderildiğinde başarılı olarak alınıp alınmadığı umursanmaz. Herhangi bir yanıt beklenmediğinden oldukça hızlı çalışır.
+Not:Burada verinin kabolma riski vardır</li>
+  <li>ACK : 1-&gt;“Synchronous send” yaklaşımında ise mesaj gönderildikten sonra, yanıt gelene kadar beklenir fakat bu yaklaşımın en büyük dezavantajı, yavaş çalışabilir olmasıdır çünkü yanıt gelene kadar beklenir.</li>
+  <li>ACK : 2-&gt;“Asynchronous send” yaklaşımı için, diğer iki yaklaşımın ortası diyebiliriz. “Asynchronous send” de olduğu gibi, yanıt beklemez fakat “call-back” hizmeti vardır.Producer mesajı gönderirken, parametre olarak “CallBack” interface’inden türetilen bir sınıfı verirseniz, bu sınıfın ilişkisel metoduna kafka’dan yanıt geldiğinde geri çağrım yapılacaktır.</li>
+</ul>
+
+<h3 id="zookeeper">Zookeeper:</h3>
+<p>Broker’ları yönetir.
+Hangi partition’ın lider olacağına karar verir. Örneğin bir partition işlevini yitirdiğinde, bir başka partition’ın lider olması gerekir.
+Zookeeper, herhangi bir değişiklik olduğunda kafkaya bildirim gönderir, bilgilendirir. Örneğin bir topic oluşturulduğunda ya da bir broker çöktüğünde ya da bir topic silindiğinde.
+Zookeeper birden fazla instance olarak çalışabilir fakat yine birisinin lider olması gerekir.</p>
+:ET

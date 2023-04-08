@@ -1,0 +1,19 @@
+I"�<h2 id="rabbitmq">RabbitMQ</h2>
+
+<p>RabbitMQ smart-broker /dumb consumer modelini kullanır. Yani burada cursor’ın nerede kaldığını broker bilmek zorundadır. Broker mesajın iletilip iletilmediğini kendisine ulaşan bir acknowledge sayesinde takip eder. Böylece mesajın consumer’a iletimi garanti altına alınmış olur.</p>
+
+<ul>
+  <li>
+    <p>Dezavantajları : Consumer’ların online olduğunu var sayar ve acknowledge gelmediği sürece mesajın durumunu beklemede olarak işaretler.Yüksek hacimli mesajlaşma için uygun olmayabilir.</p>
+  </li>
+  <li>
+    <p>Avantajları : Genel amaçlı kullanım için uygundur. Farklı protokoller kullanmak istiyorsanız(AMQP 0–9–1, STOMP, MQTT, AMQP 1.0)</p>
+  </li>
+</ul>
+
+<p><img src="./../kaynaklar/rabbit-mq.jpeg" alt="RabbitMQ" /></p>
+
+<h2 id="apache-kafka">Apache Kafka</h2>
+
+<p>Kafka dumb-broker / smart consumer modelini kullanılır. Bunun anlamı; broker kendisinden bir mesaj talep edildiğinde o mesajı verir ancak mesajın iletilip iletilmediği ile ilgilenmez veya queue içerisinde cursor’ın nerede kaldığını bilmez. Cursor’ın nerede kaldığını consumer bilmek zorundadır. Genellikle büyük ölçekli mesajlaşma uygulamalarında veya streaming uygulamalarında kullanılır.</p>
+:ET

@@ -1,0 +1,60 @@
+I"v
+<h1 id="apigateway-pattern">ApiGateway Pattern</h1>
+
+<p>Büyük mikroservis yapılarında tavsiye edilen bir tasarım desenidir.</p>
+
+<p>Fayadaları:</p>
+
+<h2 id="1reverse-proxy">1.Reverse Proxy</h2>
+
+<p>Bir sunucu mimarisi öğesidir ve gelen istekleri ön uç sunucudan (client) alarak, arka uç sunucularına (server) yönlendiren bir tür ara sunucudur. Bu sayede, istemcilerin doğrudan arka uç sunucularına erişmelerine gerek kalmadan, önyüzdeki (frontend) sunucular üzerinden iletişim kurabilmeleri sağlanır</p>
+
+<h2 id="2--response-cache">2.  Response cache</h2>
+
+<p>Client yapılan istekler gateway üzerinde cachelenir ve bu sayede latency düşürülür.</p>
+
+<h2 id="3-rate-limiting">3. Rate limiting</h2>
+
+<p>Bir servisin veya API’nin, kullanıcıların belirli bir zaman aralığında yaptıkları istek sayısını sınırlandırması anlamına gelir.</p>
+
+<ul>
+  <li>
+    <p>Güvenlik sağlama: Rate limiting, aynı kaynaktan gelen istek sayısını sınırlandırarak, DDoS saldırılarına karşı koruma sağlar.</p>
+  </li>
+  <li>
+    <p>İş yükünü dengeleme: Rate limiting, farklı kullanıcılara eşit davranarak, sunucu kaynaklarının dengeli kullanımını sağlayarak, aşırı yüklenmeden kaçınır.</p>
+  </li>
+</ul>
+
+<h2 id="4-load-balancing">4. Load balancing</h2>
+
+<p>Bir ağdaki yükü birden fazla sunucu arasında eşit şekilde dağıtarak, ağın performansını artırmak ve hizmet kesintilerini önlemek için kullanılan bir yöntemdir.</p>
+
+<ul>
+  <li>Yüksek performans ve Yüksek erişebilirlik sağlar</li>
+</ul>
+
+<h2 id="5-authentication-authorization">5. Authentication-Authorization</h2>
+
+<p>İlgili backend servislerine erişmeden güvenlik katmanını gateway üzerinde konumlandırabiliyoruz.</p>
+
+<h2 id="6-retry-policy">6. Retry Policy</h2>
+
+<p>Dağıtık sistemlerde kullanılan bir politika türüdür. Servis kesintilerinin önlenmesi amacıyla yapılmaktadır.</p>
+
+<h2 id="7circuit-breaker">7.Circuit Breaker</h2>
+
+<p>Circuit breaker, hataları algılar ve uygulamanın başarısız işlem sayısı belirli bir eşiği geçmesi durumunda ise yeniden kullanılabilir hale gelene kadar işlemleri engeller.</p>
+
+<h2 id="8-ip-checklist">8. IP checklist</h2>
+
+<p>Belirli ip erişimleri sağlanarak  yada erişimleri engellenerek güvenlik arttırılabilir.</p>
+
+<h2 id="9request-transformation">9.Request Transformation</h2>
+
+<p>Client gelen isteklerin header veya bir alan eklenmesi gibi işlemleri yaptıktan sonra ilgili servise yönlendirme işlemi yapabilir.</p>
+
+<h2 id="10-api-composition">10. Api Composition</h2>
+
+<p><img src="./../kaynaklar/apigateway-pattern.png" alt="API Gateway Pattern" /></p>
+:ET
