@@ -1,8 +1,8 @@
-title: Kubernetes Türkçe 
-logo: "/kaynaklar/kubernetes.png"
+title: Mikroservisler Eğitimi 
+logo: "/mikroservisler.png"
 description: >- # this means to ignore newlines until "baseurl:"
-  Kubernetes Türkçe başlangıç eğitimi ve temel içerikler.
-baseurl: "/k8s-docs" # the subpath of your site, e.g. /blog
+   Türkçe Mikroservisler Eğitimi
+baseurl: "/mikroservisler" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ibediko
 github_username:  edib
@@ -55,8 +55,8 @@ search:
 
 # Aux links for the upper right navigation
 aux_links:
-  "K8s Temel Eğitim on GitHub":
-    - "//github.com/k8s-tr/k8s-docs/"
+  "Mikroservisler Eğitimi on GitHub":
+    - "//github.com/mikroservisler/egitim/"
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: false
