@@ -14,6 +14,7 @@ nav_order: 0
 ## 4.Network
 
 ## 5.Storage
+* [Kaynaklar](docs/kubernetes/gorevler.guvenlik.md)
 
 
 
