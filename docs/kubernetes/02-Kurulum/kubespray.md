@@ -2,7 +2,6 @@
 layout: default
 title:  Kubespray
 parent: Kurulum
-grand_parent: Kubernetes Egitim
 nav_order: 1
 ---
 

@@ -2,7 +2,6 @@
 layout: default
 title:  MicroK8s
 parent: Kurulum
-grand_parent: Kubernetes Egitim
 nav_order: 2
 ---
 
