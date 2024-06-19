@@ -1,8 +1,8 @@
 ---
 layout: default
 title : Components
-parent: Temel Kavramlar
-nav_order: 3
+parent: Genel Mimari
+nav_order: 2
 has_children: true
 ---
 
@@ -45,27 +45,20 @@ Controller uygulamalarını çalıştıran parçadır. Controller kavramı ilgil
 Bazı controller tipleri:
 
  -  **Node controller:** Node'ların hata yaşama durumlarını fark etmekten ve karşılık vermekten sorumludur.
-
  -  **Job controller:** Job objelerinin çalıştırılmasından ve tamamlanmasından sorumludur.
-
  -  **Endpoints controller:** Endpoint objelerinin Service & Pod objeleri ile ilişkilendirilmesinden sorumludur.
-
  -  **Service Account & Token controllers:** Yeni oluşturulan namespace'ler için varsayılan service account ve API erişim token'larını oluşturur.
 
-  
 ## Scheduler
 Scheduler, deploy ettiğimiz uygulamaların hangi node(lar) üzerinde çalıştırılması gerektiğini hesaplayıp karar veren parçadır. Bu hesaplamayı, uygulamamızın ram ve cpu gibi kaynak gereksinimlerini ve cluster'ımızda bulunan worker node makinelerinin kullanılabilir ram/cpu değerlerini göz önüne alarak yapar.
 
 Aynı zamanda uygulamalarımızı çeşitli kurallara göre (nodeSelector, affinity/anti-affinity, taint/toleration) farklı node'lar üzerinde çalışmasını isteyebiliriz. Scheduler bu kurallara uyan node'ların seçilmesini sağlar.
 
 # Worker Node Plane
-
 ## Kubelet
-
 Kubernetes kümesinin her düğümünde (node) çalışan bir ajan olarak görev yapar. Kubelet, her düğümde çalışan Pod'ları yönetir. API sunucusundan aldığı Pod tanımlarını (manifest) okuyarak bu Pod'ların belirtilen şekilde çalışmasını sağlar. Kubelet, her düğümdeki Pod'ların ve düğümün kendisinin durumunu sürekli olarak Kubernetes API sunucusuna rapor eder. Kubelet, düğümdeki kaynakların (CPU, bellek, disk vs.) izlenmesini ve yönetilmesini sağlar.
 
 ## Kube-Proxy
-
 Service ve Endpoint objelerinin erişebilirliğini sağlamak için node üzerindeki network kurallarını ayarlar ve connection forwarding işlemini gerçekleştirir. Görevlerinden biride Kubernetes Service’lere ve Pod'lara virtual IP atamasıdır. Kube-proxy aynı zamanda bir servisin altındaki tüm pod’lara load-balance özelliği kazandırır.
 Kube-proxy, iptables veya IPVS (IP Virtual Server) gibi sistem araçlarını kullanarak ağ trafiğini yönlendirmek için kurallar oluşturur ve yönetir. Bu kurallar, ağ paketlerinin doğru hedeflere ulaşmasını sağlar.
 
@@ -73,13 +66,14 @@ Kube-proxy kabul görmüş şekilde 2 modda çalışır:
 
 **iptables:**
  Linux işletim sistemlerinde kullanılan bir paket filtreleme ve NAT (Ağ Adresi Çevirme) yönetim aracıdır. Linux çekirdeği içindeki Netfilter modülü ile birlikte çalışır ve ağ trafiğini kontrol etmek, filtrelemek ve yönlendirmek için kullanılır.Küme büyüdükçe yükü artar.
+
 **IPVS:**
  Ağ trafiğini yönlendirme ve yük dengeleme işlevlerini gerçekleştirmek için Linux kernel seviyesinde çalışan güçlü bir araçtır.Yük dengeleme için bazı algoritmalar kullanır.
 
-Round-Robin: Gelen trafiği sırayla backend sunucularına yönlendirir.
-Least Connections: En az bağlantısı olan backend sunucuya trafiği yönlendirir.
-Least Load: En az yük altında olan backend sunucuya trafiği yönlendirir.
-Shortest Expected Delay: Beklenen en kısa gecikmeye sahip backend sunucuya trafiği yönlendirir.
+* Round-Robin: Gelen trafiği sırayla backend sunucularına yönlendirir.
+* Least Connections: En az bağlantısı olan backend sunucuya trafiği yönlendirir.
+* Least Load: En az yük altında olan backend sunucuya trafiği yönlendirir.
+* Shortest Expected Delay: Beklenen en kısa gecikmeye sahip backend sunucuya trafiği yönlendirir.
 
 ```
 kube-proxy --proxy-mode=ipvs

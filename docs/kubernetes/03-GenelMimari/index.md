@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Temel Kavramlar
+title: Genel Mimari
 nav_order: 3
 has_children: true
 ---
