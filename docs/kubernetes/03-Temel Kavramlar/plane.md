@@ -1,14 +1,9 @@
-
 ---
-
 layout: default
-
-title:
-
+title : Components
+parent: Temel Kavramlar
 nav_order: 3
-
 has_children: true
-
 ---
 
   
