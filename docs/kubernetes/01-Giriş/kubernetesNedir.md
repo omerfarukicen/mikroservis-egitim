@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Kubernetes
+title:  Kubernetes Nedir
 parent: Giriş
 nav_order: 2
 ---
