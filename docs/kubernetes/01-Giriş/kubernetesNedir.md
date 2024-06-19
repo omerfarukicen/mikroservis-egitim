@@ -1,8 +1,8 @@
 ---
 layout: default
 title:  Kubernetes
-parent: Kurulum
-nav_order: 2
+parent: Giriş
+nav_order: 1
 ---
 
 # Kubernete Nedir?
