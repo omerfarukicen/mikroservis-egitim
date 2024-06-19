@@ -7,10 +7,10 @@ has_children: true
 
 # Mimarisi
 
-![Cluster](../kaynaklar/nodes.png)
+![Cluster](../../kaynaklar/nodes.png)
 
 
-![Cluster](../kaynaklar/cluster.png)
+![Cluster](../../kaynaklar/cluster.png)
 
 
 
