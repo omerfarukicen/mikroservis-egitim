@@ -5,6 +5,9 @@ nav_order: 0
 ---
 # Kubernetes Eğitimi
 
+
+
+
 ## 1.Giriş
 
 ## 2.Kurulum
@@ -14,7 +17,7 @@ nav_order: 0
 ## 4.Network
 
 ## 5.Storage
-* [Kaynaklar](docs/kubernetes/gorevler.guvenlik.md)
+* [Kaynaklar](docs/kubernetes/gorevler/guvenlik.html)
 
 
 
