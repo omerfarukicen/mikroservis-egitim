@@ -1,4 +1,4 @@
-title: Kubernetes& Microservice Türkçe 
+title: Kubernetes& Mikroservis Türkçe 
 logo: "/kaynaklar/kubernetes.png"
 description: >- # this means to ignore newlines until "baseurl:"
   Kubernetes Türkçe başlangıç eğitimi ve temel içerikler.
@@ -8,8 +8,7 @@ twitter_username: omerfarukicen
 github_username:  omerfarukicen
 
 # Build settings
-# theme: "just-the-docs"
-theme: jekyll-theme-slate
+theme: "just-the-docs"
 remote_theme: pmarsceill/just-the-docs
 
 plugins:
@@ -88,46 +87,6 @@ gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
 
 
-# Enable Jekyll Navigation
-plugins:
-  - jekyll-nav
 
-# Navigation order
-nav:
-  - title: "Ana Sayfa"
-    url: "/"
-  - title: "Kubernetes Eğitimi"
-    children:
-      - title: "1. Giriş"
-        url: "/docs/kubernetes/1-giris"
-      - title: "2. Kurulum"
-        url: "/docs/kubernetes/2-kurulum"
-      - title: "3. Temel Kavramlar"
-        url: "/docs/kubernetes/3-temel-kavramlar"
-      - title: "4. Network"
-        url: "/docs/kubernetes/4-network"
-      - title: "5. Storage"
-        url: "/docs/kubernetes/5-storage"
-  - title: "Mikroservis Eğitimi"
-    children:
-      - title: "1. Mikroservise Giriş"
-        url: "/docs/microservices/01-mikroservis_giris"
-        children:
-          - title: "Monolitik uygulama analizi"
-            url: "/docs/microservices/01-mikroservis_giris/monolitik"
-          - title: "Mikroservis çözümü"
-            url: "/docs/microservices/01-temel-kavramlar/docker"
-          - title: "Miniservis çözümü"
-            url: "/docs/microservices/01-temel-kavramlar/docker"
-      - title: "2. Mikroservis Ayrışması"
-        url: "/docs/microservices/02-mikroservis-ayrisma"
-        children:
-          - title: "İş kabiliyetlerine göre ayrıştırma"
-            url: "/docs/microservices/02-mikroservis-ayrisma/is-kabiliyetleri"
-          - title: "İş alanı alt alanlara göre ayrıştırma"
-            url: "/docs/microservices/02-mikroservis-ayrisma/is-alani"
-          - title: "Monolitik uygulamadan geçiş"
-            url: "/docs/microservices/02-mikroservis-ayrisma/monolitik-gecis"
-      # Devamını ekleyin...
 include:
  - docs
