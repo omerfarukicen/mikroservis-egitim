@@ -94,7 +94,7 @@ spec:
 
 ```
 
- ## Sidecar Containers
+## Sidecar Containers
  Sidecar container, Kubernetes’te Pod içindeki ana konteynerlere ek olarak çalışan yardımcı konteynerlerdir. Ana konteynerlerin işlevselliğini artırmak veya desteklemek amacıyla kullanılırlar. Sidecar container'lar, genellikle log toplama, proxy hizmeti, veri önbellekleme, yapılandırma yönetimi gibi görevlerde kullanılır.Sidecar container'lar ve ana konteynerler, Pod içindeki ortak kaynakları (volumes, network namespace gibi) paylaşır.Sidecar container, uygulamanın loglarını toplar ve merkezi bir log yönetim sistemine gönderir. Örn:Istio Kubernetes Cluster’ına deploy edildiğinde mevcut pod'ların içinde, virtual service olarak bir
 container daha ayağa kaldırır. Mevcut container'lara gelen ve giden trafik ilk önce bu sidecar envoy proxy container’ı üzerinden geçmeye başlar.
 ```
@@ -126,7 +126,7 @@ Kubernetes'te geçici veya kısa ömürlü işler için kullanılan özel kontey
 kubectl debug -it my-app-pod --image=busybox --target=my-app-container -- sh
 
 ```
-Nginx Logları : cat /var/log/nginx/error.log
-Environment değişkenleri : printenv
+* Nginx Logları : cat /var/log/nginx/error.log
+* Environment değişkenleri : printenv
 
 
