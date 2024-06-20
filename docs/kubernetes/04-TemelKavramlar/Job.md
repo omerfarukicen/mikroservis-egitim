@@ -56,4 +56,3 @@ Job Success Policy, Kubernetes'te Job'ların başarı durumlarını daha hassas 
 ## Job Paremeter
 * activeDeadlineSeconds : Kubernetes Job nesnesinde kullanılan bir alandır ve bir Job'un tamamlanması için izin verilen maksimum süreyi belirler. Bu süre zarfında Job tamamlanmazsa, Job başarısız olarak işaretlenir ve çalışmakta olan tüm Pod'lar sonlandırılır.
 * ttlSecondsAfterFinished: Job tamamlandıktan sonra Job ve Pod'ların otomatik olarak silinmesi için geçen süreyi belirler.
-* 
