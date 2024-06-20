@@ -3,7 +3,6 @@ layout: default
 title : Pod
 parent: Temel Kavramlar
 nav_order: 2
-has_children: true
 ---
 
   
@@ -130,3 +129,11 @@ kubectl debug -it my-app-pod --image=busybox --target=my-app-container -- sh
 * Environment değişkenleri : printenv
 
 
+## Pod Quality of Service Classes
+Pod'ların performansını iyileştirmesi için üç temel QoS sınıfı vardır: Guaranteed, Burstable ve BestEffort.
+
+**1. Guaranteed:** Bu sınıf, hem request hem de limit değerlerinin her konteyner için aynı olduğu ve Pod'un tüm kaynak taleplerinin garanti edildiği sınıftır.Bu sınıfa sahip Pod'lar, Kubernetes tarafından en yüksek öncelikle ele alınır ve düğüm baskısı altında en son sonlandırılır. Request ve Limit değerleri aynıdır.
+
+**2. Burstable:**Pod, kaynaklarını request değerleri ile limit değerleri arasında esnek bir şekilde kullanabilir. Request ve Limit değerleri vfarklıdır.
+
+**3. BestEffort:**Bu sınıf, kaynak talepleri (request) ve limitlerinin (limit) belirtilmediği Pod'lar için geçerlidir. Pod, düğümdeki boşta olan kaynakları kullanır.
